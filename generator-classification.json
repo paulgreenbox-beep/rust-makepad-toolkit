@@ -1,0 +1,1166 @@
+{
+  "schema_version": "ai-ui-generator-classification/v2",
+  "generated_at_utc": "2026-08-23T00:00:00Z",
+  "source": "prototypes/ai-ui-test-tool-auto-probe/operations.json",
+  "template_source": "prototypes/ai-ui-test-tool-auto-probe/test-templates.json",
+  "summary": {
+    "public_operations": 104,
+    "generator_required": 41,
+    "generator_optional": 54,
+    "infrastructure_only": 8,
+    "negative_only": 1,
+    "not_applicable": 0,
+    "required_without_template": 0
+  },
+  "operations": [
+    {
+      "operation": "session.open",
+      "classification": "INFRASTRUCTURE_ONLY",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "discovery",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "The runner/scheduler owns this lifecycle or diagnostic call; application-specific generators should not emit it as a feature test."
+    },
+    {
+      "operation": "session.list",
+      "classification": "INFRASTRUCTURE_ONLY",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "infrastructure",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "The runner/scheduler owns this lifecycle or diagnostic call; application-specific generators should not emit it as a feature test."
+    },
+    {
+      "operation": "session.close",
+      "classification": "INFRASTRUCTURE_ONLY",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "infrastructure",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "The runner/scheduler owns this lifecycle or diagnostic call; application-specific generators should not emit it as a feature test."
+    },
+    {
+      "operation": "acquire_input_lock",
+      "classification": "INFRASTRUCTURE_ONLY",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "infrastructure",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "The runner/scheduler owns this lifecycle or diagnostic call; application-specific generators should not emit it as a feature test."
+    },
+    {
+      "operation": "release_input_lock",
+      "classification": "INFRASTRUCTURE_ONLY",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "infrastructure",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "The runner/scheduler owns this lifecycle or diagnostic call; application-specific generators should not emit it as a feature test."
+    },
+    {
+      "operation": "inspect_ui",
+      "classification": "GENERATOR_REQUIRED",
+      "template_supported": true,
+      "template_ids": [
+        "context_menu.lifecycle",
+        "window.resize"
+      ],
+      "coverage": "discovery",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "A capability-driven generic template already uses this operation as part of a safe, observable scenario."
+    },
+    {
+      "operation": "inspect_semantic",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "discovery",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "Requires app-specific intent, stable fixture data, a physical-input decision, or a non-generic postcondition; absence of a template is not a defect."
+    },
+    {
+      "operation": "inspect_spatial_target",
+      "classification": "GENERATOR_REQUIRED",
+      "template_supported": true,
+      "template_ids": [
+        "spatial.health"
+      ],
+      "coverage": "spatial",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "A capability-driven generic template already uses this operation as part of a safe, observable scenario."
+    },
+    {
+      "operation": "read",
+      "classification": "GENERATOR_REQUIRED",
+      "template_supported": true,
+      "template_ids": [
+        "edit.value"
+      ],
+      "coverage": "discovery",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "A capability-driven generic template already uses this operation as part of a safe, observable scenario."
+    },
+    {
+      "operation": "set_value",
+      "classification": "GENERATOR_REQUIRED",
+      "template_supported": true,
+      "template_ids": [
+        "edit.value"
+      ],
+      "coverage": "interaction",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "A capability-driven generic template already uses this operation as part of a safe, observable scenario."
+    },
+    {
+      "operation": "input",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "interaction",
+      "physical_input": true,
+      "scheduler_classification": "physical",
+      "reason": "Requires app-specific intent, stable fixture data, a physical-input decision, or a non-generic postcondition; absence of a template is not a defect."
+    },
+    {
+      "operation": "click",
+      "classification": "GENERATOR_REQUIRED",
+      "template_supported": true,
+      "template_ids": [
+        "button.invoke",
+        "modal.lifecycle",
+        "modal.lifecycle",
+        "runtime.task",
+        "external.request",
+        "file.output",
+        "trace.milestone",
+        "visual.region"
+      ],
+      "coverage": "interaction",
+      "physical_input": true,
+      "scheduler_classification": "physical",
+      "reason": "A capability-driven generic template already uses this operation as part of a safe, observable scenario."
+    },
+    {
+      "operation": "focus",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "interaction",
+      "physical_input": true,
+      "scheduler_classification": "physical",
+      "reason": "Requires app-specific intent, stable fixture data, a physical-input decision, or a non-generic postcondition; absence of a template is not a defect."
+    },
+    {
+      "operation": "double_click",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "interaction",
+      "physical_input": true,
+      "scheduler_classification": "physical",
+      "reason": "Requires app-specific intent, stable fixture data, a physical-input decision, or a non-generic postcondition; absence of a template is not a defect."
+    },
+    {
+      "operation": "right_click",
+      "classification": "GENERATOR_REQUIRED",
+      "template_supported": true,
+      "template_ids": [
+        "context_menu.lifecycle"
+      ],
+      "coverage": "interaction",
+      "physical_input": true,
+      "scheduler_classification": "physical",
+      "reason": "A capability-driven generic template already uses this operation as part of a safe, observable scenario."
+    },
+    {
+      "operation": "toggle",
+      "classification": "GENERATOR_REQUIRED",
+      "template_supported": true,
+      "template_ids": [
+        "checkbox.toggle"
+      ],
+      "coverage": "interaction",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "A capability-driven generic template already uses this operation as part of a safe, observable scenario."
+    },
+    {
+      "operation": "choose",
+      "classification": "GENERATOR_REQUIRED",
+      "template_supported": true,
+      "template_ids": [
+        "dropdown.choose"
+      ],
+      "coverage": "interaction",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "A capability-driven generic template already uses this operation as part of a safe, observable scenario."
+    },
+    {
+      "operation": "select",
+      "classification": "GENERATOR_REQUIRED",
+      "template_supported": true,
+      "template_ids": [
+        "selection.single"
+      ],
+      "coverage": "interaction",
+      "physical_input": true,
+      "scheduler_classification": "physical",
+      "reason": "A capability-driven generic template already uses this operation as part of a safe, observable scenario."
+    },
+    {
+      "operation": "add_to_selection",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "interaction",
+      "physical_input": true,
+      "scheduler_classification": "physical",
+      "reason": "Requires app-specific intent, stable fixture data, a physical-input decision, or a non-generic postcondition; absence of a template is not a defect."
+    },
+    {
+      "operation": "remove_from_selection",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "interaction",
+      "physical_input": true,
+      "scheduler_classification": "physical",
+      "reason": "Requires app-specific intent, stable fixture data, a physical-input decision, or a non-generic postcondition; absence of a template is not a defect."
+    },
+    {
+      "operation": "clear_selection",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "interaction",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "Requires app-specific intent, stable fixture data, a physical-input decision, or a non-generic postcondition; absence of a template is not a defect."
+    },
+    {
+      "operation": "select_many",
+      "classification": "GENERATOR_REQUIRED",
+      "template_supported": true,
+      "template_ids": [
+        "selection.multiple"
+      ],
+      "coverage": "interaction",
+      "physical_input": true,
+      "scheduler_classification": "physical",
+      "reason": "A capability-driven generic template already uses this operation as part of a safe, observable scenario."
+    },
+    {
+      "operation": "select_range",
+      "classification": "GENERATOR_REQUIRED",
+      "template_supported": true,
+      "template_ids": [
+        "selection.range"
+      ],
+      "coverage": "interaction",
+      "physical_input": true,
+      "scheduler_classification": "physical",
+      "reason": "A capability-driven generic template already uses this operation as part of a safe, observable scenario."
+    },
+    {
+      "operation": "ensure_visible",
+      "classification": "GENERATOR_REQUIRED",
+      "template_supported": true,
+      "template_ids": [
+        "scroll.ensure_visible"
+      ],
+      "coverage": "interaction",
+      "physical_input": true,
+      "scheduler_classification": "physical",
+      "reason": "A capability-driven generic template already uses this operation as part of a safe, observable scenario."
+    },
+    {
+      "operation": "scroll",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "interaction",
+      "physical_input": true,
+      "scheduler_classification": "physical",
+      "reason": "Requires app-specific intent, stable fixture data, a physical-input decision, or a non-generic postcondition; absence of a template is not a defect."
+    },
+    {
+      "operation": "scroll_to_start",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "interaction",
+      "physical_input": true,
+      "scheduler_classification": "physical",
+      "reason": "Requires app-specific intent, stable fixture data, a physical-input decision, or a non-generic postcondition; absence of a template is not a defect."
+    },
+    {
+      "operation": "scroll_to_end",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "interaction",
+      "physical_input": true,
+      "scheduler_classification": "physical",
+      "reason": "Requires app-specific intent, stable fixture data, a physical-input decision, or a non-generic postcondition; absence of a template is not a defect."
+    },
+    {
+      "operation": "wait_for_automation_id",
+      "classification": "GENERATOR_REQUIRED",
+      "template_supported": true,
+      "template_ids": [
+        "discovery.semantic",
+        "button.invoke"
+      ],
+      "coverage": "discovery",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "A capability-driven generic template already uses this operation as part of a safe, observable scenario."
+    },
+    {
+      "operation": "wait_for_value",
+      "classification": "GENERATOR_REQUIRED",
+      "template_supported": true,
+      "template_ids": [
+        "edit.value",
+        "dropdown.choose"
+      ],
+      "coverage": "verification",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "A capability-driven generic template already uses this operation as part of a safe, observable scenario."
+    },
+    {
+      "operation": "wait_for_state",
+      "classification": "GENERATOR_REQUIRED",
+      "template_supported": true,
+      "template_ids": [
+        "checkbox.toggle",
+        "selection.single",
+        "selection.multiple",
+        "selection.range"
+      ],
+      "coverage": "verification",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "A capability-driven generic template already uses this operation as part of a safe, observable scenario."
+    },
+    {
+      "operation": "wait_until",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "verification",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "Requires app-specific intent, stable fixture data, a physical-input decision, or a non-generic postcondition; absence of a template is not a defect."
+    },
+    {
+      "operation": "wait_visible",
+      "classification": "GENERATOR_REQUIRED",
+      "template_supported": true,
+      "template_ids": [
+        "modal.lifecycle",
+        "context_menu.lifecycle"
+      ],
+      "coverage": "verification",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "A capability-driven generic template already uses this operation as part of a safe, observable scenario."
+    },
+    {
+      "operation": "wait_hidden",
+      "classification": "GENERATOR_REQUIRED",
+      "template_supported": true,
+      "template_ids": [
+        "modal.lifecycle",
+        "context_menu.lifecycle"
+      ],
+      "coverage": "verification",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "A capability-driven generic template already uses this operation as part of a safe, observable scenario."
+    },
+    {
+      "operation": "wait_enabled",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "verification",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "Requires app-specific intent, stable fixture data, a physical-input decision, or a non-generic postcondition; absence of a template is not a defect."
+    },
+    {
+      "operation": "wait_disabled",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "verification",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "Requires app-specific intent, stable fixture data, a physical-input decision, or a non-generic postcondition; absence of a template is not a defect."
+    },
+    {
+      "operation": "wait_selected",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "verification",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "Requires app-specific intent, stable fixture data, a physical-input decision, or a non-generic postcondition; absence of a template is not a defect."
+    },
+    {
+      "operation": "wait_count",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "verification",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "Requires app-specific intent, stable fixture data, a physical-input decision, or a non-generic postcondition; absence of a template is not a defect."
+    },
+    {
+      "operation": "wait_idle",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "stability",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "Requires app-specific intent, stable fixture data, a physical-input decision, or a non-generic postcondition; absence of a template is not a defect."
+    },
+    {
+      "operation": "assert_visible",
+      "classification": "GENERATOR_REQUIRED",
+      "template_supported": true,
+      "template_ids": [
+        "discovery.semantic",
+        "modal.lifecycle"
+      ],
+      "coverage": "verification",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "A capability-driven generic template already uses this operation as part of a safe, observable scenario."
+    },
+    {
+      "operation": "assert_interactable",
+      "classification": "GENERATOR_REQUIRED",
+      "template_supported": true,
+      "template_ids": [
+        "button.invoke",
+        "scroll.ensure_visible"
+      ],
+      "coverage": "verification",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "A capability-driven generic template already uses this operation as part of a safe, observable scenario."
+    },
+    {
+      "operation": "assert_valid_bounds",
+      "classification": "GENERATOR_REQUIRED",
+      "template_supported": true,
+      "template_ids": [
+        "discovery.semantic",
+        "scroll.ensure_visible"
+      ],
+      "coverage": "verification",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "A capability-driven generic template already uses this operation as part of a safe, observable scenario."
+    },
+    {
+      "operation": "assert_canvas_healthy",
+      "classification": "GENERATOR_REQUIRED",
+      "template_supported": true,
+      "template_ids": [
+        "spatial.health",
+        "spatial.click",
+        "spatial.drag",
+        "spatial.select_region"
+      ],
+      "coverage": "spatial",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "A capability-driven generic template already uses this operation as part of a safe, observable scenario."
+    },
+    {
+      "operation": "get_canvas_health",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "spatial",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "Requires app-specific intent, stable fixture data, a physical-input decision, or a non-generic postcondition; absence of a template is not a defect."
+    },
+    {
+      "operation": "move_pointer",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "spatial",
+      "physical_input": true,
+      "scheduler_classification": "physical",
+      "reason": "Requires app-specific intent, stable fixture data, a physical-input decision, or a non-generic postcondition; absence of a template is not a defect."
+    },
+    {
+      "operation": "pointer_down",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "spatial",
+      "physical_input": true,
+      "scheduler_classification": "physical",
+      "reason": "Requires app-specific intent, stable fixture data, a physical-input decision, or a non-generic postcondition; absence of a template is not a defect."
+    },
+    {
+      "operation": "pointer_up",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "spatial",
+      "physical_input": true,
+      "scheduler_classification": "physical",
+      "reason": "Requires app-specific intent, stable fixture data, a physical-input decision, or a non-generic postcondition; absence of a template is not a defect."
+    },
+    {
+      "operation": "click_relative",
+      "classification": "GENERATOR_REQUIRED",
+      "template_supported": true,
+      "template_ids": [
+        "spatial.click",
+        "negative.relative.invalid"
+      ],
+      "coverage": "spatial",
+      "physical_input": true,
+      "scheduler_classification": "physical",
+      "reason": "A capability-driven generic template already uses this operation as part of a safe, observable scenario."
+    },
+    {
+      "operation": "double_click_relative",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "spatial",
+      "physical_input": true,
+      "scheduler_classification": "physical",
+      "reason": "Requires app-specific intent, stable fixture data, a physical-input decision, or a non-generic postcondition; absence of a template is not a defect."
+    },
+    {
+      "operation": "right_click_relative",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "spatial",
+      "physical_input": true,
+      "scheduler_classification": "physical",
+      "reason": "Requires app-specific intent, stable fixture data, a physical-input decision, or a non-generic postcondition; absence of a template is not a defect."
+    },
+    {
+      "operation": "hover_relative",
+      "classification": "GENERATOR_REQUIRED",
+      "template_supported": true,
+      "template_ids": [
+        "spatial.health"
+      ],
+      "coverage": "spatial",
+      "physical_input": true,
+      "scheduler_classification": "physical",
+      "reason": "A capability-driven generic template already uses this operation as part of a safe, observable scenario."
+    },
+    {
+      "operation": "wheel_relative",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "spatial",
+      "physical_input": true,
+      "scheduler_classification": "physical",
+      "reason": "Requires app-specific intent, stable fixture data, a physical-input decision, or a non-generic postcondition; absence of a template is not a defect."
+    },
+    {
+      "operation": "drag",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "interaction",
+      "physical_input": true,
+      "scheduler_classification": "physical",
+      "reason": "Requires app-specific intent, stable fixture data, a physical-input decision, or a non-generic postcondition; absence of a template is not a defect."
+    },
+    {
+      "operation": "drag_to",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "interaction",
+      "physical_input": true,
+      "scheduler_classification": "physical",
+      "reason": "Requires app-specific intent, stable fixture data, a physical-input decision, or a non-generic postcondition; absence of a template is not a defect."
+    },
+    {
+      "operation": "drag_relative",
+      "classification": "GENERATOR_REQUIRED",
+      "template_supported": true,
+      "template_ids": [
+        "spatial.drag"
+      ],
+      "coverage": "spatial",
+      "physical_input": true,
+      "scheduler_classification": "physical",
+      "reason": "A capability-driven generic template already uses this operation as part of a safe, observable scenario."
+    },
+    {
+      "operation": "select_region",
+      "classification": "GENERATOR_REQUIRED",
+      "template_supported": true,
+      "template_ids": [
+        "spatial.select_region"
+      ],
+      "coverage": "spatial",
+      "physical_input": true,
+      "scheduler_classification": "physical",
+      "reason": "A capability-driven generic template already uses this operation as part of a safe, observable scenario."
+    },
+    {
+      "operation": "hotkey",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "interaction",
+      "physical_input": true,
+      "scheduler_classification": "physical",
+      "reason": "Requires app-specific intent, stable fixture data, a physical-input decision, or a non-generic postcondition; absence of a template is not a defect."
+    },
+    {
+      "operation": "press",
+      "classification": "GENERATOR_REQUIRED",
+      "template_supported": true,
+      "template_ids": [
+        "context_menu.lifecycle"
+      ],
+      "coverage": "interaction",
+      "physical_input": true,
+      "scheduler_classification": "physical",
+      "reason": "A capability-driven generic template already uses this operation as part of a safe, observable scenario."
+    },
+    {
+      "operation": "type_text",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "interaction",
+      "physical_input": true,
+      "scheduler_classification": "physical",
+      "reason": "Requires app-specific intent, stable fixture data, a physical-input decision, or a non-generic postcondition; absence of a template is not a defect."
+    },
+    {
+      "operation": "activate_window",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "stability",
+      "physical_input": true,
+      "scheduler_classification": "physical",
+      "reason": "Requires app-specific intent, stable fixture data, a physical-input decision, or a non-generic postcondition; absence of a template is not a defect."
+    },
+    {
+      "operation": "windows_set_window_bounds",
+      "classification": "GENERATOR_REQUIRED",
+      "template_supported": true,
+      "template_ids": [
+        "window.resize"
+      ],
+      "coverage": "stability",
+      "physical_input": true,
+      "scheduler_classification": "physical",
+      "reason": "A capability-driven generic template already uses this operation as part of a safe, observable scenario."
+    },
+    {
+      "operation": "screenshot_window",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "infrastructure",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "Requires app-specific intent, stable fixture data, a physical-input decision, or a non-generic postcondition; absence of a template is not a defect."
+    },
+    {
+      "operation": "screenshot_element",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "infrastructure",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "Requires app-specific intent, stable fixture data, a physical-input decision, or a non-generic postcondition; absence of a template is not a defect."
+    },
+    {
+      "operation": "capture_region",
+      "classification": "GENERATOR_REQUIRED",
+      "template_supported": true,
+      "template_ids": [
+        "spatial.health"
+      ],
+      "coverage": "spatial",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "A capability-driven generic template already uses this operation as part of a safe, observable scenario."
+    },
+    {
+      "operation": "windows_capture_region",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "spatial",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "Requires app-specific intent, stable fixture data, a physical-input decision, or a non-generic postcondition; absence of a template is not a defect."
+    },
+    {
+      "operation": "get_runtime_health",
+      "classification": "INFRASTRUCTURE_ONLY",
+      "template_supported": true,
+      "template_ids": [
+        "button.invoke",
+        "window.resize",
+        "runtime.health"
+      ],
+      "coverage": "stability",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "The runner/scheduler owns this lifecycle or diagnostic call; application-specific generators should not emit it as a feature test."
+    },
+    {
+      "operation": "get_runtime_stderr",
+      "classification": "INFRASTRUCTURE_ONLY",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "infrastructure",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "The runner/scheduler owns this lifecycle or diagnostic call; application-specific generators should not emit it as a feature test."
+    },
+    {
+      "operation": "windows_export_evidence",
+      "classification": "INFRASTRUCTURE_ONLY",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "infrastructure",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "The runner/scheduler owns this lifecycle or diagnostic call; application-specific generators should not emit it as a feature test."
+    },
+    {
+      "operation": "windows_validate_evidence",
+      "classification": "NEGATIVE_ONLY",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "infrastructure",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "Useful as a validation/failure fixture, not as a generic application behavior template."
+    },
+    {
+      "operation": "get_task_state",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "verification",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "Requires app-specific telemetry, fixture data, expected values, a physical-input decision, or a declared negative postcondition; absence of a generic template is not a defect."
+    },
+    {
+      "operation": "wait_for_task",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "verification",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "Requires app-specific telemetry, fixture data, expected values, a physical-input decision, or a declared negative postcondition; absence of a generic template is not a defect."
+    },
+    {
+      "operation": "wait_for_task_state",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "verification",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "Requires app-specific telemetry, fixture data, expected values, a physical-input decision, or a declared negative postcondition; absence of a generic template is not a defect."
+    },
+    {
+      "operation": "wait_for_task_complete",
+      "classification": "GENERATOR_REQUIRED",
+      "template_supported": true,
+      "template_ids": [
+        "runtime.task",
+        "visual.region"
+      ],
+      "coverage": "verification",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "A versioned, capability-driven generic template uses this operation in an observable scenario."
+    },
+    {
+      "operation": "assert_task_success",
+      "classification": "GENERATOR_REQUIRED",
+      "template_supported": true,
+      "template_ids": [
+        "runtime.task"
+      ],
+      "coverage": "verification",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "A versioned, capability-driven generic template uses this operation in an observable scenario."
+    },
+    {
+      "operation": "get_runtime_milestones",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "stability",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "Requires app-specific telemetry, fixture data, expected values, a physical-input decision, or a declared negative postcondition; absence of a generic template is not a defect."
+    },
+    {
+      "operation": "wait_for_runtime_milestone",
+      "classification": "GENERATOR_REQUIRED",
+      "template_supported": true,
+      "template_ids": [
+        "trace.milestone"
+      ],
+      "coverage": "verification",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "A versioned, capability-driven generic template uses this operation in an observable scenario."
+    },
+    {
+      "operation": "assert_runtime_milestone",
+      "classification": "GENERATOR_REQUIRED",
+      "template_supported": true,
+      "template_ids": [
+        "trace.milestone"
+      ],
+      "coverage": "verification",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "A versioned, capability-driven generic template uses this operation in an observable scenario."
+    },
+    {
+      "operation": "get_runtime_timeline",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "stability",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "Requires app-specific telemetry, fixture data, expected values, a physical-input decision, or a declared negative postcondition; absence of a generic template is not a defect."
+    },
+    {
+      "operation": "get_api_request_state",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "verification",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "Requires app-specific telemetry, fixture data, expected values, a physical-input decision, or a declared negative postcondition; absence of a generic template is not a defect."
+    },
+    {
+      "operation": "wait_for_api_state",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "verification",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "Requires app-specific telemetry, fixture data, expected values, a physical-input decision, or a declared negative postcondition; absence of a generic template is not a defect."
+    },
+    {
+      "operation": "wait_for_api_response",
+      "classification": "GENERATOR_REQUIRED",
+      "template_supported": true,
+      "template_ids": [
+        "external.request"
+      ],
+      "coverage": "verification",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "A versioned, capability-driven generic template uses this operation in an observable scenario."
+    },
+    {
+      "operation": "assert_api_success",
+      "classification": "GENERATOR_REQUIRED",
+      "template_supported": true,
+      "template_ids": [
+        "external.request"
+      ],
+      "coverage": "verification",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "A versioned, capability-driven generic template uses this operation in an observable scenario."
+    },
+    {
+      "operation": "assert_api_failure",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "verification",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "Requires app-specific telemetry, fixture data, expected values, a physical-input decision, or a declared negative postcondition; absence of a generic template is not a defect."
+    },
+    {
+      "operation": "wait_for_file",
+      "classification": "GENERATOR_REQUIRED",
+      "template_supported": true,
+      "template_ids": [
+        "file.output"
+      ],
+      "coverage": "verification",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "A versioned, capability-driven generic template uses this operation in an observable scenario."
+    },
+    {
+      "operation": "assert_file_exists",
+      "classification": "GENERATOR_REQUIRED",
+      "template_supported": true,
+      "template_ids": [
+        "file.output"
+      ],
+      "coverage": "verification",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "A versioned, capability-driven generic template uses this operation in an observable scenario."
+    },
+    {
+      "operation": "assert_file_not_exists",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "verification",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "Requires app-specific telemetry, fixture data, expected values, a physical-input decision, or a declared negative postcondition; absence of a generic template is not a defect."
+    },
+    {
+      "operation": "assert_file_size",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "verification",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "Requires app-specific telemetry, fixture data, expected values, a physical-input decision, or a declared negative postcondition; absence of a generic template is not a defect."
+    },
+    {
+      "operation": "assert_file_count",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "verification",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "Requires app-specific telemetry, fixture data, expected values, a physical-input decision, or a declared negative postcondition; absence of a generic template is not a defect."
+    },
+    {
+      "operation": "assert_file_hash",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "verification",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "Requires app-specific telemetry, fixture data, expected values, a physical-input decision, or a declared negative postcondition; absence of a generic template is not a defect."
+    },
+    {
+      "operation": "wait_for_file_stable",
+      "classification": "GENERATOR_REQUIRED",
+      "template_supported": true,
+      "template_ids": [
+        "file.output"
+      ],
+      "coverage": "verification",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "A versioned, capability-driven generic template uses this operation in an observable scenario."
+    },
+    {
+      "operation": "assert_not_blank",
+      "classification": "GENERATOR_REQUIRED",
+      "template_supported": true,
+      "template_ids": [
+        "visual.region"
+      ],
+      "coverage": "verification",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "A versioned, capability-driven generic template uses this operation in an observable scenario."
+    },
+    {
+      "operation": "assert_region_changed",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "verification",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "Requires app-specific telemetry, fixture data, expected values, a physical-input decision, or a declared negative postcondition; absence of a generic template is not a defect."
+    },
+    {
+      "operation": "assert_region_unchanged",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "verification",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "Requires app-specific telemetry, fixture data, expected values, a physical-input decision, or a declared negative postcondition; absence of a generic template is not a defect."
+    },
+    {
+      "operation": "assert_similarity",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "verification",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "Requires app-specific telemetry, fixture data, expected values, a physical-input decision, or a declared negative postcondition; absence of a generic template is not a defect."
+    },
+    {
+      "operation": "compare_screenshot",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "verification",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "Requires app-specific telemetry, fixture data, expected values, a physical-input decision, or a declared negative postcondition; absence of a generic template is not a defect."
+    },
+    {
+      "operation": "get_makepad_visual_diagnostics",
+      "classification": "GENERATOR_REQUIRED",
+      "template_supported": true,
+      "template_ids": [
+        "visual.region"
+      ],
+      "coverage": "stability",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "A versioned, capability-driven generic template uses this operation in an observable scenario."
+    },
+    {
+      "operation": "get_application_logs",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "stability",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "Requires app-specific telemetry, fixture data, expected values, a physical-input decision, or a declared negative postcondition; absence of a generic template is not a defect."
+    },
+    {
+      "operation": "wait_for_log",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "verification",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "Requires app-specific telemetry, fixture data, expected values, a physical-input decision, or a declared negative postcondition; absence of a generic template is not a defect."
+    },
+    {
+      "operation": "assert_log_contains",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "verification",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "Requires app-specific telemetry, fixture data, expected values, a physical-input decision, or a declared negative postcondition; absence of a generic template is not a defect."
+    },
+    {
+      "operation": "assert_log_not_contains",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "verification",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "Requires app-specific telemetry, fixture data, expected values, a physical-input decision, or a declared negative postcondition; absence of a generic template is not a defect."
+    },
+    {
+      "operation": "assert_trace_event",
+      "classification": "GENERATOR_REQUIRED",
+      "template_supported": true,
+      "template_ids": [
+        "trace.milestone"
+      ],
+      "coverage": "verification",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "A versioned, capability-driven generic template uses this operation in an observable scenario."
+    },
+    {
+      "operation": "assert_no_stale_window",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "stability",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "Requires app-specific telemetry, fixture data, expected values, a physical-input decision, or a declared negative postcondition; absence of a generic template is not a defect."
+    },
+    {
+      "operation": "assert_no_pending_task",
+      "classification": "GENERATOR_REQUIRED",
+      "template_supported": true,
+      "template_ids": [
+        "runtime.task"
+      ],
+      "coverage": "stability",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "A versioned, capability-driven generic template uses this operation in an observable scenario."
+    },
+    {
+      "operation": "assert_no_phantom_semantic_node",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "verification",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "reason": "Requires app-specific telemetry, fixture data, expected values, a physical-input decision, or a declared negative postcondition; absence of a generic template is not a defect."
+    },
+    {
+      "operation": "repeat_until",
+      "classification": "GENERATOR_OPTIONAL",
+      "template_supported": false,
+      "template_ids": [],
+      "coverage": "verification",
+      "physical_input": false,
+      "scheduler_classification": "local",
+      "reason": "A bounded local Script API control may be emitted only when a generated workflow needs it; it is not a feature target by itself."
+    }
+  ]
+}

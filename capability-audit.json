@@ -1,0 +1,2410 @@
+{
+  "schema_version": "ai-ui-capability-audit/v2",
+  "generated_at_utc": "2026-08-22T20:45:06.4762771Z",
+  "scope": "Evidence-first Windows audit; implementation existence alone is never treated as functional proof.",
+  "final_status": "PASSED",
+  "summary": {
+    "public_operations_total": 68,
+    "physical_input_operations": 31,
+    "verified_stable": 68,
+    "verified_but_flaky": 0,
+    "without_real_windows_e2e": 0,
+    "generator_supported_operations": 29,
+    "generator_gaps": 39,
+    "focused_unit_coverage": 19
+  },
+  "consistency": {
+    "operations_json": {
+      "path": "prototypes/ai-ui-test-tool-auto-probe/operations.json",
+      "public_operations": 68,
+      "physical_input_operations": 31
+    },
+    "script_schema": {
+      "path": "prototypes/ai-ui-test-tool-auto-probe/ai-ui-test-script.schema.json",
+      "status": "PASSED",
+      "note": "Generic catalog-validated Script API."
+    },
+    "public_script_api": {
+      "path": "prototypes/ai-ui-test-tool-auto-probe/src/api.rs",
+      "status": "PASSED",
+      "note": "Single generic public client boundary."
+    },
+    "generator": {
+      "templates": 18,
+      "supported_operations": 29,
+      "generator_gaps": 39
+    },
+    "scheduler": {
+      "status": "PASSED",
+      "note": "Every physical catalog operation requires interactive desktop input; every other entry is classified semantic-only fallback-safe."
+    },
+    "backend_private_aliases": [
+      {
+        "operation": "session.resolve_window",
+        "classification": "API_EXPOSURE_GAP",
+        "disposition": "private/backend alias; not a public catalog operation"
+      },
+      {
+        "operation": "windows_find_window",
+        "classification": "API_EXPOSURE_GAP",
+        "disposition": "private/backend alias; not a public catalog operation"
+      },
+      {
+        "operation": "wait_for_window",
+        "classification": "API_EXPOSURE_GAP",
+        "disposition": "private/backend alias; not a public catalog operation"
+      },
+      {
+        "operation": "list_test_windows",
+        "classification": "API_EXPOSURE_GAP",
+        "disposition": "private/backend alias; not a public catalog operation"
+      },
+      {
+        "operation": "get_active_window",
+        "classification": "API_EXPOSURE_GAP",
+        "disposition": "private/backend alias; not a public catalog operation"
+      },
+      {
+        "operation": "ensure_active_window",
+        "classification": "API_EXPOSURE_GAP",
+        "disposition": "private/backend alias; not a public catalog operation"
+      },
+      {
+        "operation": "get_control_tree",
+        "classification": "API_EXPOSURE_GAP",
+        "disposition": "private/backend alias; not a public catalog operation"
+      },
+      {
+        "operation": "wait_for_element",
+        "classification": "API_EXPOSURE_GAP",
+        "disposition": "private/backend alias; not a public catalog operation"
+      },
+      {
+        "operation": "screenshot",
+        "classification": "API_EXPOSURE_GAP",
+        "disposition": "private/backend alias; not a public catalog operation"
+      },
+      {
+        "operation": "windows_list_automation_ids",
+        "classification": "API_EXPOSURE_GAP",
+        "disposition": "private/backend alias; not a public catalog operation"
+      },
+      {
+        "operation": "windows_assert_automation_ids",
+        "classification": "API_EXPOSURE_GAP",
+        "disposition": "private/backend alias; not a public catalog operation"
+      },
+      {
+        "operation": "windows_run_sequence",
+        "classification": "API_EXPOSURE_GAP",
+        "disposition": "private/backend alias; not a public catalog operation"
+      },
+      {
+        "operation": "launch",
+        "classification": "API_EXPOSURE_GAP",
+        "disposition": "private/backend alias; not a public catalog operation"
+      },
+      {
+        "operation": "restart_app",
+        "classification": "API_EXPOSURE_GAP",
+        "disposition": "private/backend alias; not a public catalog operation"
+      },
+      {
+        "operation": "shutdown",
+        "classification": "API_EXPOSURE_GAP",
+        "disposition": "private/backend alias; not a public catalog operation"
+      },
+      {
+        "operation": "get_logs",
+        "classification": "API_EXPOSURE_GAP",
+        "disposition": "private/backend alias; not a public catalog operation"
+      },
+      {
+        "operation": "get_ui_changes",
+        "classification": "API_EXPOSURE_GAP",
+        "disposition": "private/backend alias; not a public catalog operation"
+      },
+      {
+        "operation": "windows_move_pointer",
+        "classification": "API_EXPOSURE_GAP",
+        "disposition": "private/backend alias; not a public catalog operation"
+      },
+      {
+        "operation": "windows_pointer_down",
+        "classification": "API_EXPOSURE_GAP",
+        "disposition": "private/backend alias; not a public catalog operation"
+      },
+      {
+        "operation": "windows_pointer_up",
+        "classification": "API_EXPOSURE_GAP",
+        "disposition": "private/backend alias; not a public catalog operation"
+      },
+      {
+        "operation": "scroll_to",
+        "classification": "API_EXPOSURE_GAP",
+        "disposition": "private/backend alias; not a public catalog operation"
+      },
+      {
+        "operation": "scroll_page",
+        "classification": "API_EXPOSURE_GAP",
+        "disposition": "private/backend alias; not a public catalog operation"
+      },
+      {
+        "operation": "select_row",
+        "classification": "API_EXPOSURE_GAP",
+        "disposition": "private/backend alias; not a public catalog operation"
+      },
+      {
+        "operation": "select_cell",
+        "classification": "API_EXPOSURE_GAP",
+        "disposition": "private/backend alias; not a public catalog operation"
+      },
+      {
+        "operation": "read_cell",
+        "classification": "API_EXPOSURE_GAP",
+        "disposition": "private/backend alias; not a public catalog operation"
+      },
+      {
+        "operation": "activate_row",
+        "classification": "API_EXPOSURE_GAP",
+        "disposition": "private/backend alias; not a public catalog operation"
+      },
+      {
+        "operation": "activate_cell",
+        "classification": "API_EXPOSURE_GAP",
+        "disposition": "private/backend alias; not a public catalog operation"
+      },
+      {
+        "operation": "expand",
+        "classification": "API_EXPOSURE_GAP",
+        "disposition": "private/backend alias; not a public catalog operation"
+      },
+      {
+        "operation": "collapse",
+        "classification": "API_EXPOSURE_GAP",
+        "disposition": "private/backend alias; not a public catalog operation"
+      },
+      {
+        "operation": "close",
+        "classification": "API_EXPOSURE_GAP",
+        "disposition": "private/backend alias; not a public catalog operation"
+      },
+      {
+        "operation": "close_window",
+        "classification": "API_EXPOSURE_GAP",
+        "disposition": "private/backend alias; not a public catalog operation"
+      },
+      {
+        "operation": "hover",
+        "classification": "API_EXPOSURE_GAP",
+        "disposition": "private/backend alias; not a public catalog operation"
+      },
+      {
+        "operation": "wait_value",
+        "classification": "API_EXPOSURE_GAP",
+        "disposition": "private/backend alias; not a public catalog operation"
+      }
+    ]
+  },
+  "capabilities": [
+    {
+      "operation": "session.open",
+      "public_operation": true,
+      "required_arguments": [],
+      "physical_input": false,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 120,
+      "generator_supported": false,
+      "generator_templates": null,
+      "scheduler_classified": true,
+      "scheduler_classification": "SEMANTIC_ONLY_FALLBACK_SAFE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/soak/core-actions-soak-120.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 120 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": [
+        "GENERATOR_GAP"
+      ]
+    },
+    {
+      "operation": "session.list",
+      "public_operation": true,
+      "required_arguments": [],
+      "physical_input": false,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 50,
+      "generator_supported": false,
+      "generator_templates": null,
+      "scheduler_classified": true,
+      "scheduler_classification": "SEMANTIC_ONLY_FALLBACK_SAFE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 50 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": [
+        "GENERATOR_GAP"
+      ]
+    },
+    {
+      "operation": "session.close",
+      "public_operation": true,
+      "required_arguments": [
+        "session_id"
+      ],
+      "physical_input": false,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": true,
+      "unit_test_scope": "focused regression or contract unit test",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 120,
+      "generator_supported": false,
+      "generator_templates": null,
+      "scheduler_classified": true,
+      "scheduler_classification": "SEMANTIC_ONLY_FALLBACK_SAFE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/soak/core-actions-soak-120.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 120 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": [
+        "GENERATOR_GAP"
+      ]
+    },
+    {
+      "operation": "acquire_input_lock",
+      "public_operation": true,
+      "required_arguments": [
+        "session_id"
+      ],
+      "physical_input": false,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": true,
+      "unit_test_scope": "focused regression or contract unit test",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 100,
+      "generator_supported": false,
+      "generator_templates": null,
+      "scheduler_classified": true,
+      "scheduler_classification": "SEMANTIC_ONLY_FALLBACK_SAFE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/public-api-gap-coverage-soak-v4/20260822-232824/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 100 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": [
+        "GENERATOR_GAP"
+      ]
+    },
+    {
+      "operation": "release_input_lock",
+      "public_operation": true,
+      "required_arguments": [
+        "session_id",
+        "token"
+      ],
+      "physical_input": false,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": true,
+      "unit_test_scope": "focused regression or contract unit test",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 100,
+      "generator_supported": false,
+      "generator_templates": null,
+      "scheduler_classified": true,
+      "scheduler_classification": "SEMANTIC_ONLY_FALLBACK_SAFE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/public-api-gap-coverage-soak-v4/20260822-232824/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 100 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": [
+        "GENERATOR_GAP"
+      ]
+    },
+    {
+      "operation": "inspect_ui",
+      "public_operation": true,
+      "required_arguments": [],
+      "physical_input": false,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 120,
+      "generator_supported": true,
+      "generator_templates": [
+        "context_menu.lifecycle",
+        "window.resize"
+      ],
+      "scheduler_classified": true,
+      "scheduler_classification": "SEMANTIC_ONLY_FALLBACK_SAFE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/soak/core-actions-soak-120.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 120 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": []
+    },
+    {
+      "operation": "inspect_semantic",
+      "public_operation": true,
+      "required_arguments": [],
+      "physical_input": false,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 50,
+      "generator_supported": false,
+      "generator_templates": null,
+      "scheduler_classified": true,
+      "scheduler_classification": "SEMANTIC_ONLY_FALLBACK_SAFE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 50 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": [
+        "GENERATOR_GAP"
+      ]
+    },
+    {
+      "operation": "inspect_spatial_target",
+      "public_operation": true,
+      "required_arguments": [
+        "id"
+      ],
+      "physical_input": false,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 30,
+      "generator_supported": true,
+      "generator_templates": "spatial.health",
+      "scheduler_classified": true,
+      "scheduler_classification": "SEMANTIC_ONLY_FALLBACK_SAFE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json",
+        "reports/stability-audit-v1/remediation-e2e/20260822-230323/e2e-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 30 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": []
+    },
+    {
+      "operation": "read",
+      "public_operation": true,
+      "required_arguments": [
+        "id"
+      ],
+      "physical_input": false,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 120,
+      "generator_supported": true,
+      "generator_templates": "edit.value",
+      "scheduler_classified": true,
+      "scheduler_classification": "SEMANTIC_ONLY_FALLBACK_SAFE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/soak/core-actions-soak-120.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 120 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": []
+    },
+    {
+      "operation": "set_value",
+      "public_operation": true,
+      "required_arguments": [
+        "id",
+        "value"
+      ],
+      "physical_input": false,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 120,
+      "generator_supported": true,
+      "generator_templates": "edit.value",
+      "scheduler_classified": true,
+      "scheduler_classification": "SEMANTIC_ONLY_FALLBACK_SAFE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/soak/core-actions-soak-120.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 120 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": []
+    },
+    {
+      "operation": "input",
+      "public_operation": true,
+      "required_arguments": [
+        "id",
+        "text"
+      ],
+      "physical_input": true,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": true,
+      "unit_test_scope": "focused regression or contract unit test",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 100,
+      "generator_supported": false,
+      "generator_templates": null,
+      "scheduler_classified": true,
+      "scheduler_classification": "REQUIRES_PHYSICAL_INPUT_AND_INTERACTIVE_DESKTOP_LEASE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/public-api-gap-coverage-soak-v4/20260822-232824/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 100 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": [
+        "GENERATOR_GAP"
+      ]
+    },
+    {
+      "operation": "click",
+      "public_operation": true,
+      "required_arguments": [
+        "id"
+      ],
+      "physical_input": true,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 120,
+      "generator_supported": true,
+      "generator_templates": [
+        "button.invoke",
+        "modal.lifecycle",
+        "modal.lifecycle"
+      ],
+      "scheduler_classified": true,
+      "scheduler_classification": "REQUIRES_PHYSICAL_INPUT_AND_INTERACTIVE_DESKTOP_LEASE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/soak/core-actions-soak-120.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 120 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": []
+    },
+    {
+      "operation": "focus",
+      "public_operation": true,
+      "required_arguments": [
+        "id"
+      ],
+      "physical_input": true,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 100,
+      "generator_supported": false,
+      "generator_templates": null,
+      "scheduler_classified": true,
+      "scheduler_classification": "REQUIRES_PHYSICAL_INPUT_AND_INTERACTIVE_DESKTOP_LEASE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/keyboard-focus-regression-soak-v2/20260822-225826/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 100 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": [
+        "GENERATOR_GAP"
+      ]
+    },
+    {
+      "operation": "double_click",
+      "public_operation": true,
+      "required_arguments": [
+        "id"
+      ],
+      "physical_input": true,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 50,
+      "generator_supported": false,
+      "generator_templates": null,
+      "scheduler_classified": true,
+      "scheduler_classification": "REQUIRES_PHYSICAL_INPUT_AND_INTERACTIVE_DESKTOP_LEASE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 50 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": [
+        "GENERATOR_GAP"
+      ]
+    },
+    {
+      "operation": "right_click",
+      "public_operation": true,
+      "required_arguments": [
+        "id"
+      ],
+      "physical_input": true,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 50,
+      "generator_supported": true,
+      "generator_templates": "context_menu.lifecycle",
+      "scheduler_classified": true,
+      "scheduler_classification": "REQUIRES_PHYSICAL_INPUT_AND_INTERACTIVE_DESKTOP_LEASE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 50 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": []
+    },
+    {
+      "operation": "toggle",
+      "public_operation": true,
+      "required_arguments": [
+        "id"
+      ],
+      "physical_input": false,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 50,
+      "generator_supported": true,
+      "generator_templates": "checkbox.toggle",
+      "scheduler_classified": true,
+      "scheduler_classification": "SEMANTIC_ONLY_FALLBACK_SAFE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 50 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": []
+    },
+    {
+      "operation": "choose",
+      "public_operation": true,
+      "required_arguments": [
+        "id",
+        "value"
+      ],
+      "physical_input": false,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 50,
+      "generator_supported": true,
+      "generator_templates": "dropdown.choose",
+      "scheduler_classified": true,
+      "scheduler_classification": "SEMANTIC_ONLY_FALLBACK_SAFE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 50 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": []
+    },
+    {
+      "operation": "select",
+      "public_operation": true,
+      "required_arguments": [
+        "id"
+      ],
+      "physical_input": true,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 50,
+      "generator_supported": true,
+      "generator_templates": "selection.single",
+      "scheduler_classified": true,
+      "scheduler_classification": "REQUIRES_PHYSICAL_INPUT_AND_INTERACTIVE_DESKTOP_LEASE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 50 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": []
+    },
+    {
+      "operation": "add_to_selection",
+      "public_operation": true,
+      "required_arguments": [
+        "id"
+      ],
+      "physical_input": true,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 50,
+      "generator_supported": false,
+      "generator_templates": null,
+      "scheduler_classified": true,
+      "scheduler_classification": "REQUIRES_PHYSICAL_INPUT_AND_INTERACTIVE_DESKTOP_LEASE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 50 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": [
+        "GENERATOR_GAP"
+      ]
+    },
+    {
+      "operation": "remove_from_selection",
+      "public_operation": true,
+      "required_arguments": [
+        "id"
+      ],
+      "physical_input": true,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 50,
+      "generator_supported": false,
+      "generator_templates": null,
+      "scheduler_classified": true,
+      "scheduler_classification": "REQUIRES_PHYSICAL_INPUT_AND_INTERACTIVE_DESKTOP_LEASE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 50 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": [
+        "GENERATOR_GAP"
+      ]
+    },
+    {
+      "operation": "clear_selection",
+      "public_operation": true,
+      "required_arguments": [],
+      "physical_input": false,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 50,
+      "generator_supported": false,
+      "generator_templates": null,
+      "scheduler_classified": true,
+      "scheduler_classification": "SEMANTIC_ONLY_FALLBACK_SAFE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 50 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": [
+        "GENERATOR_GAP"
+      ]
+    },
+    {
+      "operation": "select_many",
+      "public_operation": true,
+      "required_arguments": [
+        "ids"
+      ],
+      "physical_input": true,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 50,
+      "generator_supported": true,
+      "generator_templates": "selection.multiple",
+      "scheduler_classified": true,
+      "scheduler_classification": "REQUIRES_PHYSICAL_INPUT_AND_INTERACTIVE_DESKTOP_LEASE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 50 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": []
+    },
+    {
+      "operation": "select_range",
+      "public_operation": true,
+      "required_arguments": [
+        "start_id",
+        "end_id"
+      ],
+      "physical_input": true,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 50,
+      "generator_supported": true,
+      "generator_templates": "selection.range",
+      "scheduler_classified": true,
+      "scheduler_classification": "REQUIRES_PHYSICAL_INPUT_AND_INTERACTIVE_DESKTOP_LEASE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 50 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": []
+    },
+    {
+      "operation": "ensure_visible",
+      "public_operation": true,
+      "required_arguments": [
+        "id"
+      ],
+      "physical_input": true,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 50,
+      "generator_supported": true,
+      "generator_templates": "scroll.ensure_visible",
+      "scheduler_classified": true,
+      "scheduler_classification": "REQUIRES_PHYSICAL_INPUT_AND_INTERACTIVE_DESKTOP_LEASE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 50 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": []
+    },
+    {
+      "operation": "scroll",
+      "public_operation": true,
+      "required_arguments": [
+        "id",
+        "delta"
+      ],
+      "physical_input": true,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": true,
+      "unit_test_scope": "focused regression or contract unit test",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 50,
+      "generator_supported": false,
+      "generator_templates": null,
+      "scheduler_classified": true,
+      "scheduler_classification": "REQUIRES_PHYSICAL_INPUT_AND_INTERACTIVE_DESKTOP_LEASE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 50 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": [
+        "GENERATOR_GAP"
+      ]
+    },
+    {
+      "operation": "scroll_to_start",
+      "public_operation": true,
+      "required_arguments": [
+        "id"
+      ],
+      "physical_input": true,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": true,
+      "unit_test_scope": "focused regression or contract unit test",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 50,
+      "generator_supported": false,
+      "generator_templates": null,
+      "scheduler_classified": true,
+      "scheduler_classification": "REQUIRES_PHYSICAL_INPUT_AND_INTERACTIVE_DESKTOP_LEASE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 50 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": [
+        "GENERATOR_GAP"
+      ]
+    },
+    {
+      "operation": "scroll_to_end",
+      "public_operation": true,
+      "required_arguments": [
+        "id"
+      ],
+      "physical_input": true,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": true,
+      "unit_test_scope": "focused regression or contract unit test",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 50,
+      "generator_supported": false,
+      "generator_templates": null,
+      "scheduler_classified": true,
+      "scheduler_classification": "REQUIRES_PHYSICAL_INPUT_AND_INTERACTIVE_DESKTOP_LEASE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 50 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": [
+        "GENERATOR_GAP"
+      ]
+    },
+    {
+      "operation": "wait_for_automation_id",
+      "public_operation": true,
+      "required_arguments": [
+        "id"
+      ],
+      "physical_input": false,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 50,
+      "generator_supported": true,
+      "generator_templates": [
+        "discovery.semantic",
+        "button.invoke"
+      ],
+      "scheduler_classified": true,
+      "scheduler_classification": "SEMANTIC_ONLY_FALLBACK_SAFE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 50 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": []
+    },
+    {
+      "operation": "wait_for_value",
+      "public_operation": true,
+      "required_arguments": [
+        "id",
+        "value"
+      ],
+      "physical_input": false,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 120,
+      "generator_supported": true,
+      "generator_templates": [
+        "edit.value",
+        "dropdown.choose"
+      ],
+      "scheduler_classified": true,
+      "scheduler_classification": "SEMANTIC_ONLY_FALLBACK_SAFE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/soak/core-actions-soak-120.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 120 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": []
+    },
+    {
+      "operation": "wait_for_state",
+      "public_operation": true,
+      "required_arguments": [
+        "id",
+        "state"
+      ],
+      "physical_input": false,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 50,
+      "generator_supported": true,
+      "generator_templates": [
+        "checkbox.toggle",
+        "selection.single",
+        "selection.multiple",
+        "selection.range"
+      ],
+      "scheduler_classified": true,
+      "scheduler_classification": "SEMANTIC_ONLY_FALLBACK_SAFE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 50 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": []
+    },
+    {
+      "operation": "wait_until",
+      "public_operation": true,
+      "required_arguments": [
+        "condition"
+      ],
+      "physical_input": false,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 50,
+      "generator_supported": false,
+      "generator_templates": null,
+      "scheduler_classified": true,
+      "scheduler_classification": "SEMANTIC_ONLY_FALLBACK_SAFE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 50 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": [
+        "GENERATOR_GAP"
+      ]
+    },
+    {
+      "operation": "wait_visible",
+      "public_operation": true,
+      "required_arguments": [
+        "id"
+      ],
+      "physical_input": false,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 100,
+      "generator_supported": true,
+      "generator_templates": [
+        "modal.lifecycle",
+        "context_menu.lifecycle"
+      ],
+      "scheduler_classified": true,
+      "scheduler_classification": "SEMANTIC_ONLY_FALLBACK_SAFE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/public-api-gap-coverage-soak-v4/20260822-232824/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 100 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": []
+    },
+    {
+      "operation": "wait_hidden",
+      "public_operation": true,
+      "required_arguments": [
+        "id"
+      ],
+      "physical_input": false,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 50,
+      "generator_supported": true,
+      "generator_templates": [
+        "modal.lifecycle",
+        "context_menu.lifecycle"
+      ],
+      "scheduler_classified": true,
+      "scheduler_classification": "SEMANTIC_ONLY_FALLBACK_SAFE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 50 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": []
+    },
+    {
+      "operation": "wait_enabled",
+      "public_operation": true,
+      "required_arguments": [
+        "id"
+      ],
+      "physical_input": false,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 50,
+      "generator_supported": false,
+      "generator_templates": null,
+      "scheduler_classified": true,
+      "scheduler_classification": "SEMANTIC_ONLY_FALLBACK_SAFE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 50 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": [
+        "GENERATOR_GAP"
+      ]
+    },
+    {
+      "operation": "wait_disabled",
+      "public_operation": true,
+      "required_arguments": [
+        "id"
+      ],
+      "physical_input": false,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 50,
+      "generator_supported": false,
+      "generator_templates": null,
+      "scheduler_classified": true,
+      "scheduler_classification": "SEMANTIC_ONLY_FALLBACK_SAFE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 50 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": [
+        "GENERATOR_GAP"
+      ]
+    },
+    {
+      "operation": "wait_selected",
+      "public_operation": true,
+      "required_arguments": [
+        "id"
+      ],
+      "physical_input": false,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 50,
+      "generator_supported": false,
+      "generator_templates": null,
+      "scheduler_classified": true,
+      "scheduler_classification": "SEMANTIC_ONLY_FALLBACK_SAFE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 50 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": [
+        "GENERATOR_GAP"
+      ]
+    },
+    {
+      "operation": "wait_count",
+      "public_operation": true,
+      "required_arguments": [
+        "id",
+        "count"
+      ],
+      "physical_input": false,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 50,
+      "generator_supported": false,
+      "generator_templates": null,
+      "scheduler_classified": true,
+      "scheduler_classification": "SEMANTIC_ONLY_FALLBACK_SAFE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 50 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": [
+        "GENERATOR_GAP"
+      ]
+    },
+    {
+      "operation": "wait_idle",
+      "public_operation": true,
+      "required_arguments": [],
+      "physical_input": false,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 50,
+      "generator_supported": false,
+      "generator_templates": null,
+      "scheduler_classified": true,
+      "scheduler_classification": "SEMANTIC_ONLY_FALLBACK_SAFE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 50 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": [
+        "GENERATOR_GAP"
+      ]
+    },
+    {
+      "operation": "assert_visible",
+      "public_operation": true,
+      "required_arguments": [
+        "id"
+      ],
+      "physical_input": false,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 100,
+      "generator_supported": true,
+      "generator_templates": [
+        "discovery.semantic",
+        "modal.lifecycle"
+      ],
+      "scheduler_classified": true,
+      "scheduler_classification": "SEMANTIC_ONLY_FALLBACK_SAFE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/public-api-gap-coverage-soak-v4/20260822-232824/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 100 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": []
+    },
+    {
+      "operation": "assert_interactable",
+      "public_operation": true,
+      "required_arguments": [
+        "id"
+      ],
+      "physical_input": false,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": true,
+      "unit_test_scope": "focused regression or contract unit test",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 100,
+      "generator_supported": true,
+      "generator_templates": [
+        "button.invoke",
+        "scroll.ensure_visible"
+      ],
+      "scheduler_classified": true,
+      "scheduler_classification": "SEMANTIC_ONLY_FALLBACK_SAFE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/public-api-gap-coverage-soak-v4/20260822-232824/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 100 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": []
+    },
+    {
+      "operation": "assert_valid_bounds",
+      "public_operation": true,
+      "required_arguments": [
+        "id"
+      ],
+      "physical_input": false,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": true,
+      "unit_test_scope": "focused regression or contract unit test",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 100,
+      "generator_supported": true,
+      "generator_templates": [
+        "discovery.semantic",
+        "scroll.ensure_visible"
+      ],
+      "scheduler_classified": true,
+      "scheduler_classification": "SEMANTIC_ONLY_FALLBACK_SAFE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/public-api-gap-coverage-soak-v4/20260822-232824/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 100 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": []
+    },
+    {
+      "operation": "assert_canvas_healthy",
+      "public_operation": true,
+      "required_arguments": [
+        "id"
+      ],
+      "physical_input": false,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 50,
+      "generator_supported": true,
+      "generator_templates": [
+        "spatial.health",
+        "spatial.click",
+        "spatial.drag",
+        "spatial.select_region"
+      ],
+      "scheduler_classified": true,
+      "scheduler_classification": "SEMANTIC_ONLY_FALLBACK_SAFE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 50 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": []
+    },
+    {
+      "operation": "get_canvas_health",
+      "public_operation": true,
+      "required_arguments": [
+        "id"
+      ],
+      "physical_input": false,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": true,
+      "unit_test_scope": "focused regression or contract unit test",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 100,
+      "generator_supported": false,
+      "generator_templates": null,
+      "scheduler_classified": true,
+      "scheduler_classification": "SEMANTIC_ONLY_FALLBACK_SAFE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/public-api-gap-coverage-soak-v4/20260822-232824/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 100 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": [
+        "GENERATOR_GAP"
+      ]
+    },
+    {
+      "operation": "move_pointer",
+      "public_operation": true,
+      "required_arguments": [
+        "id",
+        "position"
+      ],
+      "physical_input": true,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 50,
+      "generator_supported": false,
+      "generator_templates": null,
+      "scheduler_classified": true,
+      "scheduler_classification": "REQUIRES_PHYSICAL_INPUT_AND_INTERACTIVE_DESKTOP_LEASE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 50 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": [
+        "GENERATOR_GAP"
+      ]
+    },
+    {
+      "operation": "pointer_down",
+      "public_operation": true,
+      "required_arguments": [
+        "id",
+        "position"
+      ],
+      "physical_input": true,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 50,
+      "generator_supported": false,
+      "generator_templates": null,
+      "scheduler_classified": true,
+      "scheduler_classification": "REQUIRES_PHYSICAL_INPUT_AND_INTERACTIVE_DESKTOP_LEASE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 50 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": [
+        "GENERATOR_GAP"
+      ]
+    },
+    {
+      "operation": "pointer_up",
+      "public_operation": true,
+      "required_arguments": [
+        "button"
+      ],
+      "physical_input": true,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 50,
+      "generator_supported": false,
+      "generator_templates": null,
+      "scheduler_classified": true,
+      "scheduler_classification": "REQUIRES_PHYSICAL_INPUT_AND_INTERACTIVE_DESKTOP_LEASE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 50 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": [
+        "GENERATOR_GAP"
+      ]
+    },
+    {
+      "operation": "click_relative",
+      "public_operation": true,
+      "required_arguments": [
+        "id",
+        "position"
+      ],
+      "physical_input": true,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": true,
+      "unit_test_scope": "focused regression or contract unit test",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 50,
+      "generator_supported": true,
+      "generator_templates": [
+        "spatial.click",
+        "negative.relative.invalid"
+      ],
+      "scheduler_classified": true,
+      "scheduler_classification": "REQUIRES_PHYSICAL_INPUT_AND_INTERACTIVE_DESKTOP_LEASE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 50 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": []
+    },
+    {
+      "operation": "double_click_relative",
+      "public_operation": true,
+      "required_arguments": [
+        "id",
+        "position"
+      ],
+      "physical_input": true,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 50,
+      "generator_supported": false,
+      "generator_templates": null,
+      "scheduler_classified": true,
+      "scheduler_classification": "REQUIRES_PHYSICAL_INPUT_AND_INTERACTIVE_DESKTOP_LEASE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 50 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": [
+        "GENERATOR_GAP"
+      ]
+    },
+    {
+      "operation": "right_click_relative",
+      "public_operation": true,
+      "required_arguments": [
+        "id",
+        "position"
+      ],
+      "physical_input": true,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 50,
+      "generator_supported": false,
+      "generator_templates": null,
+      "scheduler_classified": true,
+      "scheduler_classification": "REQUIRES_PHYSICAL_INPUT_AND_INTERACTIVE_DESKTOP_LEASE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 50 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": [
+        "GENERATOR_GAP"
+      ]
+    },
+    {
+      "operation": "hover_relative",
+      "public_operation": true,
+      "required_arguments": [
+        "id",
+        "position"
+      ],
+      "physical_input": true,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 50,
+      "generator_supported": true,
+      "generator_templates": "spatial.health",
+      "scheduler_classified": true,
+      "scheduler_classification": "REQUIRES_PHYSICAL_INPUT_AND_INTERACTIVE_DESKTOP_LEASE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 50 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": []
+    },
+    {
+      "operation": "wheel_relative",
+      "public_operation": true,
+      "required_arguments": [
+        "id",
+        "position",
+        "delta_y"
+      ],
+      "physical_input": true,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 50,
+      "generator_supported": false,
+      "generator_templates": null,
+      "scheduler_classified": true,
+      "scheduler_classification": "REQUIRES_PHYSICAL_INPUT_AND_INTERACTIVE_DESKTOP_LEASE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 50 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": [
+        "GENERATOR_GAP"
+      ]
+    },
+    {
+      "operation": "drag",
+      "public_operation": true,
+      "required_arguments": [
+        "id",
+        "to"
+      ],
+      "physical_input": true,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": true,
+      "unit_test_scope": "focused regression or contract unit test",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 50,
+      "generator_supported": false,
+      "generator_templates": null,
+      "scheduler_classified": true,
+      "scheduler_classification": "REQUIRES_PHYSICAL_INPUT_AND_INTERACTIVE_DESKTOP_LEASE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 50 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": [
+        "GENERATOR_GAP"
+      ]
+    },
+    {
+      "operation": "drag_to",
+      "public_operation": true,
+      "required_arguments": [
+        "id",
+        "target_id"
+      ],
+      "physical_input": true,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": true,
+      "unit_test_scope": "focused regression or contract unit test",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 50,
+      "generator_supported": false,
+      "generator_templates": null,
+      "scheduler_classified": true,
+      "scheduler_classification": "REQUIRES_PHYSICAL_INPUT_AND_INTERACTIVE_DESKTOP_LEASE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 50 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": [
+        "GENERATOR_GAP"
+      ]
+    },
+    {
+      "operation": "drag_relative",
+      "public_operation": true,
+      "required_arguments": [
+        "id",
+        "from",
+        "to"
+      ],
+      "physical_input": true,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": true,
+      "unit_test_scope": "focused regression or contract unit test",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 50,
+      "generator_supported": true,
+      "generator_templates": "spatial.drag",
+      "scheduler_classified": true,
+      "scheduler_classification": "REQUIRES_PHYSICAL_INPUT_AND_INTERACTIVE_DESKTOP_LEASE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 50 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": []
+    },
+    {
+      "operation": "select_region",
+      "public_operation": true,
+      "required_arguments": [
+        "id",
+        "from",
+        "to"
+      ],
+      "physical_input": true,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": true,
+      "unit_test_scope": "focused regression or contract unit test",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 50,
+      "generator_supported": true,
+      "generator_templates": "spatial.select_region",
+      "scheduler_classified": true,
+      "scheduler_classification": "REQUIRES_PHYSICAL_INPUT_AND_INTERACTIVE_DESKTOP_LEASE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 50 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": []
+    },
+    {
+      "operation": "hotkey",
+      "public_operation": true,
+      "required_arguments": [
+        "keys"
+      ],
+      "physical_input": true,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 100,
+      "generator_supported": false,
+      "generator_templates": null,
+      "scheduler_classified": true,
+      "scheduler_classification": "REQUIRES_PHYSICAL_INPUT_AND_INTERACTIVE_DESKTOP_LEASE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/keyboard-focus-regression-soak-v2/20260822-225826/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 100 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": [
+        "GENERATOR_GAP"
+      ]
+    },
+    {
+      "operation": "press",
+      "public_operation": true,
+      "required_arguments": [
+        "key"
+      ],
+      "physical_input": true,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 50,
+      "generator_supported": true,
+      "generator_templates": "context_menu.lifecycle",
+      "scheduler_classified": true,
+      "scheduler_classification": "REQUIRES_PHYSICAL_INPUT_AND_INTERACTIVE_DESKTOP_LEASE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 50 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": []
+    },
+    {
+      "operation": "type_text",
+      "public_operation": true,
+      "required_arguments": [
+        "text"
+      ],
+      "physical_input": true,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 100,
+      "generator_supported": false,
+      "generator_templates": null,
+      "scheduler_classified": true,
+      "scheduler_classification": "REQUIRES_PHYSICAL_INPUT_AND_INTERACTIVE_DESKTOP_LEASE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/keyboard-focus-regression-soak-v2/20260822-225826/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 100 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": [
+        "GENERATOR_GAP"
+      ]
+    },
+    {
+      "operation": "activate_window",
+      "public_operation": true,
+      "required_arguments": [],
+      "physical_input": true,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 50,
+      "generator_supported": false,
+      "generator_templates": null,
+      "scheduler_classified": true,
+      "scheduler_classification": "REQUIRES_PHYSICAL_INPUT_AND_INTERACTIVE_DESKTOP_LEASE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 50 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": [
+        "GENERATOR_GAP"
+      ]
+    },
+    {
+      "operation": "windows_set_window_bounds",
+      "public_operation": true,
+      "required_arguments": [
+        "width",
+        "height"
+      ],
+      "physical_input": true,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 50,
+      "generator_supported": true,
+      "generator_templates": "window.resize",
+      "scheduler_classified": true,
+      "scheduler_classification": "REQUIRES_PHYSICAL_INPUT_AND_INTERACTIVE_DESKTOP_LEASE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 50 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": []
+    },
+    {
+      "operation": "screenshot_window",
+      "public_operation": true,
+      "required_arguments": [],
+      "physical_input": false,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": true,
+      "unit_test_scope": "focused regression or contract unit test",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 120,
+      "generator_supported": false,
+      "generator_templates": null,
+      "scheduler_classified": true,
+      "scheduler_classification": "SEMANTIC_ONLY_FALLBACK_SAFE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/soak/core-actions-soak-120.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 120 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": [
+        "GENERATOR_GAP"
+      ]
+    },
+    {
+      "operation": "screenshot_element",
+      "public_operation": true,
+      "required_arguments": [
+        "id"
+      ],
+      "physical_input": false,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 30,
+      "generator_supported": false,
+      "generator_templates": null,
+      "scheduler_classified": true,
+      "scheduler_classification": "SEMANTIC_ONLY_FALLBACK_SAFE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json",
+        "reports/stability-audit-v1/remediation-e2e/20260822-230323/e2e-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 30 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": [
+        "GENERATOR_GAP"
+      ]
+    },
+    {
+      "operation": "capture_region",
+      "public_operation": true,
+      "required_arguments": [
+        "id",
+        "region"
+      ],
+      "physical_input": false,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": true,
+      "unit_test_scope": "focused regression or contract unit test",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 100,
+      "generator_supported": true,
+      "generator_templates": "spatial.health",
+      "scheduler_classified": true,
+      "scheduler_classification": "SEMANTIC_ONLY_FALLBACK_SAFE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/public-api-gap-coverage-soak-v4/20260822-232824/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 100 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": []
+    },
+    {
+      "operation": "windows_capture_region",
+      "public_operation": true,
+      "required_arguments": [
+        "id",
+        "region"
+      ],
+      "physical_input": false,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 30,
+      "generator_supported": false,
+      "generator_templates": null,
+      "scheduler_classified": true,
+      "scheduler_classification": "SEMANTIC_ONLY_FALLBACK_SAFE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json",
+        "reports/stability-audit-v1/remediation-e2e/20260822-230323/e2e-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 30 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": [
+        "GENERATOR_GAP"
+      ]
+    },
+    {
+      "operation": "get_runtime_health",
+      "public_operation": true,
+      "required_arguments": [],
+      "physical_input": false,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": true,
+      "unit_test_scope": "focused regression or contract unit test",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 50,
+      "generator_supported": true,
+      "generator_templates": [
+        "button.invoke",
+        "window.resize",
+        "runtime.health"
+      ],
+      "scheduler_classified": true,
+      "scheduler_classification": "SEMANTIC_ONLY_FALLBACK_SAFE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 50 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": []
+    },
+    {
+      "operation": "get_runtime_stderr",
+      "public_operation": true,
+      "required_arguments": [],
+      "physical_input": false,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 100,
+      "generator_supported": false,
+      "generator_templates": null,
+      "scheduler_classified": true,
+      "scheduler_classification": "SEMANTIC_ONLY_FALLBACK_SAFE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/public-api-gap-coverage-soak-v4/20260822-232824/physical-soak-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 100 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": [
+        "GENERATOR_GAP"
+      ]
+    },
+    {
+      "operation": "windows_export_evidence",
+      "public_operation": true,
+      "required_arguments": [],
+      "physical_input": false,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": true,
+      "unit_test_scope": "focused regression or contract unit test",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 30,
+      "generator_supported": false,
+      "generator_templates": null,
+      "scheduler_classified": true,
+      "scheduler_classification": "SEMANTIC_ONLY_FALLBACK_SAFE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json",
+        "reports/stability-audit-v1/remediation-e2e/20260822-230323/e2e-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 30 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": [
+        "GENERATOR_GAP"
+      ]
+    },
+    {
+      "operation": "windows_validate_evidence",
+      "public_operation": true,
+      "required_arguments": [
+        "bundle"
+      ],
+      "physical_input": false,
+      "implemented": true,
+      "public_api_exposed": true,
+      "documented": true,
+      "documentation_scope": "Canonical machine-readable contract in operations.json and ai-ui-test-script.schema.json; quickstart identifies the public Script API.",
+      "unit_tested": false,
+      "unit_test_scope": "generic catalog and dispatcher contract tests; no operation-specific unit claim",
+      "integration_tested": true,
+      "real_windows_e2e": true,
+      "repeat_e2e_runs": 30,
+      "generator_supported": false,
+      "generator_templates": null,
+      "scheduler_classified": true,
+      "scheduler_classification": "SEMANTIC_ONLY_FALLBACK_SAFE",
+      "evidence_verified": true,
+      "evidence": [
+        "reports/stability-audit-v1/physical-soak/20260822-214056/physical-soak-run.json",
+        "reports/stability-audit-v1/remediation-e2e/20260822-230323/e2e-run.json"
+      ],
+      "stability_status": "VERIFIED_STABLE",
+      "audit_status": "VERIFIED_STABLE",
+      "status_reason": "Observed real Windows execution with repeat count 30 and clean cleanup/evidence metrics in the cited evidence set.",
+      "gap_classifications": [
+        "GENERATOR_GAP"
+      ]
+    }
+  ],
+  "defects": {
+    "P0": [
+      {
+        "id": "P0-001",
+        "status": "FIXED_AND_RETESTED",
+        "title": "Pointer/gesture cleanup could leave a physical input state after interrupted work.",
+        "proof": "Final cleanup regression and all current soak/injection artifacts report zero leaked input locks and zero orphans."
+      }
+    ],
+    "P1": [
+      {
+        "id": "P1-001",
+        "status": "FIXED_AND_RETESTED",
+        "title": "Keyboard focus race could yield WINDOW_NOT_FOCUSED or unverified text input.",
+        "proof": "Post-fix keyboard soak: 100/100, zero failures or cleanup leaks."
+      },
+      {
+        "id": "P1-002",
+        "status": "FIXED_AND_RETESTED",
+        "title": "Saved operation-result fields were not usable as Script API variables.",
+        "proof": "The runner now resolves save_as field paths; 61 unit tests and public API gap soak 100/100 pass."
+      },
+      {
+        "id": "P1-003",
+        "status": "FIXED_AND_RETESTED",
+        "title": "The gap soak manifest used a report name different from the runner script name.",
+        "proof": "Manifest corrected; 100/100 evidence now links final report.json correctly."
+      },
+      {
+        "id": "P1-004",
+        "status": "FIXED_AND_RETESTED",
+        "title": "Runtime/visibility/screenshot failure classification and scroll/drag focus convergence had historical reliability defects.",
+        "proof": "Fresh remediation 8/8 and failure injection 5/5 passed with zero cleanup failures."
+      }
+    ],
+    "P2": [
+      {
+        "id": "P2-001",
+        "status": "OPEN_NONBLOCKING",
+        "title": "Generator templates explicitly cover 29 of 68 public operations; 39 are classified as GENERATOR_GAP.",
+        "proof": "Runtime E2E coverage is complete; this does not reduce the verified stability status."
+      }
+    ],
+    "P3": [
+      {
+        "id": "P3-001",
+        "status": "OPEN_NONBLOCKING",
+        "title": "Detailed prose examples are not yet available for every operation/argument/result combination.",
+        "proof": "The canonical machine-readable contract remains complete."
+      },
+      {
+        "id": "P3-002",
+        "status": "OPEN_NONBLOCKING",
+        "title": "Backend/private aliases need an explicit public/private reference table.",
+        "proof": "They are listed as API_EXPOSURE_GAP candidates, not silently treated as public API."
+      }
+    ]
+  },
+  "marker_status": [
+    {
+      "marker": "AI_UI_FUNCTIONAL_AUDIT_PASSED",
+      "status": "PASSED",
+      "reason": "All 68 public operations have real Windows E2E evidence and an audit status."
+    },
+    {
+      "marker": "AI_UI_OPERATION_COVERAGE_PASSED",
+      "status": "PASSED",
+      "reason": "68 of 68 catalog entries are VERIFIED_STABLE."
+    },
+    {
+      "marker": "AI_UI_STABILITY_SOAK_PASSED",
+      "status": "PASSED",
+      "reason": "The post-fix evidence portfolio is clean: 380 unaffected full-soak runs, 100 keyboard runs, 100 gap-coverage runs and 120 core repeats."
+    },
+    {
+      "marker": "AI_UI_FAILURE_INJECTION_PASSED",
+      "status": "PASSED",
+      "reason": "Five injected Windows failure scenarios pass classification, evidence and cleanup checks."
+    },
+    {
+      "marker": "AI_UI_CLEANUP_STABILITY_PASSED",
+      "status": "PASSED",
+      "reason": "All final remediation, injection and soak artifacts report zero locks, leases, orphans and stale windows."
+    },
+    {
+      "marker": "AI_UI_CAPABILITY_CONSISTENCY_PASSED",
+      "status": "PASSED",
+      "reason": "Every public operation is mapped across catalog, Script API, scheduler class, evidence and generator support; generator gaps are explicitly classified."
+    },
+    {
+      "marker": "AI_UI_STABILITY_AUDIT_PASSED",
+      "status": "PASSED",
+      "reason": "Critical public operations meet implementation, public exposure, real E2E, repeat stability, cleanup and evidence criteria."
+    }
+  ]
+}

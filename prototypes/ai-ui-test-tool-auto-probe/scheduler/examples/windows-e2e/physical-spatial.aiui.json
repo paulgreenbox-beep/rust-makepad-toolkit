@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "name": "scheduler-e2e-physical-spatial",
+  "application": {
+    "command": "scheduler-fixture:spatial",
+    "window_title": "AI UI Spatial Demo"
+  },
+  "options": {
+    "stop_on_error": true,
+    "evidence_on_failure": true,
+    "semantic_only": false
+  },
+  "steps": [
+    {
+      "op": "session.open",
+      "save_session_as": "app"
+    },
+    {
+      "op": "click",
+      "session": "app",
+      "id": "window.main/body/tree.section"
+    },
+    {
+      "op": "get_runtime_health",
+      "session": "app"
+    }
+  ],
+  "teardown": [
+    {
+      "op": "session.close",
+      "session": "app"
+    }
+  ]
+}

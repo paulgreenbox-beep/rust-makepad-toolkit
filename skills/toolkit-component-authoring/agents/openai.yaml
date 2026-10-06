@@ -1,0 +1,4 @@
+interface:
+  display_name: "Toolkit Component Authoring"
+  short_description: "Build reusable components from contract to consumer"
+  default_prompt: "Use $toolkit-component-authoring to add this reusable Toolkit component safely."

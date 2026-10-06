@@ -1,0 +1,8 @@
+[package]
+name = "makepad-toolkit-core"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Pure Rust viewport, geometry, page, ruler, and document render-plan primitives"
+
+[dependencies]

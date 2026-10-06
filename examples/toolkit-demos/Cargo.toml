@@ -1,0 +1,30 @@
+[package]
+name = "toolkit-demos"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish = false
+
+[dependencies]
+makepad-toolkit-widgets.workspace = true
+makepad-widgets.workspace = true
+
+[[bin]]
+name = "virtual-canvas-demo"
+path = "src/bin/virtual-canvas-demo.rs"
+
+[[bin]]
+name = "document-ui-demo"
+path = "src/bin/document-ui-demo.rs"
+
+[[bin]]
+name = "accessibility-bridge-demo"
+path = "src/bin/accessibility-bridge-demo.rs"
+[target.'cfg(windows)'.dependencies]
+toolkit-windows-automation.workspace = true
+windows-uia = { package = "windows", version = "0.61.3", features = [
+    "Win32_Foundation",
+    "Win32_Graphics_Gdi",
+    "Win32_UI_HiDpi",
+    "Win32_UI_WindowsAndMessaging",
+] }

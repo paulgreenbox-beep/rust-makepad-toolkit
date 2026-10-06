@@ -1,0 +1,4 @@
+interface:
+  display_name: "Document Page UI"
+  short_description: "Plan reusable pages rulers and visible ranges"
+  default_prompt: "Use $document-page-ui to implement or review this paged document surface."

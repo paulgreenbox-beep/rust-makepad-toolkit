@@ -1,0 +1,246 @@
+{
+  "schema_version": "ai-ui-observation-stability-report/v1",
+  "generated_at_utc": "2026-08-23T00:00:00Z",
+  "final_status": "PASSED",
+  "final_marker": "AI_UI_OBSERVATION_LAYER_PASSED",
+  "final_reason": "The accepted evidence set proves implementation, public exposure, documentation, scheduler classification, typed evidence, repeated Windows E2E execution, and cleanup for all 104 public operations.",
+  "baseline_reference": "stability-report.json",
+  "capability_audit_reference": "observation-capability-audit.json",
+  "summary": {
+    "public_operations_total": 104,
+    "verified_stable": 104,
+    "verified_but_flaky": 0,
+    "without_real_windows_e2e": 0,
+    "new_observation_operations": 36,
+    "minimum_new_operation_repeat_e2e": 20,
+    "accepted_script_reports": 247,
+    "accepted_soak_runs": 240,
+    "accepted_soak_passed": 240,
+    "accepted_soak_failed": 0
+  },
+  "duration_method": "Evidence timestamp duration: report.json last-write time minus per-run evidence-directory creation time.",
+  "soak_sets": [
+    {
+      "name": "async_success",
+      "runs": 100,
+      "passed": 100,
+      "failed": 0,
+      "flaky": 0,
+      "min_duration_ms": 7991,
+      "mean_duration_ms": 9009.19,
+      "p95_duration_ms": 9414,
+      "max_duration_ms": 9567
+    },
+    {
+      "name": "task_fails",
+      "runs": 20,
+      "passed": 20,
+      "failed": 0,
+      "flaky": 0,
+      "min_duration_ms": 3906,
+      "mean_duration_ms": 4149.15,
+      "p95_duration_ms": 4307,
+      "max_duration_ms": 4447
+    },
+    {
+      "name": "api_timeout",
+      "runs": 20,
+      "passed": 20,
+      "failed": 0,
+      "flaky": 0,
+      "min_duration_ms": 6079,
+      "mean_duration_ms": 6460.25,
+      "p95_duration_ms": 6631,
+      "max_duration_ms": 6721
+    },
+    {
+      "name": "file_never_stable",
+      "runs": 20,
+      "passed": 20,
+      "failed": 0,
+      "flaky": 0,
+      "min_duration_ms": 9364,
+      "mean_duration_ms": 9656.3,
+      "p95_duration_ms": 9840,
+      "max_duration_ms": 10139
+    },
+    {
+      "name": "missing_milestone",
+      "runs": 20,
+      "passed": 20,
+      "failed": 0,
+      "flaky": 0,
+      "min_duration_ms": 7805,
+      "mean_duration_ms": 7984.65,
+      "p95_duration_ms": 8122,
+      "max_duration_ms": 8197
+    },
+    {
+      "name": "edge_observation",
+      "runs": 20,
+      "passed": 20,
+      "failed": 0,
+      "flaky": 0,
+      "min_duration_ms": 8232,
+      "mean_duration_ms": 8652.5,
+      "p95_duration_ms": 8841,
+      "max_duration_ms": 8849
+    },
+    {
+      "name": "assert_api_failure",
+      "runs": 20,
+      "passed": 20,
+      "failed": 0,
+      "flaky": 0,
+      "min_duration_ms": 5811,
+      "mean_duration_ms": 5986,
+      "p95_duration_ms": 6126,
+      "max_duration_ms": 6253
+    },
+    {
+      "name": "edge_direct_get_task_state",
+      "runs": 20,
+      "passed": 20,
+      "failed": 0,
+      "flaky": 0,
+      "min_duration_ms": 7717,
+      "mean_duration_ms": 8107.25,
+      "p95_duration_ms": 8435,
+      "max_duration_ms": 8601
+    }
+  ],
+  "failure_injection": {
+    "status": "PASSED",
+    "mandatory_20_repeat_sets": [
+      "task_fails",
+      "api_timeout",
+      "file_never_stable",
+      "missing_milestone"
+    ],
+    "one_off_matrix": [
+      {
+        "case": "api_http_failure",
+        "expected_errors": [
+          "EXTERNAL_REQUEST_FAILED",
+          "TASK_FAILED"
+        ],
+        "result": "PASSED"
+      },
+      {
+        "case": "api_invalid_response",
+        "expected_errors": [
+          "EXTERNAL_RESPONSE_INVALID",
+          "TASK_FAILED"
+        ],
+        "result": "PASSED"
+      },
+      {
+        "case": "api_not_accepted",
+        "expected_errors": [
+          "EXTERNAL_RESPONSE_NOT_ACCEPTED",
+          "TASK_FAILED"
+        ],
+        "result": "PASSED"
+      },
+      {
+        "case": "file_never_appears",
+        "expected_errors": [
+          "FILE_NOT_FOUND",
+          "TASK_FAILED"
+        ],
+        "result": "PASSED"
+      },
+      {
+        "case": "visual_failure",
+        "expected_errors": [
+          "VISUAL_REGION_UNCHANGED"
+        ],
+        "result": "PASSED"
+      }
+    ]
+  },
+  "regression_gates": [
+    {
+      "gate": "auto-probe Rust all-targets",
+      "result": "87 library tests + 3 binary tests passed"
+    },
+    {
+      "gate": "scheduler Rust all-targets",
+      "result": "48 tests passed"
+    },
+    {
+      "gate": "Public Script API",
+      "result": "19/19 checked-in examples validated"
+    },
+    {
+      "gate": "Generator",
+      "result": "24/24 generated scripts validated; 104/104 classified; 0 required templates missing"
+    },
+    {
+      "gate": "Windows advanced runner",
+      "result": "14/14 checks passed; AI_UI_SCROLLYVIEW_ENSURE_VISIBLE_PASSED"
+    },
+    {
+      "gate": "Windows reliability runner",
+      "result": "16/16 checks passed"
+    },
+    {
+      "gate": "Windows spatial runner",
+      "result": "all required markers passed"
+    },
+    {
+      "gate": "Container lifecycle",
+      "result": "historical real container E2E PASSED; owned containers remaining 0"
+    }
+  ],
+  "cleanup": {
+    "orphan_processes": 0,
+    "leaked_input_locks": 0,
+    "leaked_leases_resources": 0,
+    "stale_windows": 0,
+    "screenshot_failures": 0,
+    "evidence_consistency_failures": 0,
+    "accepted_release_input_lock_failures": 0,
+    "accepted_cleanup_step_failures": 0
+  },
+  "historical_pre_fix_evidence": {
+    "failed_reports_retained": 11,
+    "treatment": "Excluded from the accepted final set; retained as reproducible evidence of P1 defects fixed during this milestone."
+  },
+  "resolved_p1": [
+    "Scoped fixture failure mode isolates parent environment.",
+    "File failure scripts wait for terminal accepted API state.",
+    "Unstable-file fixture completes API acceptance before bounded stability failure.",
+    "expect_error is strict and rejects a successful action when an error was expected.",
+    "ScrollYView ensure_visible uses exact wheel delta and no longer detent-overshoots."
+  ],
+  "open_defects": {
+    "P0": [],
+    "P1": [],
+    "P2": [],
+    "P3": [
+      "session.attach/session.resume remains feasibility-only by design."
+    ]
+  },
+  "remaining_limitations": [
+    "No arbitrary-process session attachment or resume.",
+    "External observation uses trusted aliases/configuration; scripts cannot issue arbitrary HTTP requests.",
+    "Container L0 supports non-GUI file/report/local-observer work; Makepad visual/UIA telemetry is Windows-only."
+  ],
+  "marker_status": {
+    "AI_UI_RUNTIME_TASK_OBSERVATION_PASSED": true,
+    "AI_UI_RUNTIME_MILESTONE_PASSED": true,
+    "AI_UI_EXTERNAL_REQUEST_OBSERVATION_PASSED": true,
+    "AI_UI_FILE_POSTCONDITION_PASSED": true,
+    "AI_UI_FILE_STABILITY_PASSED": true,
+    "AI_UI_VISUAL_ASSERTIONS_PASSED": true,
+    "AI_UI_TRACE_ASSERTIONS_PASSED": true,
+    "AI_UI_VARIABLE_EXTRACTION_PASSED": true,
+    "AI_UI_LIMITED_WORKFLOW_PASSED": true,
+    "AI_UI_SCROLLYVIEW_ENSURE_VISIBLE_PASSED": true,
+    "AI_UI_ASYNC_WORKFLOW_E2E_PASSED": true,
+    "AI_UI_OBSERVATION_FAILURE_INJECTION_PASSED": true,
+    "AI_UI_OBSERVATION_SOAK_PASSED": true,
+    "AI_UI_OBSERVATION_LAYER_PASSED": true
+  }
+}

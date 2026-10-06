@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "name": "Container Environment Probe",
+  "application": {
+    "command": "/usr/bin/true"
+  },
+  "options": {
+    "semantic_only": true,
+    "stop_on_error": true
+  },
+  "steps": [
+    {
+      "step_id": "runtime-health",
+      "op": "get_runtime_health"
+    }
+  ]
+}

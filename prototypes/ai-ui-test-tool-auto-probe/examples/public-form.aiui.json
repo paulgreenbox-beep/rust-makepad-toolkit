@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "name": "public-form",
+  "intent": "Set a synthetic name, invoke the form action and verify its result.",
+  "application": {
+    "command": "target/debug/ai-ui-auto-probe-demo.exe",
+    "window_title": "AI UI Test Tool - Makepad Form"
+  },
+  "options": {"stop_on_error": true, "evidence_on_failure": true},
+  "steps": [
+    {"op": "session.open", "save_session_as": "app"},
+    {"op": "inspect_ui", "session": "app", "save_as": "tree"},
+    {"op": "wait_for_automation_id", "session": "app", "id": "window.main/body/form.main/input.name"},
+    {"op": "set_value", "session": "app", "id": "window.main/body/form.main/input.name", "value": "Toolkit demo"},
+    {"op": "wait_for_value", "session": "app", "id": "window.main/body/form.main/input.name", "value": "Toolkit demo"},
+    {"op": "assert_visible", "session": "app", "id": "window.main/body/form.main/button.create"},
+    {"op": "wait_enabled", "session": "app", "id": "window.main/body/form.main/button.create"},
+    {"op": "click", "session": "app", "id": "window.main/body/form.main/button.create", "postcondition": {"value_changes": {"id": "window.main/body/result.message", "to": "Result: Toolkit demo"}}},
+    {"op": "wait_for_value", "session": "app", "id": "window.main/body/result.message", "value": "Result: Toolkit demo"},
+    {"op": "get_runtime_health", "session": "app"},
+    {"op": "screenshot_window", "session": "app"},
+    {"op": "windows_export_evidence", "session": "app"}
+  ],
+  "teardown": [{"op": "session.close", "session": "app"}]
+}

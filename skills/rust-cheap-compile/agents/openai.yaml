@@ -1,0 +1,4 @@
+interface:
+  display_name: "Rust Cheap Compile"
+  short_description: "Choose the cheapest Cargo verification level"
+  default_prompt: "Use $rust-cheap-compile to select the cheapest verification path for this change."

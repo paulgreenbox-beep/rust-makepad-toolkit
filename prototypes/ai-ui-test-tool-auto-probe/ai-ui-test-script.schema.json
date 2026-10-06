@@ -1,0 +1,389 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AI UI Test Script",
+  "type": "object",
+  "required": [
+    "version",
+    "name",
+    "application",
+    "options",
+    "steps"
+  ],
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "application": {
+      "type": "object",
+      "properties": {
+        "command": {
+          "type": "string"
+        },
+        "arguments": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "window_title": {
+          "type": "string"
+        },
+        "fixture_async_failure_mode": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            null,
+            "success",
+            "task_fails",
+            "api_timeout",
+            "api_http_failure",
+            "api_invalid_response",
+            "api_not_accepted",
+            "file_never_appears",
+            "file_never_stable",
+            "missing_milestone"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "options": {
+      "type": "object",
+      "properties": {
+        "stop_on_error": {
+          "type": "boolean"
+        },
+        "collect_failures": {
+          "type": "boolean"
+        },
+        "evidence_on_failure": {
+          "type": "boolean"
+        },
+        "semantic_only": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": true
+    },
+    "vars": {
+      "type": "object"
+    },
+    "setup": {
+      "$ref": "#/$defs/steps"
+    },
+    "steps": {
+      "$ref": "#/$defs/steps",
+      "minItems": 1
+    },
+    "teardown": {
+      "$ref": "#/$defs/steps"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "generated_by": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "generated": {
+      "type": "boolean"
+    },
+    "generator_version": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "inventory_version": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 1
+    },
+    "generated_from": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "intent": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "regression": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "bug_id",
+        "description"
+      ],
+      "properties": {
+        "bug_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "secret_vars": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "cases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name"
+        ]
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "steps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "op": {
+            "type": "string"
+          },
+          "step_id": {
+            "type": "string"
+          },
+          "session": {
+            "type": "string"
+          },
+          "save_as": {
+            "type": "string"
+          },
+          "save_session_as": {
+            "type": "string"
+          },
+          "depends_on": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "expect_error": {
+            "type": "string"
+          },
+          "redact": {
+            "type": "boolean"
+          },
+          "extract": {
+            "type": "object",
+            "minProperties": 1,
+            "additionalProperties": {
+              "type": "string",
+              "pattern": "^\\$"
+            }
+          },
+          "when": {
+            "$ref": "#/$defs/when_condition"
+          },
+          "repeat_until": {
+            "$ref": "#/$defs/repeat_until"
+          },
+          "steps": {
+            "$ref": "#/$defs/steps"
+          }
+        },
+        "additionalProperties": true,
+        "anyOf": [
+          {
+            "required": [
+              "op"
+            ]
+          },
+          {
+            "required": [
+              "when",
+              "steps"
+            ]
+          },
+          {
+            "required": [
+              "repeat_until"
+            ]
+          }
+        ]
+      }
+    },
+    "when_condition": {
+      "type": "object",
+      "required": [
+        "var"
+      ],
+      "properties": {
+        "var": {
+          "type": "string",
+          "minLength": 1
+        },
+        "equals": {},
+        "not_equals": {},
+        "exists": {
+          "type": "boolean"
+        },
+        "in": {
+          "type": "array",
+          "minItems": 1
+        }
+      },
+      "additionalProperties": false,
+      "anyOf": [
+        {
+          "required": [
+            "equals"
+          ]
+        },
+        {
+          "required": [
+            "not_equals"
+          ]
+        },
+        {
+          "required": [
+            "exists"
+          ]
+        },
+        {
+          "required": [
+            "in"
+          ]
+        }
+      ]
+    },
+    "repeat_until": {
+      "type": "object",
+      "required": [
+        "timeout_ms",
+        "max_iterations"
+      ],
+      "properties": {
+        "observation": {
+          "type": "object",
+          "properties": {
+            "external": {
+              "type": "string",
+              "minLength": 1
+            },
+            "task": {
+              "type": "string",
+              "minLength": 1
+            },
+            "state_in": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "state_in"
+          ],
+          "additionalProperties": false,
+          "oneOf": [
+            {
+              "required": [
+                "external"
+              ]
+            },
+            {
+              "required": [
+                "task"
+              ]
+            }
+          ]
+        },
+        "operation": {
+          "type": "string",
+          "enum": [
+            "get_task_state",
+            "get_runtime_milestones",
+            "get_runtime_timeline",
+            "get_api_request_state",
+            "get_application_logs",
+            "read"
+          ]
+        },
+        "arguments": {
+          "type": "object"
+        },
+        "path": {
+          "type": "string",
+          "pattern": "^\\$"
+        },
+        "equals": {},
+        "not_equals": {},
+        "in": {
+          "type": "array",
+          "minItems": 1
+        },
+        "contains_any": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "timeout_ms": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 120000
+        },
+        "max_iterations": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000
+        },
+        "interval_ms": {
+          "type": "integer",
+          "minimum": 10,
+          "maximum": 1000
+        }
+      },
+      "additionalProperties": false,
+      "oneOf": [
+        {
+          "required": [
+            "observation"
+          ]
+        },
+        {
+          "required": [
+            "operation",
+            "path"
+          ]
+        }
+      ]
+    }
+  }
+}

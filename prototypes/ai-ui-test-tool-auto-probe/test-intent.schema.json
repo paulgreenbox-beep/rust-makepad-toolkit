@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AI UI Validated Test Intent",
+  "type": "object",
+  "required": ["intent", "target", "template"],
+  "properties": {
+    "intent": {"type": "string", "minLength": 1},
+    "target": {"type": "string"},
+    "template": {"type": "string", "minLength": 1},
+    "operation": {"type": ["string", "null"]},
+    "reason": {"type": "string"},
+    "dynamic": {"type": "boolean"},
+    "approval_fixture": {"type": "boolean"},
+    "parameters": {"type": "object"}
+  },
+  "additionalProperties": false
+}

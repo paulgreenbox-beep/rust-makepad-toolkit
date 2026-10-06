@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "name": "full-script-e2e",
+  "application": {"command": "prototypes/ai-ui-test-tool-auto-probe/target/debug/spatial-demo.exe", "window_title": "AI UI Spatial Demo"},
+  "options": {"stop_on_error": true, "evidence_on_failure": true},
+  "vars": {"username": "AI Script User"},
+  "steps": [
+    {"op": "session.open", "save_session_as": "app"},
+    {"op": "inspect_ui", "session": "app", "save_as": "tree"},
+    {"op": "wait_for_automation_id", "session": "app", "id": "window.main/body/form.main/input.name"},
+    {"op": "set_value", "session": "app", "id": "window.main/body/form.main/input.name", "value": "${username}"},
+    {"op": "click", "session": "app", "id": "window.main/body/form.main/button.create"},
+    {"op": "click", "session": "app", "id": "window.main/body/button.open.modal", "postcondition": {"automation_id_visible": "window.main/dialog.modal"}},
+    {"op": "assert_visible", "session": "app", "id": "window.main/dialog.modal"},
+    {"op": "inspect_spatial_target", "session": "app", "id": "window.main/body/canvas.main"},
+    {"op": "click_relative", "session": "app", "id": "window.main/body/canvas.main", "position": {"x": 0.5, "y": 0.5}},
+    {"op": "drag_relative", "session": "app", "id": "window.main/body/canvas.main", "from": {"x": 0.25, "y": 0.35}, "to": {"x": 0.65, "y": 0.45}, "duration_ms": 180},
+    {"op": "select_region", "session": "app", "id": "window.main/body/canvas.main", "from": {"x": 0.15, "y": 0.2}, "to": {"x": 0.75, "y": 0.65}, "duration_ms": 220},
+    {"op": "capture_region", "session": "app", "id": "window.main/body/canvas.main", "region": {"x": 0.1, "y": 0.1, "width": 0.8, "height": 0.8}},
+    {"op": "get_runtime_health", "session": "app"},
+    {"op": "windows_export_evidence", "session": "app"}
+  ]
+}

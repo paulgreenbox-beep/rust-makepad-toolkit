@@ -1,0 +1,32 @@
+[package]
+name = "ai-ui-test-tool-prototype"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish = false
+
+[dependencies]
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = "1.0.149"
+makepad-widgets.workspace = true
+toolkit-windows-automation.workspace = true
+
+[lib]
+name = "ai_ui_test_tool"
+path = "src/lib.rs"
+
+[[bin]]
+name = "ai-ui-test-demo"
+path = "src/bin/ai-ui-test-demo.rs"
+
+[[bin]]
+name = "ai-ui-test-runner"
+path = "src/bin/ai-ui-test-runner.rs"
+
+[target.'cfg(windows)'.dependencies]
+windows-uia = { package = "windows", version = "0.61.3", features = [
+    "Win32_Foundation",
+    "Win32_Graphics_Gdi",
+    "Win32_UI_HiDpi",
+    "Win32_UI_WindowsAndMessaging",
+] }

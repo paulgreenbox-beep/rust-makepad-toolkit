@@ -1,0 +1,4 @@
+interface:
+  display_name: "Reusable Component First"
+  short_description: "Check Toolkit primitives before writing duplicates"
+  default_prompt: "Use $reusable-component-first before adding this reusable UI or runtime primitive."

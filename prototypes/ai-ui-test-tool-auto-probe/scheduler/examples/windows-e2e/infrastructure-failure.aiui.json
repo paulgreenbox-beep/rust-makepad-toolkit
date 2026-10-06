@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "name": "scheduler-e2e-infrastructure-failure",
+  "application": {
+    "command": "scheduler-fixture:missing",
+    "window_title": "Scheduler Missing Fixture"
+  },
+  "options": {
+    "stop_on_error": true,
+    "evidence_on_failure": true,
+    "semantic_only": true
+  },
+  "steps": [
+    {
+      "op": "session.open",
+      "save_session_as": "app"
+    }
+  ]
+}

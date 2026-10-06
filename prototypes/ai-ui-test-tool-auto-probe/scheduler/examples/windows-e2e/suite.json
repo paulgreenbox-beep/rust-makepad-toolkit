@@ -1,0 +1,17 @@
+{
+  "name": "scheduler-windows-e2e",
+  "tests": [
+    "pass-spatial.aiui.json",
+    "pass-advanced.aiui.json",
+    "test-failure.aiui.json",
+    "infrastructure-failure.aiui.json",
+    "worker-loss-pass.aiui.json",
+    "physical-spatial.aiui.json",
+    "physical-advanced.aiui.json"
+  ],
+  "tags": [
+    "scheduler",
+    "windows",
+    "e2e"
+  ]
+}

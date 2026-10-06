@@ -1,0 +1,26 @@
+{
+  "name": "rust-makepad-toolkit",
+  "version": "0.1.0",
+  "description": "Toolkit development guidance and the existing Windows GUI stdio MCP server.",
+  "author": {
+    "name": "Local Toolkit workspace"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Rust Makepad Toolkit",
+    "shortDescription": "Windows GUI MCP with bounded inspection and evidence.",
+    "longDescription": "Packages a focused Codex skill for safely using the local Windows GUI MCP and connects to the existing Toolkit UI Automation server. Available GUI actions are limited to the operations that server exposes.",
+    "developerName": "Rust Makepad Toolkit",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Windows UI Automation",
+      "Accessible control interaction",
+      "Native window inspection and capture",
+      "Structured evidence retrieval"
+    ],
+    "defaultPrompt": [
+      "Inspect a Windows app through Toolkit UI Automation."
+    ]
+  },
+  "mcpServers": "./.mcp.json"
+}

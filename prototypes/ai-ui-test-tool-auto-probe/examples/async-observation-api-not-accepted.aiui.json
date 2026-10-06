@@ -1,0 +1,107 @@
+{
+  "version": 1,
+  "name": "async-observation-api-not-accepted-e2e",
+  "application": {
+    "command": "prototypes/ai-ui-test-tool-auto-probe/target/debug/ai-ui-advanced-demo.exe",
+    "window_title": "AI UI Advanced Makepad Probe",
+    "fixture_async_failure_mode": "api_not_accepted"
+  },
+  "options": {
+    "stop_on_error": true,
+    "evidence_on_failure": true
+  },
+  "tags": [
+    "observation",
+    "async",
+    "failure-injection",
+    "api_not_accepted"
+  ],
+  "setup": [
+    {
+      "op": "session.open",
+      "save_session_as": "app",
+      "step_id": "open-session"
+    },
+    {
+      "op": "wait_for_automation_id",
+      "session": "app",
+      "id": "/button.async",
+      "timeout_ms": 10000,
+      "step_id": "wait-async-control"
+    }
+  ],
+  "steps": [
+    {
+      "op": "click",
+      "session": "app",
+      "id": "/button.async",
+      "step_id": "trigger-async"
+    },
+    {
+      "op": "wait_for_api_response",
+      "session": "app",
+      "request_id": "fixture.request.workflow",
+      "timeout_ms": 5000,
+      "expect_error": "EXTERNAL_RESPONSE_NOT_ACCEPTED",
+      "step_id": "application-rejection-observed"
+    },
+    {
+      "op": "assert_api_success",
+      "session": "app",
+      "request_id": "fixture.request.workflow",
+      "expect_error": "EXTERNAL_RESPONSE_NOT_ACCEPTED",
+      "step_id": "application-rejection-classified"
+    },
+    {
+      "op": "wait_for_task_complete",
+      "session": "app",
+      "operation_id": "fixture.async.workflow",
+      "timeout_ms": 5000,
+      "expect_error": "TASK_FAILED",
+      "step_id": "task-application-rejection"
+    },
+    {
+      "op": "assert_no_pending_task",
+      "session": "app",
+      "step_id": "no-pending-after-application-rejection"
+    },
+    {
+      "op": "get_runtime_timeline",
+      "session": "app",
+      "step_id": "timeline"
+    },
+    {
+      "op": "get_application_logs",
+      "session": "app",
+      "step_id": "logs"
+    },
+    {
+      "op": "get_runtime_health",
+      "session": "app",
+      "step_id": "health"
+    },
+    {
+      "op": "windows_export_evidence",
+      "session": "app",
+      "reason": "async-observation-api-not-accepted-e2e",
+      "step_id": "export-evidence"
+    }
+  ],
+  "teardown": [
+    {
+      "op": "assert_no_pending_task",
+      "session": "app",
+      "step_id": "cleanup-no-pending-task"
+    },
+    {
+      "op": "assert_no_stale_window",
+      "session": "app",
+      "step_id": "cleanup-no-stale-window"
+    },
+    {
+      "op": "session.close",
+      "session": "app",
+      "step_id": "close-session"
+    }
+  ]
+}

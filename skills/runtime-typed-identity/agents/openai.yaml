@@ -1,0 +1,4 @@
+interface:
+  display_name: "Runtime Typed Identity"
+  short_description: "Use typed runtime IDs and owner-scoped registries"
+  default_prompt: "Use $runtime-typed-identity to design identities and registries for these entities."

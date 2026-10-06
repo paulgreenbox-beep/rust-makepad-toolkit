@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "environments": [
+    {
+      "version": 1,
+      "key": "docker-linux-level0",
+      "kind": "container",
+      "platform": "linux",
+      "image": "ai-ui/makepad-runner:container-v1",
+      "image_digest": "sha256:7c178bb370b30fc6c1532146aada8117ffed526477181b1d1b0504d6e45ce098",
+      "runner_path": "/opt/ai-ui/ai-ui-test",
+      "isolation": "filesystem",
+      "disposable": true,
+      "reusable": false,
+      "mounts": [],
+      "environment": {
+        "AI_UI_TRANSPORT": "environment_probe"
+      },
+      "network": "none",
+      "limits": {
+        "memory_mib": 512,
+        "cpu_millis": 1000,
+        "pids": 64
+      },
+      "capabilities": {
+        "process_isolation": true,
+        "filesystem_isolation": true,
+        "environment_isolation": true,
+        "gpu": false,
+        "interactive_gui": false,
+        "semantic_ui": false,
+        "uia": false,
+        "physical_input": false,
+        "makepad": false,
+        "isolated_desktop": false,
+        "gui_level": "level0"
+      }
+    }
+  ]
+}

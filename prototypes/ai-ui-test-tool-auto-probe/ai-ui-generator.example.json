@@ -1,0 +1,31 @@
+{
+  "allow_stateful": true,
+  "allow_destructive": false,
+  "allow_unknown_mutation": false,
+  "allow_stateful_spatial": false,
+  "generate_window_physical": false,
+  "generate_negative": true,
+  "generate_spatial": true,
+  "max_cases_per_control": 4,
+  "max_generated_tests": 100,
+  "max_tests_per_element": 4,
+  "regenerate_all": false,
+  "element_hints": {
+    "file.delete": {
+      "safety": "PotentiallyDestructive",
+      "approved_destructive": false
+    },
+    "login.password": {
+      "safety": "StatefulRecoverable",
+      "fixture": "credentials.password",
+      "secret": true
+    },
+    "settings.open_modal": {
+      "modal_id": "settings.modal",
+      "close_id": "settings.modal.close"
+    },
+    "canvas.main": {
+      "safety": "StatefulRecoverable"
+    }
+  }
+}

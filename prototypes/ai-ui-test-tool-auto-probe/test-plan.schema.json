@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AI UI Deterministic Test Plan",
+  "type": "object",
+  "required": [
+    "version",
+    "generator_version",
+    "inventory_version",
+    "mode",
+    "planned",
+    "safe",
+    "requires_fixture",
+    "blocked_destructive",
+    "intents",
+    "blocked",
+    "fixture_requirements",
+    "markers"
+  ],
+  "properties": {
+    "version": {"const": 1},
+    "generator_version": {"type": "string"},
+    "inventory_version": {"type": "integer", "minimum": 1},
+    "mode": {"enum": ["smoke", "standard", "exhaustive"]},
+    "planned": {"type": "integer", "minimum": 0},
+    "safe": {"type": "integer", "minimum": 0},
+    "requires_fixture": {"type": "integer", "minimum": 0},
+    "blocked_destructive": {"type": "integer", "minimum": 0},
+    "intents": {"type": "array", "items": {"$ref": "#/$defs/intent"}},
+    "blocked": {"type": "array", "items": {"type": "object"}},
+    "fixture_requirements": {"type": "array", "items": {"type": "object"}},
+    "markers": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "intent": {
+      "type": "object",
+      "required": ["id", "intent", "target", "template", "class", "safety", "reason"],
+      "properties": {
+        "id": {"type": "string"},
+        "intent": {"type": "string"},
+        "target": {"type": "string"},
+        "template": {"type": "string"},
+        "class": {"type": "string"},
+        "safety": {
+          "enum": ["Safe", "StatefulRecoverable", "PotentiallyDestructive", "Unknown"]
+        },
+        "reason": {"type": "string"},
+        "parameters": {"type": "object"},
+        "dynamic": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    }
+  }
+}

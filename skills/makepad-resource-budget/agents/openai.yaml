@@ -1,0 +1,4 @@
+interface:
+  display_name: "Makepad Resource Budget"
+  short_description: "Bound rendering caches textures and active state"
+  default_prompt: "Use $makepad-resource-budget to audit rendering and memory ownership for this component."

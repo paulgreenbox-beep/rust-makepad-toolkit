@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "applications": [
+    {
+      "key": "environment-probe",
+      "executable": "/usr/bin/true",
+      "args": [],
+      "max_parallel": 16,
+      "script_command_aliases": ["/usr/bin/true"]
+    },
+    {
+      "key": "local-environment-probe",
+      "executable": "target/debug/spatial-demo.exe",
+      "args": [],
+      "max_parallel": 4,
+      "script_command_aliases": ["scheduler-fixture:local-environment-probe"]
+    }
+  ]
+}

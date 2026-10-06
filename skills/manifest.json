@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "skills": [
+    {
+      "id": "rust-makepad-architecture",
+      "title": "Rust Makepad Architecture",
+      "short_description": "Keep reusable Rust and Makepad boundaries clean",
+      "path": "rust-makepad-architecture/SKILL.md",
+      "tags": ["rust", "makepad", "architecture", "dependencies"],
+      "recommended_for": ["extraction", "crate design", "dependency review"]
+    },
+    {
+      "id": "rust-cheap-compile",
+      "title": "Rust Cheap Compile",
+      "short_description": "Choose the cheapest Cargo verification level",
+      "path": "rust-cheap-compile/SKILL.md",
+      "tags": ["rust", "cargo", "testing", "dev-loop"],
+      "recommended_for": ["test planning", "focused iteration", "release gates"]
+    },
+    {
+      "id": "makepad-visual-debug",
+      "title": "Makepad Visual Debug",
+      "short_description": "Trace invisible or misplaced Makepad rendering",
+      "path": "makepad-visual-debug/SKILL.md",
+      "tags": ["makepad", "debug", "layout", "clip", "rendering"],
+      "recommended_for": ["missing UI", "wrong coordinates", "draw lifecycle"]
+    },
+    {
+      "id": "makepad-virtual-canvas",
+      "title": "Makepad Virtual Canvas",
+      "short_description": "Preserve zoom scroll clip and overlay ownership",
+      "path": "makepad-virtual-canvas/SKILL.md",
+      "tags": ["makepad", "canvas", "zoom", "scroll", "overlay"],
+      "recommended_for": ["large surfaces", "maps", "documents", "diagrams"]
+    },
+    {
+      "id": "runtime-typed-identity",
+      "title": "Runtime Typed Identity",
+      "short_description": "Use typed runtime IDs and owner-scoped registries",
+      "path": "runtime-typed-identity/SKILL.md",
+      "tags": ["rust", "identity", "registry", "lifecycle"],
+      "recommended_for": ["multi-entity runtimes", "target commands", "stale IDs"]
+    },
+    {
+      "id": "document-page-ui",
+      "title": "Document Page UI",
+      "short_description": "Plan reusable pages rulers and visible ranges",
+      "path": "document-page-ui/SKILL.md",
+      "tags": ["pages", "rulers", "layout", "overscan"],
+      "recommended_for": ["paged viewers", "print layouts", "mixed page sizes"]
+    },
+    {
+      "id": "reusable-component-first",
+      "title": "Reusable Component First",
+      "short_description": "Check Toolkit primitives before writing duplicates",
+      "path": "reusable-component-first/SKILL.md",
+      "tags": ["reuse", "source-of-truth", "architecture"],
+      "recommended_for": ["new primitives", "consumer features", "duplication review"]
+    },
+    {
+      "id": "makepad-resource-budget",
+      "title": "Makepad Resource Budget",
+      "short_description": "Bound rendering caches textures and active state",
+      "path": "makepad-resource-budget/SKILL.md",
+      "tags": ["makepad", "performance", "memory", "cache"],
+      "recommended_for": ["large data", "images", "scroll performance", "memory growth"]
+    },
+    {
+      "id": "toolkit-component-authoring",
+      "title": "Toolkit Component Authoring",
+      "short_description": "Build reusable components from contract to consumer",
+      "path": "toolkit-component-authoring/SKILL.md",
+      "tags": ["toolkit", "components", "testing", "integration"],
+      "recommended_for": ["new shared components", "extraction", "consumer migration"]
+    }
+  ]
+}

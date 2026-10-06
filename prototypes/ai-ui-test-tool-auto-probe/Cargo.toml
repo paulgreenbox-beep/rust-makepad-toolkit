@@ -1,0 +1,66 @@
+[package]
+name = "ai-ui-test-tool-auto-probe"
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+publish = false
+
+[workspace]
+members = ["scheduler"]
+resolver = "2"
+
+[dependencies]
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = "1.0.149"
+png = "0.18.1"
+makepad-widgets = { path = "../../.deps/makepad/widgets", version = "2.0.0" }
+toolkit-windows-automation = { path = "../../crates/toolkit-windows-automation" }
+
+[lib]
+name = "ai_ui_test_tool_auto_probe"
+path = "src/lib.rs"
+
+[[bin]]
+name = "ai-ui-auto-probe-demo"
+path = "src/bin/auto-probe-demo.rs"
+
+[[bin]]
+name = "ai-ui-auto-probe-runner"
+path = "src/bin/auto-probe-runner.rs"
+
+[[bin]]
+name = "ai-ui-advanced-demo"
+path = "src/bin/advanced-demo.rs"
+
+[[bin]]
+name = "ai-ui-advanced-runner"
+path = "src/bin/advanced-runner.rs"
+
+[[bin]]
+name = "ai-ui-reliability-runner"
+path = "src/bin/reliability-runner.rs"
+
+[[bin]]
+name = "spatial-demo"
+path = "src/bin/spatial-demo.rs"
+
+[[bin]]
+name = "spatial-runner"
+path = "src/bin/spatial-runner.rs"
+
+[[bin]]
+name = "window-frame-runner"
+path = "src/bin/window-frame-runner.rs"
+
+[[bin]]
+name = "ai-ui-test"
+path = "src/bin/ai-ui-test.rs"
+
+[target.'cfg(windows)'.dependencies]
+windows-uia = { package = "windows", version = "0.61.3", features = [
+    "Win32_Foundation",
+    "Win32_Graphics_Gdi",
+    "Win32_UI_HiDpi",
+    "Win32_UI_Input_KeyboardAndMouse",
+    "Win32_UI_WindowsAndMessaging",
+] }

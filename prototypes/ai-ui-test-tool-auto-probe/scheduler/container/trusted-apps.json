@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "applications": [
+    {
+      "key": "environment-probe",
+      "executable": "/usr/bin/true",
+      "args": [],
+      "max_parallel": 16,
+      "script_command_aliases": [
+        "/usr/bin/true"
+      ]
+    }
+  ]
+}

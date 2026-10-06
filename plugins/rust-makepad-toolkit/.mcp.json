@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "rust-makepad-toolkit-windows-gui": {
+      "command": "cmd.exe",
+      "args": [
+        "/d",
+        "/s",
+        "/c",
+        "call",
+        "./scripts/launch_mcp.cmd"
+      ],
+      "cwd": "./",
+      "default_tools_approval_mode": "prompt",
+      "env": {}
+    }
+  }
+}

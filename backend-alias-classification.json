@@ -1,0 +1,300 @@
+{
+  "schema_version": "ai-ui-backend-alias-classification/v1",
+  "generated_at_utc": "2026-08-22T12:15:08.0485535Z",
+  "source": "reports/stability-audit-v1/scripts/build-audit-artifacts.ps1 backend alias inventory",
+  "summary": {
+    "PRIVATE_INTERNAL": 11,
+    "LEGACY_COMPAT": 22,
+    "DEPRECATED": 3,
+    "PUBLIC_CANDIDATE": 5
+  },
+  "aliases": [
+    {
+      "alias": "session.resolve_window",
+      "classification": "PRIVATE_INTERNAL",
+      "equivalent_public_operation": null,
+      "reason": "Internal session/window resolution supports public lifecycle calls and diagnostics.",
+      "public_promotion": "NOT_REQUESTED"
+    },
+    {
+      "alias": "windows_find_window",
+      "classification": "PRIVATE_INTERNAL",
+      "equivalent_public_operation": null,
+      "reason": "Internal Windows lookup is intentionally hidden behind public session targeting.",
+      "public_promotion": "NOT_REQUESTED"
+    },
+    {
+      "alias": "wait_for_window",
+      "classification": "PRIVATE_INTERNAL",
+      "equivalent_public_operation": null,
+      "reason": "Internal discovery helper; public session.open and wait_for_automation_id provide supported flows.",
+      "public_promotion": "NOT_REQUESTED"
+    },
+    {
+      "alias": "list_test_windows",
+      "classification": "PRIVATE_INTERNAL",
+      "equivalent_public_operation": null,
+      "reason": "Diagnostic enumeration is not a stable public application-testing contract.",
+      "public_promotion": "NOT_REQUESTED"
+    },
+    {
+      "alias": "get_active_window",
+      "classification": "PRIVATE_INTERNAL",
+      "equivalent_public_operation": null,
+      "reason": "Foreground diagnostics remain internal to avoid exposing ambient desktop state.",
+      "public_promotion": "NOT_REQUESTED"
+    },
+    {
+      "alias": "ensure_active_window",
+      "classification": "LEGACY_COMPAT",
+      "equivalent_public_operation": "activate_window",
+      "reason": "Legacy spelling maps to the public activation operation.",
+      "public_promotion": "NOT_REQUESTED"
+    },
+    {
+      "alias": "get_control_tree",
+      "classification": "LEGACY_COMPAT",
+      "equivalent_public_operation": "inspect_ui",
+      "reason": "Legacy tree name is covered by the public inspect_ui contract.",
+      "public_promotion": "NOT_REQUESTED"
+    },
+    {
+      "alias": "wait_for_element",
+      "classification": "LEGACY_COMPAT",
+      "equivalent_public_operation": "wait_for_automation_id",
+      "reason": "Legacy element wait is covered by the public stable-automation-id operation.",
+      "public_promotion": "NOT_REQUESTED"
+    },
+    {
+      "alias": "screenshot",
+      "classification": "LEGACY_COMPAT",
+      "equivalent_public_operation": "screenshot_window",
+      "reason": "Legacy screenshot alias maps to the public window capture operation.",
+      "public_promotion": "NOT_REQUESTED"
+    },
+    {
+      "alias": "windows_list_automation_ids",
+      "classification": "PRIVATE_INTERNAL",
+      "equivalent_public_operation": null,
+      "reason": "Internal probe diagnostic; inspect_ui exposes the stable semantic tree.",
+      "public_promotion": "NOT_REQUESTED"
+    },
+    {
+      "alias": "windows_assert_automation_ids",
+      "classification": "PRIVATE_INTERNAL",
+      "equivalent_public_operation": null,
+      "reason": "Internal probe assertion; public assertions operate on declared automation ids.",
+      "public_promotion": "NOT_REQUESTED"
+    },
+    {
+      "alias": "windows_run_sequence",
+      "classification": "PRIVATE_INTERNAL",
+      "equivalent_public_operation": null,
+      "reason": "Internal composition helper; public scripts provide the supported sequence format.",
+      "public_promotion": "NOT_REQUESTED"
+    },
+    {
+      "alias": "launch",
+      "classification": "DEPRECATED",
+      "equivalent_public_operation": "session.open",
+      "reason": "Superseded by the managed public session lifecycle.",
+      "public_promotion": "NOT_REQUESTED"
+    },
+    {
+      "alias": "restart_app",
+      "classification": "DEPRECATED",
+      "equivalent_public_operation": "session.close",
+      "reason": "No standalone restart API is promised; use a fresh managed session.",
+      "public_promotion": "NOT_REQUESTED"
+    },
+    {
+      "alias": "shutdown",
+      "classification": "DEPRECATED",
+      "equivalent_public_operation": "session.close",
+      "reason": "Superseded by managed session teardown.",
+      "public_promotion": "NOT_REQUESTED"
+    },
+    {
+      "alias": "get_logs",
+      "classification": "PRIVATE_INTERNAL",
+      "equivalent_public_operation": null,
+      "reason": "Internal diagnostics are exported through evidence rather than a public log API.",
+      "public_promotion": "NOT_REQUESTED"
+    },
+    {
+      "alias": "get_ui_changes",
+      "classification": "PRIVATE_INTERNAL",
+      "equivalent_public_operation": null,
+      "reason": "Internal incremental observation helper; inspect_ui is the stable public read.",
+      "public_promotion": "NOT_REQUESTED"
+    },
+    {
+      "alias": "windows_move_pointer",
+      "classification": "LEGACY_COMPAT",
+      "equivalent_public_operation": "move_pointer",
+      "reason": "Windows-prefixed legacy spelling maps to the public spatial operation.",
+      "public_promotion": "NOT_REQUESTED"
+    },
+    {
+      "alias": "windows_pointer_down",
+      "classification": "LEGACY_COMPAT",
+      "equivalent_public_operation": "pointer_down",
+      "reason": "Windows-prefixed legacy spelling maps to the public spatial operation.",
+      "public_promotion": "NOT_REQUESTED"
+    },
+    {
+      "alias": "windows_pointer_up",
+      "classification": "LEGACY_COMPAT",
+      "equivalent_public_operation": "pointer_up",
+      "reason": "Windows-prefixed legacy spelling maps to the public spatial operation.",
+      "public_promotion": "NOT_REQUESTED"
+    },
+    {
+      "alias": "windows_click_relative",
+      "classification": "LEGACY_COMPAT",
+      "equivalent_public_operation": "click_relative",
+      "reason": "Windows-prefixed legacy spelling maps to the public spatial operation.",
+      "public_promotion": "NOT_REQUESTED"
+    },
+    {
+      "alias": "windows_double_click_relative",
+      "classification": "LEGACY_COMPAT",
+      "equivalent_public_operation": "double_click_relative",
+      "reason": "Windows-prefixed legacy spelling maps to the public spatial operation.",
+      "public_promotion": "NOT_REQUESTED"
+    },
+    {
+      "alias": "windows_right_click_relative",
+      "classification": "LEGACY_COMPAT",
+      "equivalent_public_operation": "right_click_relative",
+      "reason": "Windows-prefixed legacy spelling maps to the public spatial operation.",
+      "public_promotion": "NOT_REQUESTED"
+    },
+    {
+      "alias": "windows_drag_relative",
+      "classification": "LEGACY_COMPAT",
+      "equivalent_public_operation": "drag_relative",
+      "reason": "Windows-prefixed legacy spelling maps to the public spatial operation.",
+      "public_promotion": "NOT_REQUESTED"
+    },
+    {
+      "alias": "scroll_to",
+      "classification": "LEGACY_COMPAT",
+      "equivalent_public_operation": "ensure_visible",
+      "reason": "Legacy target-scroll behavior is represented by the public visibility operation.",
+      "public_promotion": "NOT_REQUESTED"
+    },
+    {
+      "alias": "scroll_page",
+      "classification": "PRIVATE_INTERNAL",
+      "equivalent_public_operation": null,
+      "reason": "Low-level paging helper lacks a portable postcondition contract.",
+      "public_promotion": "NOT_REQUESTED"
+    },
+    {
+      "alias": "select_row",
+      "classification": "LEGACY_COMPAT",
+      "equivalent_public_operation": "select",
+      "reason": "Table row selection is represented by the generic public select contract.",
+      "public_promotion": "NOT_REQUESTED"
+    },
+    {
+      "alias": "select_cell",
+      "classification": "LEGACY_COMPAT",
+      "equivalent_public_operation": "select",
+      "reason": "Table cell selection is represented by the generic public select contract.",
+      "public_promotion": "NOT_REQUESTED"
+    },
+    {
+      "alias": "select_rows",
+      "classification": "LEGACY_COMPAT",
+      "equivalent_public_operation": "select_many",
+      "reason": "Multi-row selection is represented by the generic public select_many contract.",
+      "public_promotion": "NOT_REQUESTED"
+    },
+    {
+      "alias": "select_cells",
+      "classification": "LEGACY_COMPAT",
+      "equivalent_public_operation": "select_many",
+      "reason": "Multi-cell selection is represented by the generic public select_many contract.",
+      "public_promotion": "NOT_REQUESTED"
+    },
+    {
+      "alias": "read_cell",
+      "classification": "LEGACY_COMPAT",
+      "equivalent_public_operation": "read",
+      "reason": "Cell read is represented by the generic public read contract.",
+      "public_promotion": "NOT_REQUESTED"
+    },
+    {
+      "alias": "activate_row",
+      "classification": "LEGACY_COMPAT",
+      "equivalent_public_operation": "click",
+      "reason": "Row activation is represented by the generic public click contract.",
+      "public_promotion": "NOT_REQUESTED"
+    },
+    {
+      "alias": "activate_cell",
+      "classification": "LEGACY_COMPAT",
+      "equivalent_public_operation": "click",
+      "reason": "Cell activation is represented by the generic public click contract.",
+      "public_promotion": "NOT_REQUESTED"
+    },
+    {
+      "alias": "expand",
+      "classification": "PUBLIC_CANDIDATE",
+      "equivalent_public_operation": null,
+      "reason": "Potential future semantic-tree action, retained private until a stable public contract and E2E are defined.",
+      "public_promotion": "NOT_REQUESTED"
+    },
+    {
+      "alias": "open",
+      "classification": "PUBLIC_CANDIDATE",
+      "equivalent_public_operation": null,
+      "reason": "Potential future semantic-open action, not promoted by this remediation milestone.",
+      "public_promotion": "NOT_REQUESTED"
+    },
+    {
+      "alias": "collapse",
+      "classification": "PUBLIC_CANDIDATE",
+      "equivalent_public_operation": null,
+      "reason": "Potential future semantic-tree action, not promoted by this remediation milestone.",
+      "public_promotion": "NOT_REQUESTED"
+    },
+    {
+      "alias": "close",
+      "classification": "PUBLIC_CANDIDATE",
+      "equivalent_public_operation": null,
+      "reason": "Potential semantic close action; not equivalent to session.close and requires product definition.",
+      "public_promotion": "NOT_REQUESTED"
+    },
+    {
+      "alias": "focus",
+      "classification": "LEGACY_COMPAT",
+      "equivalent_public_operation": "focus",
+      "reason": "Backend compatibility spelling has an exact public equivalent.",
+      "public_promotion": "NOT_REQUESTED"
+    },
+    {
+      "alias": "close_window",
+      "classification": "PUBLIC_CANDIDATE",
+      "equivalent_public_operation": null,
+      "reason": "Per-window close semantics differ from session.close and require a dedicated contract before promotion.",
+      "public_promotion": "NOT_REQUESTED"
+    },
+    {
+      "alias": "hover",
+      "classification": "LEGACY_COMPAT",
+      "equivalent_public_operation": "hover_relative",
+      "reason": "Legacy hover is covered by the public relative-coordinate hover operation.",
+      "public_promotion": "NOT_REQUESTED"
+    },
+    {
+      "alias": "wait_value",
+      "classification": "LEGACY_COMPAT",
+      "equivalent_public_operation": "wait_for_value",
+      "reason": "Legacy wait spelling maps to the public value wait contract.",
+      "public_promotion": "NOT_REQUESTED"
+    }
+  ]
+}

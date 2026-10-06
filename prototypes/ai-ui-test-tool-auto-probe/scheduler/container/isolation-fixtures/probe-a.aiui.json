@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "name": "Container Isolation Probe A",
+  "application": { "command": "/usr/bin/true" },
+  "options": { "semantic_only": true, "stop_on_error": true },
+  "steps": [
+    { "step_id": "runtime-health-a", "op": "get_runtime_health" }
+  ]
+}

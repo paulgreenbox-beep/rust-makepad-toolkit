@@ -1,0 +1,24 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/rudra-runtime",
+    "crates/makepad-toolkit-core",
+    "crates/makepad-toolkit-widgets",
+    "crates/toolkit-windows-automation",
+    "examples/non-office-identity",
+    "examples/toolkit-demos",
+    "prototypes/ai-ui-test-tool",
+]
+exclude = [".deps/makepad"]
+
+[workspace.package]
+edition = "2024"
+license = "MIT"
+version = "0.1.0"
+
+[workspace.dependencies]
+rudra-runtime = { path = "crates/rudra-runtime" }
+makepad-toolkit-core = { path = "crates/makepad-toolkit-core" }
+makepad-toolkit-widgets = { path = "crates/makepad-toolkit-widgets" }
+toolkit-windows-automation = { path = "crates/toolkit-windows-automation" }
+makepad-widgets = { path = ".deps/makepad/widgets", version = "2.0.0" }

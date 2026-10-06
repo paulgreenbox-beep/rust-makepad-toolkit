@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "observers": {
+    "fixture": {
+      "kind": "telemetry_bridge",
+      "enabled": true,
+      "redacted_fields": ["authorization", "password", "secret", "token"]
+    },
+    "ocr.job": {
+      "kind": "http_poll",
+      "endpoint": "ocr_status",
+      "extract": "$.status",
+      "terminal": ["completed", "failed"],
+      "enabled": false,
+      "redacted_fields": ["authorization", "password", "secret", "token"]
+    },
+    "ai.request": {
+      "kind": "telemetry_bridge",
+      "enabled": false,
+      "redacted_fields": ["authorization", "password", "secret", "token"]
+    },
+    "qdrant.query": {
+      "kind": "telemetry_bridge",
+      "enabled": false,
+      "redacted_fields": ["authorization", "password", "secret", "token"]
+    }
+  }
+}

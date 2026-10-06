@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "applications": [
+    {
+      "key": "spatial-demo",
+      "executable": "target/debug/spatial-demo.exe",
+      "max_parallel": 1,
+      "script_command_aliases": [
+        "scheduler-fixture:spatial"
+      ]
+    },
+    {
+      "key": "advanced-demo",
+      "executable": "target/debug/ai-ui-advanced-demo.exe",
+      "max_parallel": 1,
+      "script_command_aliases": [
+        "scheduler-fixture:advanced"
+      ]
+    },
+    {
+      "key": "missing-demo",
+      "executable": "target/debug/scheduler-intentionally-missing.exe",
+      "max_parallel": 1,
+      "script_command_aliases": [
+        "scheduler-fixture:missing"
+      ]
+    }
+  ]
+}

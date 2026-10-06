@@ -1,0 +1,4 @@
+interface:
+  display_name: "Rust Makepad Architecture"
+  short_description: "Keep reusable Rust and Makepad boundaries clean"
+  default_prompt: "Use $rust-makepad-architecture to classify and structure this Rust/Makepad change."

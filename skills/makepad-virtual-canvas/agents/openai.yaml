@@ -1,0 +1,4 @@
+interface:
+  display_name: "Makepad Virtual Canvas"
+  short_description: "Preserve zoom scroll clip and overlay ownership"
+  default_prompt: "Use $makepad-virtual-canvas to implement or review this canvas viewport change."

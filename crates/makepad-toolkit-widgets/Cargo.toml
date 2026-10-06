@@ -1,0 +1,10 @@
+[package]
+name = "makepad-toolkit-widgets"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Makepad widget adapters for the Rust Makepad Toolkit"
+
+[dependencies]
+makepad-toolkit-core.workspace = true
+makepad-widgets.workspace = true

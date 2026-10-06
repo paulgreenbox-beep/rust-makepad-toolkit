@@ -1,0 +1,5 @@
+{
+  "name": "container-isolation-e2e",
+  "tests": ["probe-a.aiui.json", "probe-b.aiui.json"],
+  "tags": ["container", "filesystem-isolation", "environment-isolation"]
+}

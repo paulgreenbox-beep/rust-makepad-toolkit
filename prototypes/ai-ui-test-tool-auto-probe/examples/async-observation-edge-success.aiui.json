@@ -1,0 +1,243 @@
+{
+  "version": 1,
+  "name": "async-observation-edge-success-e2e",
+  "application": {
+    "command": "prototypes/ai-ui-test-tool-auto-probe/target/debug/ai-ui-advanced-demo.exe",
+    "window_title": "AI UI Advanced Makepad Probe",
+    "fixture_async_failure_mode": "success"
+  },
+  "options": {
+    "stop_on_error": true,
+    "evidence_on_failure": true
+  },
+  "tags": [
+    "observation",
+    "async",
+    "edge-coverage",
+    "success"
+  ],
+  "setup": [
+    {
+      "op": "session.open",
+      "save_session_as": "app",
+      "step_id": "open-session"
+    },
+    {
+      "op": "wait_for_automation_id",
+      "session": "app",
+      "id": "/button.async",
+      "timeout_ms": 10000,
+      "step_id": "wait-async-control"
+    },
+    {
+      "op": "screenshot_window",
+      "session": "app",
+      "extract": {
+        "baseline_path": "$.path"
+      },
+      "step_id": "capture-unchanged-baseline"
+    }
+  ],
+  "steps": [
+    {
+      "op": "click",
+      "session": "app",
+      "id": "/button.async",
+      "step_id": "trigger-async"
+    },
+    {
+      "op": "wait_for_task",
+      "session": "app",
+      "operation_id": "fixture.async.workflow",
+      "timeout_ms": 5000,
+      "step_id": "observe-task-published"
+    },
+    {
+      "op": "get_task_state",
+      "session": "app",
+      "operation_id": "fixture.async.workflow",
+      "step_id": "read-published-task-state"
+    },
+    {
+      "op": "get_runtime_milestones",
+      "session": "app",
+      "step_id": "inspect-runtime-milestones"
+    },
+    {
+      "op": "wait_for_api_response",
+      "session": "app",
+      "request_id": "fixture.request.workflow",
+      "timeout_ms": 5000,
+      "step_id": "wait-api-response"
+    },
+    {
+      "op": "wait_for_api_state",
+      "session": "app",
+      "request_id": "fixture.request.workflow",
+      "state": "Completed",
+      "timeout_ms": 5000,
+      "step_id": "wait-api-accepted"
+    },
+    {
+      "op": "assert_api_success",
+      "session": "app",
+      "request_id": "fixture.request.workflow",
+      "step_id": "assert-api-success"
+    },
+    {
+      "op": "wait_for_file",
+      "session": "app",
+      "root": "fixture",
+      "path": "async-output.json",
+      "timeout_ms": 5000,
+      "step_id": "wait-output-file"
+    },
+    {
+      "op": "wait_for_file_stable",
+      "session": "app",
+      "root": "fixture",
+      "path": "async-output.json",
+      "unchanged_for_ms": 250,
+      "timeout_ms": 5000,
+      "step_id": "wait-output-stable"
+    },
+    {
+      "op": "assert_file_not_exists",
+      "session": "app",
+      "root": "fixture",
+      "path": "stale-output.json",
+      "step_id": "assert-no-stale-output"
+    },
+    {
+      "op": "assert_file_size",
+      "session": "app",
+      "root": "fixture",
+      "path": "async-output.json",
+      "expected_bytes": 119,
+      "step_id": "assert-output-size"
+    },
+    {
+      "op": "assert_file_count",
+      "session": "app",
+      "root": "fixture",
+      "path": ".",
+      "pattern": "*.json",
+      "count": 1,
+      "step_id": "assert-output-count"
+    },
+    {
+      "op": "assert_file_hash",
+      "session": "app",
+      "root": "fixture",
+      "path": "async-output.json",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "expect_error": "FILE_HASH_MISMATCH",
+      "step_id": "assert-hash-mismatch-classified"
+    },
+    {
+      "op": "wait_for_task_complete",
+      "session": "app",
+      "operation_id": "fixture.async.workflow",
+      "timeout_ms": 5000,
+      "step_id": "wait-task-complete"
+    },
+    {
+      "op": "assert_task_success",
+      "session": "app",
+      "operation_id": "fixture.async.workflow",
+      "step_id": "assert-task-success"
+    },
+    {
+      "op": "wait_for_log",
+      "session": "app",
+      "contains": "task.completed",
+      "timeout_ms": 2000,
+      "step_id": "wait-completion-log"
+    },
+    {
+      "op": "assert_log_contains",
+      "session": "app",
+      "contains": "deterministic async task completed",
+      "step_id": "assert-completion-log"
+    },
+    {
+      "op": "assert_log_not_contains",
+      "session": "app",
+      "contains": "secret-never-logged",
+      "step_id": "assert-redacted-absent"
+    },
+    {
+      "op": "assert_region_unchanged",
+      "session": "app",
+      "baseline_path": "${baseline_path}",
+      "current_path": "${baseline_path}",
+      "maximum_changed_fraction": 0.0,
+      "step_id": "assert-baseline-unchanged"
+    },
+    {
+      "op": "assert_similarity",
+      "session": "app",
+      "baseline_path": "${baseline_path}",
+      "current_path": "${baseline_path}",
+      "minimum_similarity": 0.999,
+      "step_id": "assert-baseline-similar"
+    },
+    {
+      "op": "compare_screenshot",
+      "session": "app",
+      "baseline_path": "${baseline_path}",
+      "current_path": "${baseline_path}",
+      "minimum_similarity": 0.999,
+      "step_id": "compare-baseline-screenshot"
+    },
+    {
+      "op": "assert_no_phantom_semantic_node",
+      "session": "app",
+      "id": "/missing.test.node",
+      "step_id": "assert-no-phantom-node"
+    },
+    {
+      "op": "get_application_logs",
+      "session": "app",
+      "step_id": "logs"
+    },
+    {
+      "op": "get_runtime_timeline",
+      "session": "app",
+      "step_id": "timeline"
+    },
+    {
+      "op": "get_runtime_health",
+      "session": "app",
+      "step_id": "health"
+    },
+    {
+      "op": "assert_no_pending_task",
+      "session": "app",
+      "step_id": "assert-no-pending-task"
+    },
+    {
+      "op": "windows_export_evidence",
+      "session": "app",
+      "reason": "async-observation-edge-success-e2e",
+      "step_id": "export-evidence"
+    }
+  ],
+  "teardown": [
+    {
+      "op": "assert_no_pending_task",
+      "session": "app",
+      "step_id": "cleanup-no-pending-task"
+    },
+    {
+      "op": "assert_no_stale_window",
+      "session": "app",
+      "step_id": "cleanup-no-stale-window"
+    },
+    {
+      "op": "session.close",
+      "session": "app",
+      "step_id": "close-session"
+    }
+  ]
+}

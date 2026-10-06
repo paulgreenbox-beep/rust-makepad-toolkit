@@ -1,0 +1,19 @@
+[package]
+name = "ai-ui-scheduler"
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+publish = false
+
+[dependencies]
+ai-ui-test-tool-auto-probe = { path = ".." }
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = "1.0.149"
+
+[lib]
+name = "ai_ui_scheduler"
+path = "src/lib.rs"
+
+[[bin]]
+name = "ai-ui-scheduler"
+path = "src/bin/ai-ui-scheduler.rs"

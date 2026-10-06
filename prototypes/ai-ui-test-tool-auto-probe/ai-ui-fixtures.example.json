@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "fixtures": {
+    "credentials.password": {
+      "value": "replace-at-runtime",
+      "secret": true,
+      "description": "Example only. Keep the real file outside source control."
+    },
+    "dropdown_value": {
+      "value": "Known domain value",
+      "secret": false,
+      "description": "Application-approved value; the generator never guesses it."
+    }
+  }
+}

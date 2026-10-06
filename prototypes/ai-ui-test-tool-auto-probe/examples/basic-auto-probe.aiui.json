@@ -1,0 +1,1 @@
+{"version":1,"name":"basic-auto-probe","application":{"command":"target/debug/ai-ui-auto-probe-demo.exe"},"options":{"stop_on_error":true,"evidence_on_failure":true},"steps":[{"op":"session.open","save_session_as":"app"},{"op":"inspect_ui","session":"app","save_as":"tree"}],"teardown":[{"op":"session.close","session":"app"}]}

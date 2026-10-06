@@ -1,0 +1,234 @@
+{
+  "version": 1,
+  "name": "async-observation-success-e2e",
+  "application": {
+    "command": "prototypes/ai-ui-test-tool-auto-probe/target/debug/ai-ui-advanced-demo.exe",
+    "window_title": "AI UI Advanced Makepad Probe",
+    "fixture_async_failure_mode": "success"
+  },
+  "options": {
+    "stop_on_error": true,
+    "evidence_on_failure": true
+  },
+  "tags": [
+    "observation",
+    "async",
+    "success",
+    "e2e"
+  ],
+  "setup": [
+    {
+      "op": "session.open",
+      "save_session_as": "app",
+      "step_id": "open-session"
+    },
+    {
+      "op": "wait_for_automation_id",
+      "session": "app",
+      "id": "/button.async",
+      "timeout_ms": 10000,
+      "step_id": "wait-async-control"
+    },
+    {
+      "op": "screenshot_window",
+      "session": "app",
+      "extract": {
+        "baseline_path": "$.path"
+      },
+      "step_id": "capture-baseline"
+    },
+    {
+      "op": "get_runtime_timeline",
+      "session": "app",
+      "when": {
+        "var": "baseline_path",
+        "exists": true
+      },
+      "step_id": "conditional-baseline-timeline"
+    }
+  ],
+  "steps": [
+    {
+      "op": "click",
+      "session": "app",
+      "id": "/button.async",
+      "step_id": "trigger-async"
+    },
+    {
+      "op": "wait_for_task_state",
+      "session": "app",
+      "operation_id": "fixture.async.workflow",
+      "state": "WaitingExternal",
+      "timeout_ms": 5000,
+      "extract": {
+        "waiting_task_state": "$.last_observation.task.state"
+      },
+      "step_id": "wait-task-external"
+    },
+    {
+      "op": "wait_for_runtime_milestone",
+      "session": "app",
+      "name": "external.wait_response",
+      "timeout_ms": 5000,
+      "step_id": "wait-external-milestone"
+    },
+    {
+      "op": "wait_for_api_state",
+      "session": "app",
+      "request_id": "fixture.request.workflow",
+      "state": "WaitingResponse",
+      "timeout_ms": 5000,
+      "step_id": "wait-api-response-state"
+    },
+    {
+      "op": "get_api_request_state",
+      "session": "app",
+      "request_id": "fixture.request.workflow",
+      "when": {
+        "var": "waiting_task_state",
+        "equals": "WaitingExternal"
+      },
+      "step_id": "conditional-api-inspect"
+    },
+    {
+      "op": "wait_for_api_response",
+      "session": "app",
+      "request_id": "fixture.request.workflow",
+      "timeout_ms": 5000,
+      "step_id": "wait-api-response"
+    },
+    {
+      "op": "wait_for_api_state",
+      "session": "app",
+      "request_id": "fixture.request.workflow",
+      "state": "Completed",
+      "timeout_ms": 5000,
+      "step_id": "wait-api-application-accepted"
+    },
+    {
+      "op": "assert_api_success",
+      "session": "app",
+      "request_id": "fixture.request.workflow",
+      "step_id": "assert-api-success"
+    },
+    {
+      "op": "wait_for_file",
+      "session": "app",
+      "root": "fixture",
+      "path": "async-output.json",
+      "timeout_ms": 5000,
+      "step_id": "wait-output-file"
+    },
+    {
+      "op": "wait_for_file_stable",
+      "session": "app",
+      "root": "fixture",
+      "path": "async-output.json",
+      "unchanged_for_ms": 250,
+      "timeout_ms": 5000,
+      "step_id": "wait-output-stable"
+    },
+    {
+      "op": "assert_file_exists",
+      "session": "app",
+      "root": "fixture",
+      "path": "async-output.json",
+      "step_id": "assert-output-file"
+    },
+    {
+      "session": "app",
+      "step_id": "repeat-task-completed",
+      "repeat_until": {
+        "observation": {
+          "task": "fixture.async.workflow",
+          "state_in": [
+            "Completed"
+          ]
+        },
+        "timeout_ms": 5000,
+        "max_iterations": 100,
+        "interval_ms": 25
+      }
+    },
+    {
+      "op": "assert_task_success",
+      "session": "app",
+      "operation_id": "fixture.async.workflow",
+      "step_id": "assert-task-success"
+    },
+    {
+      "op": "wait_visible",
+      "session": "app",
+      "id": "/async.result",
+      "timeout_ms": 3000,
+      "step_id": "wait-result-visible"
+    },
+    {
+      "op": "assert_region_changed",
+      "session": "app",
+      "baseline_path": "${baseline_path}",
+      "minimum_changed_fraction": 0.001,
+      "step_id": "assert-visual-change"
+    },
+    {
+      "op": "assert_not_blank",
+      "session": "app",
+      "minimum_variance": 1,
+      "step_id": "assert-not-blank"
+    },
+    {
+      "op": "get_makepad_visual_diagnostics",
+      "session": "app",
+      "step_id": "visual-diagnostics"
+    },
+    {
+      "op": "assert_trace_event",
+      "session": "app",
+      "event": "task.completed",
+      "step_id": "assert-completion-trace"
+    },
+    {
+      "op": "assert_no_pending_task",
+      "session": "app",
+      "step_id": "assert-no-pending-task"
+    },
+    {
+      "op": "get_runtime_timeline",
+      "session": "app",
+      "step_id": "timeline"
+    },
+    {
+      "op": "get_application_logs",
+      "session": "app",
+      "step_id": "logs"
+    },
+    {
+      "op": "get_runtime_health",
+      "session": "app",
+      "step_id": "health"
+    },
+    {
+      "op": "windows_export_evidence",
+      "session": "app",
+      "reason": "async-observation-success",
+      "step_id": "export-evidence"
+    }
+  ],
+  "teardown": [
+    {
+      "op": "assert_no_pending_task",
+      "session": "app",
+      "step_id": "cleanup-no-pending-task"
+    },
+    {
+      "op": "assert_no_stale_window",
+      "session": "app",
+      "step_id": "cleanup-no-stale-window"
+    },
+    {
+      "op": "session.close",
+      "session": "app",
+      "step_id": "close-session"
+    }
+  ]
+}

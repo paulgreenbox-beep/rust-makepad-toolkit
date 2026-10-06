@@ -1,0 +1,16 @@
+[
+  {
+    "intent": "Verify the safe create action remains available",
+    "target": "demo.create",
+    "template": "button.invoke",
+    "operation": "click",
+    "reason": "The deterministic baseline has no business postcondition",
+    "dynamic": false,
+    "approval_fixture": false,
+    "parameters": {
+      "postcondition": {
+        "automation_id_visible": "demo.result"
+      }
+    }
+  }
+]

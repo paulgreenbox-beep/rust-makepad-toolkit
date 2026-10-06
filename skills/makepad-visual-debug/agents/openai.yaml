@@ -1,0 +1,4 @@
+interface:
+  display_name: "Makepad Visual Debug"
+  short_description: "Trace invisible or misplaced Makepad rendering"
+  default_prompt: "Use $makepad-visual-debug to find the first invalid stage in this UI rendering path."

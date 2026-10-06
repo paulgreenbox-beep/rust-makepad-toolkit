@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "name": "Local Environment Probe",
+  "application": {
+    "command": "scheduler-fixture:local-environment-probe",
+    "window_title": "AI UI Spatial Demo"
+  },
+  "options": {
+    "semantic_only": true,
+    "stop_on_error": true
+  },
+  "steps": [
+    {
+      "step_id": "open",
+      "op": "session.open",
+      "save_session_as": "app"
+    },
+    {
+      "step_id": "runtime-health",
+      "op": "get_runtime_health",
+      "session": "app"
+    }
+  ],
+  "teardown": [
+    {
+      "step_id": "close",
+      "op": "session.close",
+      "session": "app"
+    }
+  ]
+}

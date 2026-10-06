@@ -1,0 +1,166 @@
+{
+  "schema_version": "ai-ui-stability-remediation-plan/v1",
+  "baseline_sources": [
+    "FUNCTIONAL_AUDIT.md",
+    "STABILITY_REPORT.md",
+    "capability-audit.json",
+    "stability-report.json"
+  ],
+  "baseline": {
+    "audit_generated_at_utc": "2026-08-22T11:02:07.0909854Z",
+    "public_operations": 67,
+    "real_windows_e2e_present": 46,
+    "real_windows_e2e_missing": 21,
+    "verified_stable": 5,
+    "verified_but_flaky": 0,
+    "desktop_status": "BLOCKED_BY_USER_DESKTOP",
+    "desktop_blocker": "One user-owned Glyf physical runner is active; the remediation harness must not stop or compete with it."
+  },
+  "catalog_drift": {
+    "detected_at_utc": "2026-08-22T11:21:31.7032946Z",
+    "audit_public_operations": 67,
+    "current_public_operations": 68,
+    "current_only_operations": ["focus"],
+    "current_real_windows_e2e_missing_or_unclassified": 22,
+    "policy": "focus was not added by this remediation. It must receive the same public API, E2E, cleanup, evidence, scheduler, and stability classification before the final gate can pass."
+  },
+  "mandatory_regression_gates": [
+    { "id": "P0-001", "gate": "pointer/session gesture cleanup" },
+    { "id": "P1-001", "gate": "public scroll.delta" },
+    { "id": "P1-002", "gate": "scroll_to_start/end physical scheduler classification" },
+    { "id": "P1-003", "gate": "public drag/drag_to arguments" },
+    { "id": "P1-004", "gate": "scroll/ensure_visible focus and convergence" },
+    { "id": "P1-005", "gate": "relative drag/select absolute input delivery" }
+  ],
+  "categories": {
+    "A": {
+      "name": "Real-Windows E2E gaps",
+      "status": "PREPARED_STATIC_VALIDATED_PENDING_FRESH_WINDOWS_E2E",
+      "prepared_artifacts": [
+        "reports/stability-audit-v1/scripts/remediation/remediation-suite.json",
+        "reports/stability-audit-v1/scripts/remediation/run-remediation-e2e.ps1"
+      ],
+      "note": "A prior run used binaries that predated the latest failure-hook remediation build and is intentionally not treated as fresh proof.",
+      "applicable_operations": [
+        "session.list",
+        "inspect_semantic",
+        "toggle",
+        "choose",
+        "add_to_selection",
+        "remove_from_selection",
+        "clear_selection",
+        "wait_for_automation_id",
+        "wait_until",
+        "wait_enabled",
+        "wait_disabled",
+        "wait_selected",
+        "wait_count",
+        "wait_idle",
+        "wheel_relative",
+        "drag",
+        "drag_to",
+        "hotkey",
+        "type_text",
+        "focus",
+        "windows_capture_region",
+        "windows_validate_evidence"
+      ],
+      "grouped_suites": [
+        "session-discovery",
+        "selection-toggle-choose",
+        "wait-assert",
+        "keyboard",
+        "capture-evidence",
+        "spatial-physical",
+        "negative-contract"
+      ],
+      "required_proof": [
+        "public Script API call",
+        "observable result",
+        "runtime health",
+        "cleanup",
+        "evidence"
+      ],
+      "audit_model_change": {
+        "e2e_status": ["NOT_TESTED", "PASSED", "FAILED"],
+        "stability_status": ["UNVERIFIED", "SINGLE_RUN_VERIFIED", "VERIFIED_STABLE", "VERIFIED_BUT_FLAKY"]
+      }
+    },
+    "B": {
+      "name": "Physical repeat-soak gaps",
+      "status": "PREPARED_STATIC_VALIDATED_PENDING_USER_DESKTOP",
+      "prepared_artifacts": [
+        "reports/stability-audit-v1/scripts/soak/physical-soak-suite.json",
+        "reports/stability-audit-v1/scripts/soak/run-physical-soak.ps1"
+      ],
+      "note": "The harness enforces 30 runs per scenario and 50 runs per critical scenario before it emits the soak-passed marker.",
+      "minimum_iterations_per_critical_operation": 30,
+      "preferred_iterations_for_drag_selection_scroll_input": 50,
+      "operations": [
+        "click", "double_click", "right_click", "select", "select_many", "select_range",
+        "scroll", "scroll_to_start", "scroll_to_end", "ensure_visible", "move_pointer",
+        "pointer_down", "pointer_up", "click_relative", "double_click_relative",
+        "right_click_relative", "hover_relative", "wheel_relative", "drag", "drag_to",
+        "drag_relative", "select_region", "hotkey", "press", "type_text",
+        "activate_window", "windows_set_window_bounds"
+      ],
+      "preflight": ["desktop availability", "no user-owned GUI runner", "cleanup state empty"],
+      "required_metrics": ["attempts", "pass", "fail", "flaky", "duration min/mean/p95/max", "error codes"]
+    },
+    "C": {
+      "name": "Failure-injection gaps",
+      "status": "PREPARED_STATIC_VALIDATED_PENDING_FRESH_WINDOWS_E2E",
+      "prepared_artifacts": [
+        "reports/stability-audit-v1/scripts/failure-injection/failure-injection-suite.json",
+        "reports/stability-audit-v1/scripts/failure-injection/run-failure-injection-e2e.ps1"
+      ],
+      "note": "The initial run occurred before the final isolated binaries were rebuilt and is retained only as invalidated diagnostic evidence.",
+      "scenarios": [
+        "crash before action",
+        "crash during drag",
+        "window disappears during wait/action",
+        "evidence capture failure preserving the primary action error",
+        "real-Windows timeout with healthy runtime and cleanup"
+      ],
+      "required_checks": ["specific classification", "evidence", "cleanup", "no orphan", "no stuck pointer/modifier", "no stale lease/resource"]
+    },
+    "D": {
+      "name": "Windows Scheduler E2E gap",
+      "status": "PREPARED_STATIC_VALIDATED_PENDING_USER_DESKTOP",
+      "prepared_artifacts": [
+        "reports/stability-audit-v1/scripts/scheduler/validate-windows-scheduler-e2e.ps1",
+        "reports/stability-audit-v1/scripts/scheduler/run-windows-scheduler-e2e.ps1"
+      ],
+      "note": "Scheduler library tests passed locally; real verify-windows remains withheld until the user-owned desktop runner is absent.",
+      "work": ["portable fixture resolution", "clean isolated Cargo target execution", "semantic parallelism proof", "serialized physical jobs proof", "no leaked desktop leases", "no orphan apps"]
+    },
+    "E": {
+      "name": "Generator classification gaps",
+      "status": "COMPLETED_PENDING_CANONICAL_SYNC",
+      "work": ["classify every public operation as GENERATOR_REQUIRED, GENERATOR_OPTIONAL, INFRASTRUCTURE_ONLY, or NEGATIVE_ONLY", "add templates only where GENERATOR_REQUIRED is useful"]
+    },
+    "F": {
+      "name": "Backend alias classification gaps",
+      "status": "COMPLETED_PENDING_CANONICAL_SYNC",
+      "work": ["classify each backend-only alias as PUBLIC_CANDIDATE, PRIVATE_INTERNAL, LEGACY_COMPAT, or DEPRECATED", "write backend-alias-classification.json", "do not promote aliases automatically"]
+    },
+    "G": {
+      "name": "Documentation gaps",
+      "status": "COMPLETED_PENDING_CANONICAL_SYNC",
+      "work": ["generate OPERATION_REFERENCE.md from operations.json", "include name, purpose, required args, physical input, idempotency, coverage/category, and example skeleton", "retain operations.json as source of truth"]
+    }
+  },
+  "release_gate": {
+    "status": "WITHHELD",
+    "criteria": [
+      "all public operations classified",
+      "all applicable public operations have real Windows E2E",
+      "critical physical operations pass repeat soak",
+      "no flaky critical operations",
+      "required failure injections pass",
+      "Windows Scheduler E2E passes",
+      "cleanup and capability consistency gates pass",
+      "P0/P1 open count is zero"
+    ]
+  }
+}

@@ -1,0 +1,1266 @@
+{
+  "version": 1,
+  "operations": [
+    {
+      "name": "session.open",
+      "required": [],
+      "idempotency": "unknown",
+      "coverage": "discovery"
+    },
+    {
+      "name": "session.list",
+      "required": [],
+      "idempotency": "idempotent"
+    },
+    {
+      "name": "session.close",
+      "required": [
+        "session_id"
+      ],
+      "idempotency": "idempotent"
+    },
+    {
+      "name": "acquire_input_lock",
+      "required": [
+        "session_id"
+      ],
+      "idempotency": "unknown"
+    },
+    {
+      "name": "release_input_lock",
+      "required": [
+        "session_id",
+        "token"
+      ],
+      "idempotency": "idempotent"
+    },
+    {
+      "name": "inspect_ui",
+      "required": [],
+      "idempotency": "idempotent",
+      "coverage": "discovery"
+    },
+    {
+      "name": "inspect_semantic",
+      "required": [],
+      "idempotency": "idempotent",
+      "coverage": "discovery"
+    },
+    {
+      "name": "inspect_spatial_target",
+      "required": [
+        "id"
+      ],
+      "idempotency": "idempotent",
+      "target": true,
+      "spatial": true,
+      "capability": "spatial.inspect",
+      "coverage": "spatial"
+    },
+    {
+      "name": "read",
+      "required": [
+        "id"
+      ],
+      "idempotency": "idempotent",
+      "target": true,
+      "coverage": "discovery"
+    },
+    {
+      "name": "set_value",
+      "required": [
+        "id",
+        "value"
+      ],
+      "physical_input": false,
+      "mutation": true,
+      "target": true,
+      "capability": "value",
+      "coverage": "interaction"
+    },
+    {
+      "name": "input",
+      "required": [
+        "id",
+        "text"
+      ],
+      "physical_input": true,
+      "mutation": true,
+      "target": true,
+      "capability": "value",
+      "coverage": "interaction"
+    },
+    {
+      "name": "click",
+      "required": [
+        "id"
+      ],
+      "physical_input": true,
+      "mutation": true,
+      "target": true,
+      "capability": "invoke",
+      "coverage": "interaction"
+    },
+    {
+      "name": "focus",
+      "required": [
+        "id"
+      ],
+      "physical_input": true,
+      "mutation": true,
+      "target": true,
+      "capability": "focus",
+      "coverage": "interaction"
+    },
+    {
+      "name": "double_click",
+      "required": [
+        "id"
+      ],
+      "physical_input": true,
+      "mutation": true,
+      "target": true,
+      "capability": "invoke",
+      "coverage": "interaction"
+    },
+    {
+      "name": "right_click",
+      "required": [
+        "id"
+      ],
+      "physical_input": true,
+      "mutation": true,
+      "target": true,
+      "capability": "context",
+      "coverage": "interaction"
+    },
+    {
+      "name": "toggle",
+      "required": [
+        "id"
+      ],
+      "mutation": true,
+      "target": true,
+      "capability": "select",
+      "coverage": "interaction"
+    },
+    {
+      "name": "choose",
+      "required": [
+        "id",
+        "value"
+      ],
+      "mutation": true,
+      "target": true,
+      "capability": "value",
+      "coverage": "interaction"
+    },
+    {
+      "name": "select",
+      "required": [
+        "id"
+      ],
+      "physical_input": true,
+      "mutation": true,
+      "target": true,
+      "capability": "select",
+      "coverage": "interaction"
+    },
+    {
+      "name": "add_to_selection",
+      "required": [
+        "id"
+      ],
+      "physical_input": true,
+      "mutation": true,
+      "target": true,
+      "capability": "select.multiple",
+      "coverage": "interaction"
+    },
+    {
+      "name": "remove_from_selection",
+      "required": [
+        "id"
+      ],
+      "physical_input": true,
+      "mutation": true,
+      "target": true,
+      "capability": "select.multiple",
+      "coverage": "interaction"
+    },
+    {
+      "name": "clear_selection",
+      "required": [],
+      "mutation": true,
+      "capability": "select.multiple",
+      "coverage": "interaction"
+    },
+    {
+      "name": "select_many",
+      "required": [
+        "ids"
+      ],
+      "physical_input": true,
+      "mutation": true,
+      "capability": "select.multiple",
+      "coverage": "interaction"
+    },
+    {
+      "name": "select_range",
+      "required": [
+        "start_id",
+        "end_id"
+      ],
+      "physical_input": true,
+      "mutation": true,
+      "capability": "select.range",
+      "coverage": "interaction"
+    },
+    {
+      "name": "ensure_visible",
+      "required": [
+        "id"
+      ],
+      "physical_input": true,
+      "target": true,
+      "capability": "scroll",
+      "coverage": "interaction"
+    },
+    {
+      "name": "scroll",
+      "required": [
+        "id",
+        "delta"
+      ],
+      "physical_input": true,
+      "mutation": true,
+      "target": true,
+      "capability": "scroll",
+      "coverage": "interaction"
+    },
+    {
+      "name": "scroll_to_start",
+      "required": [
+        "id"
+      ],
+      "physical_input": true,
+      "mutation": true,
+      "target": true,
+      "capability": "scroll",
+      "coverage": "interaction"
+    },
+    {
+      "name": "scroll_to_end",
+      "required": [
+        "id"
+      ],
+      "physical_input": true,
+      "mutation": true,
+      "target": true,
+      "capability": "scroll",
+      "coverage": "interaction"
+    },
+    {
+      "name": "wait_for_automation_id",
+      "required": [
+        "id"
+      ],
+      "wait": true,
+      "target": true,
+      "coverage": "discovery"
+    },
+    {
+      "name": "wait_for_value",
+      "required": [
+        "id",
+        "value"
+      ],
+      "wait": true,
+      "verification": true,
+      "target": true,
+      "capability": "value",
+      "coverage": "verification"
+    },
+    {
+      "name": "wait_for_state",
+      "required": [
+        "id",
+        "state"
+      ],
+      "wait": true,
+      "verification": true,
+      "target": true,
+      "coverage": "verification"
+    },
+    {
+      "name": "wait_until",
+      "required": [
+        "condition"
+      ],
+      "wait": true,
+      "verification": true,
+      "coverage": "verification"
+    },
+    {
+      "name": "wait_visible",
+      "required": [
+        "id"
+      ],
+      "wait": true,
+      "verification": true,
+      "target": true,
+      "coverage": "verification"
+    },
+    {
+      "name": "wait_hidden",
+      "required": [
+        "id"
+      ],
+      "wait": true,
+      "verification": true,
+      "target": true,
+      "coverage": "verification"
+    },
+    {
+      "name": "wait_enabled",
+      "required": [
+        "id"
+      ],
+      "wait": true,
+      "verification": true,
+      "target": true,
+      "coverage": "verification"
+    },
+    {
+      "name": "wait_disabled",
+      "required": [
+        "id"
+      ],
+      "wait": true,
+      "verification": true,
+      "target": true,
+      "coverage": "verification"
+    },
+    {
+      "name": "wait_selected",
+      "required": [
+        "id"
+      ],
+      "wait": true,
+      "verification": true,
+      "target": true,
+      "capability": "select",
+      "coverage": "verification"
+    },
+    {
+      "name": "wait_count",
+      "required": [
+        "id",
+        "count"
+      ],
+      "wait": true,
+      "verification": true,
+      "target": true,
+      "coverage": "verification"
+    },
+    {
+      "name": "wait_idle",
+      "required": [],
+      "wait": true,
+      "verification": true,
+      "coverage": "stability"
+    },
+    {
+      "name": "assert_visible",
+      "required": [
+        "id"
+      ],
+      "assertion": true,
+      "verification": true,
+      "target": true,
+      "coverage": "verification"
+    },
+    {
+      "name": "assert_interactable",
+      "required": [
+        "id"
+      ],
+      "assertion": true,
+      "verification": true,
+      "target": true,
+      "coverage": "verification"
+    },
+    {
+      "name": "assert_valid_bounds",
+      "required": [
+        "id"
+      ],
+      "assertion": true,
+      "verification": true,
+      "target": true,
+      "coverage": "verification"
+    },
+    {
+      "name": "assert_canvas_healthy",
+      "required": [
+        "id"
+      ],
+      "assertion": true,
+      "verification": true,
+      "target": true,
+      "spatial": true,
+      "capability": "spatial.health",
+      "coverage": "spatial"
+    },
+    {
+      "name": "get_canvas_health",
+      "required": [
+        "id"
+      ],
+      "idempotency": "idempotent",
+      "target": true,
+      "spatial": true,
+      "capability": "spatial.health",
+      "coverage": "spatial"
+    },
+    {
+      "name": "move_pointer",
+      "required": [
+        "id",
+        "position"
+      ],
+      "physical_input": true,
+      "target": true,
+      "spatial": true,
+      "capability": "spatial.hover",
+      "coverage": "spatial"
+    },
+    {
+      "name": "pointer_down",
+      "required": [
+        "id",
+        "position"
+      ],
+      "physical_input": true,
+      "mutation": true,
+      "target": true,
+      "spatial": true,
+      "capability": "spatial.pointer",
+      "coverage": "spatial"
+    },
+    {
+      "name": "pointer_up",
+      "required": [
+        "button"
+      ],
+      "physical_input": true,
+      "mutation": true,
+      "spatial": true,
+      "capability": "spatial.pointer",
+      "coverage": "spatial"
+    },
+    {
+      "name": "click_relative",
+      "required": [
+        "id",
+        "position"
+      ],
+      "physical_input": true,
+      "mutation": true,
+      "target": true,
+      "spatial": true,
+      "capability": "spatial.click",
+      "coverage": "spatial"
+    },
+    {
+      "name": "double_click_relative",
+      "required": [
+        "id",
+        "position"
+      ],
+      "physical_input": true,
+      "mutation": true,
+      "target": true,
+      "spatial": true,
+      "capability": "spatial.click",
+      "coverage": "spatial"
+    },
+    {
+      "name": "right_click_relative",
+      "required": [
+        "id",
+        "position"
+      ],
+      "physical_input": true,
+      "mutation": true,
+      "target": true,
+      "spatial": true,
+      "capability": "spatial.context",
+      "coverage": "spatial"
+    },
+    {
+      "name": "hover_relative",
+      "required": [
+        "id",
+        "position"
+      ],
+      "physical_input": true,
+      "target": true,
+      "spatial": true,
+      "capability": "spatial.hover",
+      "coverage": "spatial"
+    },
+    {
+      "name": "wheel_relative",
+      "required": [
+        "id",
+        "position",
+        "delta_y"
+      ],
+      "physical_input": true,
+      "mutation": true,
+      "target": true,
+      "spatial": true,
+      "capability": "spatial.scroll",
+      "coverage": "spatial"
+    },
+    {
+      "name": "drag",
+      "required": [
+        "id",
+        "to"
+      ],
+      "physical_input": true,
+      "mutation": true,
+      "target": true,
+      "capability": "drag",
+      "coverage": "interaction"
+    },
+    {
+      "name": "drag_to",
+      "required": [
+        "id",
+        "target_id"
+      ],
+      "physical_input": true,
+      "mutation": true,
+      "target": true,
+      "capability": "drag",
+      "coverage": "interaction"
+    },
+    {
+      "name": "drag_relative",
+      "required": [
+        "id",
+        "from",
+        "to"
+      ],
+      "optional": [
+        "button"
+      ],
+      "physical_input": true,
+      "mutation": true,
+      "target": true,
+      "spatial": true,
+      "capability": "spatial.drag",
+      "coverage": "spatial"
+    },
+    {
+      "name": "select_region",
+      "required": [
+        "id",
+        "from",
+        "to"
+      ],
+      "physical_input": true,
+      "mutation": true,
+      "target": true,
+      "spatial": true,
+      "capability": "spatial.select_region",
+      "coverage": "spatial"
+    },
+    {
+      "name": "hotkey",
+      "required": [
+        "keys"
+      ],
+      "physical_input": true,
+      "mutation": true,
+      "coverage": "interaction"
+    },
+    {
+      "name": "press",
+      "required": [
+        "key"
+      ],
+      "physical_input": true,
+      "mutation": true,
+      "coverage": "interaction"
+    },
+    {
+      "name": "press_repeat",
+      "required": [
+        "key",
+        "count"
+      ],
+      "physical_input": true,
+      "mutation": true,
+      "coverage": "interaction"
+    },    {
+      "name": "type_text",
+      "required": [
+        "text"
+      ],
+      "physical_input": true,
+      "mutation": true,
+      "coverage": "interaction"
+    },
+    {
+      "name": "activate_window",
+      "required": [],
+      "physical_input": true,
+      "mutation": true,
+      "coverage": "stability"
+    },
+    {
+      "name": "windows_set_window_bounds",
+      "required": [
+        "width",
+        "height"
+      ],
+      "physical_input": false,
+      "mutation": true,
+      "scheduler_classification": "semantic",
+      "coverage": "stability"
+    },
+    {
+      "name": "inspect_window_interaction",
+      "required": [],
+      "idempotency": "idempotent",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "verification": true,
+      "coverage": "stability",
+      "capability": "window.interaction"
+    },
+    {
+      "name": "windows_drag_title",
+      "required": [
+        "delta_x",
+        "delta_y"
+      ],
+      "physical_input": true,
+      "scheduler_classification": "windows.interactive_desktop",
+      "mutation": true,
+      "verification": true,
+      "evidence": true,
+      "coverage": "stability",
+      "capability": "window.move"
+    },
+    {
+      "name": "windows_resize_frame",
+      "required": [
+        "target"
+      ],
+      "physical_input": true,
+      "scheduler_classification": "windows.interactive_desktop",
+      "mutation": true,
+      "verification": true,
+      "evidence": true,
+      "coverage": "stability",
+      "capability": "window.resize"
+    },
+    {
+      "name": "windows_double_click_title",
+      "required": [],
+      "physical_input": true,
+      "scheduler_classification": "windows.interactive_desktop",
+      "mutation": true,
+      "verification": true,
+      "evidence": true,
+      "coverage": "stability",
+      "capability": "window.state"
+    },
+    {
+      "name": "windows_set_window_state",
+      "required": [
+        "state"
+      ],
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "mutation": true,
+      "verification": true,
+      "coverage": "stability",
+      "capability": "window.state"
+    },    {
+      "name": "screenshot_window",
+      "required": [],
+      "idempotency": "idempotent",
+      "evidence": true
+    },
+    {
+      "name": "screenshot_element",
+      "required": [
+        "id"
+      ],
+      "idempotency": "idempotent",
+      "target": true,
+      "evidence": true
+    },
+    {
+      "name": "capture_region",
+      "required": [
+        "id",
+        "region"
+      ],
+      "idempotency": "idempotent",
+      "target": true,
+      "spatial": true,
+      "capability": "spatial.capture",
+      "coverage": "spatial"
+    },
+    {
+      "name": "windows_capture_region",
+      "required": [
+        "id",
+        "region"
+      ],
+      "idempotency": "idempotent",
+      "target": true,
+      "spatial": true,
+      "capability": "spatial.capture",
+      "coverage": "spatial"
+    },
+    {
+      "name": "get_runtime_health",
+      "required": [],
+      "idempotency": "idempotent",
+      "verification": true,
+      "coverage": "stability"
+    },
+    {
+      "name": "get_runtime_stderr",
+      "required": [],
+      "idempotency": "idempotent",
+      "evidence": true
+    },
+    {
+      "name": "windows_export_evidence",
+      "required": [],
+      "evidence": true
+    },
+    {
+      "name": "windows_validate_evidence",
+      "required": [
+        "bundle"
+      ],
+      "validation": true,
+      "verification": true
+    },
+    {
+      "name": "get_task_state",
+      "required": [
+        "operation_id"
+      ],
+      "idempotency": "idempotent",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "verification": true,
+      "coverage": "verification",
+      "capability": "runtime.task"
+    },
+    {
+      "name": "wait_for_task",
+      "required": [
+        "operation_id"
+      ],
+      "idempotency": "idempotent",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "verification": true,
+      "coverage": "verification",
+      "wait": true,
+      "capability": "runtime.task"
+    },
+    {
+      "name": "wait_for_task_state",
+      "required": [
+        "operation_id",
+        "state"
+      ],
+      "idempotency": "idempotent",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "verification": true,
+      "coverage": "verification",
+      "wait": true,
+      "capability": "runtime.task"
+    },
+    {
+      "name": "wait_for_task_complete",
+      "required": [
+        "operation_id"
+      ],
+      "idempotency": "idempotent",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "verification": true,
+      "coverage": "verification",
+      "wait": true,
+      "capability": "runtime.task"
+    },
+    {
+      "name": "assert_task_success",
+      "required": [
+        "operation_id"
+      ],
+      "idempotency": "idempotent",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "verification": true,
+      "coverage": "verification",
+      "assertion": true,
+      "capability": "runtime.task"
+    },
+    {
+      "name": "get_runtime_milestones",
+      "required": [],
+      "idempotency": "idempotent",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "verification": true,
+      "coverage": "stability",
+      "capability": "runtime.milestone"
+    },
+    {
+      "name": "wait_for_runtime_milestone",
+      "required": [
+        "name"
+      ],
+      "idempotency": "idempotent",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "verification": true,
+      "coverage": "verification",
+      "wait": true,
+      "capability": "runtime.milestone"
+    },
+    {
+      "name": "assert_runtime_milestone",
+      "required": [
+        "name"
+      ],
+      "idempotency": "idempotent",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "verification": true,
+      "coverage": "verification",
+      "assertion": true,
+      "capability": "runtime.milestone"
+    },
+    {
+      "name": "get_runtime_timeline",
+      "required": [],
+      "idempotency": "idempotent",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "verification": true,
+      "coverage": "stability",
+      "capability": "runtime.milestone",
+      "evidence": true
+    },
+    {
+      "name": "get_api_request_state",
+      "required": [
+        "request_id"
+      ],
+      "idempotency": "idempotent",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "verification": true,
+      "coverage": "verification",
+      "capability": "external.request"
+    },
+    {
+      "name": "wait_for_api_state",
+      "required": [
+        "request_id",
+        "state"
+      ],
+      "idempotency": "idempotent",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "verification": true,
+      "coverage": "verification",
+      "wait": true,
+      "capability": "external.request"
+    },
+    {
+      "name": "wait_for_api_response",
+      "required": [
+        "request_id"
+      ],
+      "idempotency": "idempotent",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "verification": true,
+      "coverage": "verification",
+      "wait": true,
+      "capability": "external.request"
+    },
+    {
+      "name": "assert_api_success",
+      "required": [
+        "request_id"
+      ],
+      "idempotency": "idempotent",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "verification": true,
+      "coverage": "verification",
+      "assertion": true,
+      "capability": "external.request"
+    },
+    {
+      "name": "assert_api_failure",
+      "required": [
+        "request_id"
+      ],
+      "idempotency": "idempotent",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "verification": true,
+      "coverage": "verification",
+      "assertion": true,
+      "capability": "external.request"
+    },
+    {
+      "name": "wait_for_file",
+      "required": [
+        "root",
+        "path"
+      ],
+      "idempotency": "idempotent",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "verification": true,
+      "coverage": "verification",
+      "wait": true,
+      "capability": "file.postcondition",
+      "evidence": true
+    },
+    {
+      "name": "assert_file_exists",
+      "required": [
+        "root",
+        "path"
+      ],
+      "idempotency": "idempotent",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "verification": true,
+      "coverage": "verification",
+      "assertion": true,
+      "capability": "file.postcondition",
+      "evidence": true
+    },
+    {
+      "name": "assert_file_not_exists",
+      "required": [
+        "root",
+        "path"
+      ],
+      "idempotency": "idempotent",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "verification": true,
+      "coverage": "verification",
+      "assertion": true,
+      "capability": "file.postcondition"
+    },
+    {
+      "name": "assert_file_size",
+      "required": [
+        "root",
+        "path",
+        "expected_bytes"
+      ],
+      "idempotency": "idempotent",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "verification": true,
+      "coverage": "verification",
+      "assertion": true,
+      "capability": "file.postcondition",
+      "evidence": true
+    },
+    {
+      "name": "assert_file_count",
+      "required": [
+        "root",
+        "path",
+        "count"
+      ],
+      "idempotency": "idempotent",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "verification": true,
+      "coverage": "verification",
+      "assertion": true,
+      "capability": "file.postcondition"
+    },
+    {
+      "name": "assert_file_hash",
+      "required": [
+        "root",
+        "path",
+        "sha256"
+      ],
+      "idempotency": "idempotent",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "verification": true,
+      "coverage": "verification",
+      "assertion": true,
+      "capability": "file.postcondition",
+      "evidence": true
+    },
+    {
+      "name": "wait_for_file_stable",
+      "required": [
+        "root",
+        "path"
+      ],
+      "idempotency": "idempotent",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "verification": true,
+      "coverage": "verification",
+      "wait": true,
+      "capability": "file.postcondition",
+      "evidence": true
+    },
+    {
+      "name": "assert_not_blank",
+      "required": [],
+      "idempotency": "idempotent",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "verification": true,
+      "coverage": "verification",
+      "assertion": true,
+      "capability": "visual.assertion",
+      "evidence": true
+    },
+    {
+      "name": "assert_region_changed",
+      "required": [
+        "baseline_path"
+      ],
+      "idempotency": "idempotent",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "verification": true,
+      "coverage": "verification",
+      "assertion": true,
+      "capability": "visual.assertion",
+      "evidence": true
+    },
+    {
+      "name": "assert_region_unchanged",
+      "required": [
+        "baseline_path"
+      ],
+      "idempotency": "idempotent",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "verification": true,
+      "coverage": "verification",
+      "assertion": true,
+      "capability": "visual.assertion",
+      "evidence": true
+    },
+    {
+      "name": "assert_similarity",
+      "required": [
+        "baseline_path"
+      ],
+      "idempotency": "idempotent",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "verification": true,
+      "coverage": "verification",
+      "assertion": true,
+      "capability": "visual.assertion",
+      "evidence": true
+    },
+    {
+      "name": "compare_screenshot",
+      "required": [
+        "baseline_path"
+      ],
+      "idempotency": "idempotent",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "verification": true,
+      "coverage": "verification",
+      "assertion": true,
+      "capability": "visual.assertion",
+      "evidence": true
+    },
+    {
+      "name": "get_makepad_visual_diagnostics",
+      "required": [],
+      "idempotency": "idempotent",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "verification": true,
+      "coverage": "stability",
+      "capability": "makepad.visual",
+      "evidence": true
+    },
+    {
+      "name": "get_application_logs",
+      "required": [],
+      "idempotency": "idempotent",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "verification": true,
+      "coverage": "stability",
+      "capability": "trace"
+    },
+    {
+      "name": "wait_for_log",
+      "required": [
+        "contains"
+      ],
+      "idempotency": "idempotent",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "verification": true,
+      "coverage": "verification",
+      "wait": true,
+      "capability": "trace"
+    },
+    {
+      "name": "assert_log_contains",
+      "required": [
+        "contains"
+      ],
+      "idempotency": "idempotent",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "verification": true,
+      "coverage": "verification",
+      "assertion": true,
+      "capability": "trace"
+    },
+    {
+      "name": "assert_log_not_contains",
+      "required": [
+        "contains"
+      ],
+      "idempotency": "idempotent",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "verification": true,
+      "coverage": "verification",
+      "assertion": true,
+      "capability": "trace"
+    },
+    {
+      "name": "assert_trace_event",
+      "required": [
+        "event"
+      ],
+      "idempotency": "idempotent",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "verification": true,
+      "coverage": "verification",
+      "assertion": true,
+      "capability": "trace"
+    },
+    {
+      "name": "assert_no_stale_window",
+      "required": [],
+      "idempotency": "idempotent",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "verification": true,
+      "coverage": "stability",
+      "assertion": true,
+      "capability": "runtime.cleanup"
+    },
+    {
+      "name": "assert_no_pending_task",
+      "required": [],
+      "idempotency": "idempotent",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "verification": true,
+      "coverage": "stability",
+      "assertion": true,
+      "capability": "runtime.cleanup"
+    },
+    {
+      "name": "assert_no_phantom_semantic_node",
+      "required": [
+        "id"
+      ],
+      "idempotency": "idempotent",
+      "physical_input": false,
+      "scheduler_classification": "semantic",
+      "verification": true,
+      "coverage": "verification",
+      "assertion": true,
+      "capability": "runtime.cleanup"
+    },
+    {
+      "name": "repeat_until",
+      "required": [],
+      "idempotency": "idempotent",
+      "physical_input": false,
+      "scheduler_classification": "local",
+      "local_only": true,
+      "wait": true,
+      "verification": true,
+      "capability": "script.control",
+      "coverage": "verification"
+    },
+    {
+      "name": "wait_for_outcome",
+      "required": [
+        "outcomes",
+        "timeout_ms",
+        "max_iterations"
+      ],
+      "idempotency": "idempotent",
+      "physical_input": false,
+      "scheduler_classification": "local",
+      "local_only": true,
+      "wait": true,
+      "verification": true,
+      "capability": "script.control",
+      "coverage": "verification"
+    },
+    {
+      "name": "click_once_and_wait_for_outcome",
+      "required": [
+        "id",
+        "outcomes",
+        "timeout_ms",
+        "max_iterations",
+        "accept_ambiguous_error_codes"
+      ],
+      "physical_input": true,
+      "scheduler_classification": "semantic",
+      "mutation": true,
+      "target": true,
+      "wait": true,
+      "verification": true,
+      "capability": "script.control",
+      "coverage": "interaction"
+    }
+  ]
+}

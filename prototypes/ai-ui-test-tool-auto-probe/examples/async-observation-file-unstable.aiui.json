@@ -1,0 +1,143 @@
+{
+  "version": 1,
+  "name": "async-observation-file-unstable-e2e",
+  "application": {
+    "command": "prototypes/ai-ui-test-tool-auto-probe/target/debug/ai-ui-advanced-demo.exe",
+    "window_title": "AI UI Advanced Makepad Probe",
+    "fixture_async_failure_mode": "file_never_stable"
+  },
+  "options": {
+    "stop_on_error": true,
+    "evidence_on_failure": true
+  },
+  "tags": [
+    "observation",
+    "async",
+    "failure-injection",
+    "file_never_stable"
+  ],
+  "setup": [
+    {
+      "op": "session.open",
+      "save_session_as": "app",
+      "step_id": "open-session"
+    },
+    {
+      "op": "wait_for_automation_id",
+      "session": "app",
+      "id": "/button.async",
+      "timeout_ms": 10000,
+      "step_id": "wait-async-control"
+    }
+  ],
+  "steps": [
+    {
+      "op": "click",
+      "session": "app",
+      "id": "/button.async",
+      "step_id": "trigger-async"
+    },
+    {
+      "op": "wait_for_api_response",
+      "session": "app",
+      "request_id": "fixture.request.workflow",
+      "timeout_ms": 5000,
+      "step_id": "wait-api-response"
+    },
+    {
+      "op": "wait_for_api_state",
+      "session": "app",
+      "request_id": "fixture.request.workflow",
+      "state": "Completed",
+      "timeout_ms": 5000,
+      "step_id": "wait-api-application-accepted"
+    },
+    {
+      "op": "assert_api_success",
+      "session": "app",
+      "request_id": "fixture.request.workflow",
+      "step_id": "assert-api-success"
+    },
+    {
+      "op": "wait_for_file",
+      "session": "app",
+      "root": "fixture",
+      "path": "async-output.json",
+      "timeout_ms": 5000,
+      "step_id": "wait-changing-file"
+    },
+    {
+      "op": "wait_for_file_stable",
+      "session": "app",
+      "root": "fixture",
+      "path": "async-output.json",
+      "unchanged_for_ms": 1500,
+      "timeout_ms": 2500,
+      "expect_error": "FILE_NOT_STABLE",
+      "step_id": "file-unstable-observed"
+    },
+    {
+      "op": "wait_for_task_complete",
+      "session": "app",
+      "operation_id": "fixture.async.workflow",
+      "timeout_ms": 5000,
+      "expect_error": "TASK_FAILED",
+      "step_id": "task-file-unstable"
+    },
+    {
+      "op": "assert_trace_event",
+      "session": "app",
+      "event": "file.write_progress",
+      "step_id": "file-change-trace"
+    },
+    {
+      "op": "assert_trace_event",
+      "session": "app",
+      "event": "file.not_stable",
+      "step_id": "file-unstable-trace"
+    },
+    {
+      "op": "assert_no_pending_task",
+      "session": "app",
+      "step_id": "no-pending-after-file-unstable"
+    },
+    {
+      "op": "get_runtime_timeline",
+      "session": "app",
+      "step_id": "timeline"
+    },
+    {
+      "op": "get_application_logs",
+      "session": "app",
+      "step_id": "logs"
+    },
+    {
+      "op": "get_runtime_health",
+      "session": "app",
+      "step_id": "health"
+    },
+    {
+      "op": "windows_export_evidence",
+      "session": "app",
+      "reason": "async-observation-file-unstable-e2e",
+      "step_id": "export-evidence"
+    }
+  ],
+  "teardown": [
+    {
+      "op": "assert_no_pending_task",
+      "session": "app",
+      "step_id": "cleanup-no-pending-task"
+    },
+    {
+      "op": "assert_no_stale_window",
+      "session": "app",
+      "step_id": "cleanup-no-stale-window"
+    },
+    {
+      "op": "session.close",
+      "session": "app",
+      "step_id": "close-session"
+    }
+  ]
+}
