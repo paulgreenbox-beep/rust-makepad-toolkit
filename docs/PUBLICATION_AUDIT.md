@@ -35,8 +35,10 @@ describe the separate dependency/font redistribution boundary.
 
 ## Verification
 
-Release gates are being completed before public push. The final source commit
-will record the exact passed, failed and skipped checks below.
+The source and fresh-clone gates below passed before the first public push.
+Fresh-clone verification used source commit
+`3da04d94d00a8de3b018e2ee3cd4224c91dc7591`; subsequent publication changes
+only record these results and extend local-state exclusions.
 
 | Gate | Result |
 | --- | --- |
@@ -44,12 +46,21 @@ will record the exact passed, failed and skipped checks below.
 | Auto Probe + Scheduler cargo check/test --workspace --locked --offline | PASS; 154 tests passed, 0 failed |
 | Owned-package cargo fmt --check | PASS after mechanical formatting of two owned source files |
 | Boundary / documentation / plugin static gates | PASS |
-| Public Markdown links | In progress |
+| Public Markdown links | PASS; 49 Markdown files in the fresh clone |
 | Public .aiui example validation | PASS; schema + semantics, 12 steps |
-| Fresh source clone + public dependency bootstrap | In progress |
-| Fresh clone build/tests | In progress |
-| Final public tree / Git history security scan | In progress |
+| Fresh source clone + public dependency bootstrap | PASS; 232 source files, verified public Makepad pin |
+| Fresh root workspace cargo check/test --workspace --locked | PASS; 56 passed, 0 failed, 2 interactive tests ignored |
+| Fresh Auto Probe + Scheduler cargo check/test --workspace --locked | PASS; 154 passed, 0 failed |
+| Fresh public runner/form demo build and script validation | PASS; ai-ui-test + ai-ui-auto-probe-demo, 12 schema/semantic steps |
+| Fresh portable MCP stdio launcher | PASS; initialize, 20-tool discovery, typed unknown-tool error, read-only evidence and clean process exit |
+| Public tree / reachable Git history Gitleaks scan | PASS; 0 credential findings; repeated as the push guard |
 | Interactive Windows physical / GUI / container soak | SKIPPED in this publication task |
+
+Across the local and fresh-clone test passes: 420 test executions passed,
+0 failed. The same two interactive integration tests were ignored in each
+root run. The fresh clone remained clean after its build/tests, documentation,
+boundary, plugin and example-validation gates. The original operator-managed
+Makepad shader hash remained unchanged; no production vendor file was patched.
 
 Interactive UI and container runs are not inferred from compilation or unit
 tests. Historical capability summaries remain dated local-audit results;

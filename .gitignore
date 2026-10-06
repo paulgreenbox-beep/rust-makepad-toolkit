@@ -20,6 +20,10 @@
 Thumbs.db
 /.idea/
 /.vscode/
+/.codex/
+/.agents/
+/.aws/
+/.ssh/
 /.env
 /.env.*
 !.env.example
