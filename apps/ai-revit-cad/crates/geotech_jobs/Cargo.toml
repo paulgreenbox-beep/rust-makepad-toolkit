@@ -1,0 +1,12 @@
+[package]
+name = "geotech_jobs"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish = false
+
+[dependencies]
+geotech_core.workspace = true
+serde.workspace = true
+serde_json = { version = "1", features = ["float_roundtrip"] }
+sha2.workspace = true

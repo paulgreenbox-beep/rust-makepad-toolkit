@@ -1,0 +1,996 @@
+{
+  "schema": "independent-search-family-inputs-v1",
+  "axes": {
+    "center_x": [
+      -0.125,
+      0.125
+    ],
+    "center_z": [
+      4.875,
+      5.125
+    ],
+    "radius": [
+      4.875,
+      5.125
+    ]
+  },
+  "candidate_order": "lexicographic center_x, center_z, radius",
+  "inputs": [
+    {
+      "analysis_id": "C00",
+      "source_revision": "independent-gate7-eight-corner-family-v1",
+      "ground": {
+        "section_id": "audit-section",
+        "coordinate_system": "cartesian_xz_metres",
+        "terrain_polyline": [
+          {
+            "x": -5.0,
+            "z": 2.142857142857143
+          },
+          {
+            "x": 4.0,
+            "z": 0.8571428571428571
+          }
+        ],
+        "layer_interfaces": [
+          {
+            "interface_id": "int-0",
+            "polyline": [
+              {
+                "x": -5.0,
+                "z": 0.8
+              },
+              {
+                "x": 4.0,
+                "z": 0.8
+              }
+            ]
+          },
+          {
+            "interface_id": "int-1",
+            "polyline": [
+              {
+                "x": -5.0,
+                "z": 0.2
+              },
+              {
+                "x": 4.0,
+                "z": 0.38
+              }
+            ]
+          }
+        ],
+        "soil_regions": [
+          {
+            "region_id": "region-0",
+            "material_id": "soil-0"
+          },
+          {
+            "region_id": "region-1",
+            "material_id": "soil-1"
+          },
+          {
+            "region_id": "region-2",
+            "material_id": "soil-2"
+          }
+        ],
+        "bottom_boundary": [
+          {
+            "x": -5.0,
+            "z": -2.0
+          },
+          {
+            "x": 4.0,
+            "z": -2.0
+          }
+        ],
+        "materials": [
+          {
+            "material_id": "soil-0",
+            "properties": {
+              "name": "Audit material 0",
+              "unit_weight_kn_per_m3": 18.0,
+              "effective_cohesion_kpa": 0.0,
+              "effective_friction_angle_deg": 28.0,
+              "provenance": "Synthetic independent audit; not engineering input"
+            }
+          },
+          {
+            "material_id": "soil-1",
+            "properties": {
+              "name": "Audit material 1",
+              "unit_weight_kn_per_m3": 20.0,
+              "effective_cohesion_kpa": 8.0,
+              "effective_friction_angle_deg": 22.0,
+              "provenance": "Synthetic independent audit; not engineering input"
+            }
+          },
+          {
+            "material_id": "soil-2",
+            "properties": {
+              "name": "Audit material 2",
+              "unit_weight_kn_per_m3": 22.0,
+              "effective_cohesion_kpa": 12.0,
+              "effective_friction_angle_deg": 18.0,
+              "provenance": "Synthetic independent audit; not engineering input"
+            }
+          }
+        ],
+        "model_revision": 1
+      },
+      "slip_surface": {
+        "slip_id": "C00",
+        "center": {
+          "x": -0.125,
+          "z": 4.875
+        },
+        "radius_m": 4.875,
+        "arc_branch": "lower",
+        "slide_direction": "positive_x",
+        "selected_endpoints": null
+      },
+      "basis": "dry_static",
+      "units": {
+        "length": "m",
+        "angle": "deg",
+        "unit_weight": "kN/m3",
+        "stress": "kPa"
+      },
+      "extrusion_width_m": 1.0
+    },
+    {
+      "analysis_id": "C01",
+      "source_revision": "independent-gate7-eight-corner-family-v1",
+      "ground": {
+        "section_id": "audit-section",
+        "coordinate_system": "cartesian_xz_metres",
+        "terrain_polyline": [
+          {
+            "x": -5.0,
+            "z": 2.142857142857143
+          },
+          {
+            "x": 4.0,
+            "z": 0.8571428571428571
+          }
+        ],
+        "layer_interfaces": [
+          {
+            "interface_id": "int-0",
+            "polyline": [
+              {
+                "x": -5.0,
+                "z": 0.8
+              },
+              {
+                "x": 4.0,
+                "z": 0.8
+              }
+            ]
+          },
+          {
+            "interface_id": "int-1",
+            "polyline": [
+              {
+                "x": -5.0,
+                "z": 0.2
+              },
+              {
+                "x": 4.0,
+                "z": 0.38
+              }
+            ]
+          }
+        ],
+        "soil_regions": [
+          {
+            "region_id": "region-0",
+            "material_id": "soil-0"
+          },
+          {
+            "region_id": "region-1",
+            "material_id": "soil-1"
+          },
+          {
+            "region_id": "region-2",
+            "material_id": "soil-2"
+          }
+        ],
+        "bottom_boundary": [
+          {
+            "x": -5.0,
+            "z": -2.0
+          },
+          {
+            "x": 4.0,
+            "z": -2.0
+          }
+        ],
+        "materials": [
+          {
+            "material_id": "soil-0",
+            "properties": {
+              "name": "Audit material 0",
+              "unit_weight_kn_per_m3": 18.0,
+              "effective_cohesion_kpa": 0.0,
+              "effective_friction_angle_deg": 28.0,
+              "provenance": "Synthetic independent audit; not engineering input"
+            }
+          },
+          {
+            "material_id": "soil-1",
+            "properties": {
+              "name": "Audit material 1",
+              "unit_weight_kn_per_m3": 20.0,
+              "effective_cohesion_kpa": 8.0,
+              "effective_friction_angle_deg": 22.0,
+              "provenance": "Synthetic independent audit; not engineering input"
+            }
+          },
+          {
+            "material_id": "soil-2",
+            "properties": {
+              "name": "Audit material 2",
+              "unit_weight_kn_per_m3": 22.0,
+              "effective_cohesion_kpa": 12.0,
+              "effective_friction_angle_deg": 18.0,
+              "provenance": "Synthetic independent audit; not engineering input"
+            }
+          }
+        ],
+        "model_revision": 1
+      },
+      "slip_surface": {
+        "slip_id": "C01",
+        "center": {
+          "x": -0.125,
+          "z": 4.875
+        },
+        "radius_m": 5.125,
+        "arc_branch": "lower",
+        "slide_direction": "positive_x",
+        "selected_endpoints": null
+      },
+      "basis": "dry_static",
+      "units": {
+        "length": "m",
+        "angle": "deg",
+        "unit_weight": "kN/m3",
+        "stress": "kPa"
+      },
+      "extrusion_width_m": 1.0
+    },
+    {
+      "analysis_id": "C02",
+      "source_revision": "independent-gate7-eight-corner-family-v1",
+      "ground": {
+        "section_id": "audit-section",
+        "coordinate_system": "cartesian_xz_metres",
+        "terrain_polyline": [
+          {
+            "x": -5.0,
+            "z": 2.142857142857143
+          },
+          {
+            "x": 4.0,
+            "z": 0.8571428571428571
+          }
+        ],
+        "layer_interfaces": [
+          {
+            "interface_id": "int-0",
+            "polyline": [
+              {
+                "x": -5.0,
+                "z": 0.8
+              },
+              {
+                "x": 4.0,
+                "z": 0.8
+              }
+            ]
+          },
+          {
+            "interface_id": "int-1",
+            "polyline": [
+              {
+                "x": -5.0,
+                "z": 0.2
+              },
+              {
+                "x": 4.0,
+                "z": 0.38
+              }
+            ]
+          }
+        ],
+        "soil_regions": [
+          {
+            "region_id": "region-0",
+            "material_id": "soil-0"
+          },
+          {
+            "region_id": "region-1",
+            "material_id": "soil-1"
+          },
+          {
+            "region_id": "region-2",
+            "material_id": "soil-2"
+          }
+        ],
+        "bottom_boundary": [
+          {
+            "x": -5.0,
+            "z": -2.0
+          },
+          {
+            "x": 4.0,
+            "z": -2.0
+          }
+        ],
+        "materials": [
+          {
+            "material_id": "soil-0",
+            "properties": {
+              "name": "Audit material 0",
+              "unit_weight_kn_per_m3": 18.0,
+              "effective_cohesion_kpa": 0.0,
+              "effective_friction_angle_deg": 28.0,
+              "provenance": "Synthetic independent audit; not engineering input"
+            }
+          },
+          {
+            "material_id": "soil-1",
+            "properties": {
+              "name": "Audit material 1",
+              "unit_weight_kn_per_m3": 20.0,
+              "effective_cohesion_kpa": 8.0,
+              "effective_friction_angle_deg": 22.0,
+              "provenance": "Synthetic independent audit; not engineering input"
+            }
+          },
+          {
+            "material_id": "soil-2",
+            "properties": {
+              "name": "Audit material 2",
+              "unit_weight_kn_per_m3": 22.0,
+              "effective_cohesion_kpa": 12.0,
+              "effective_friction_angle_deg": 18.0,
+              "provenance": "Synthetic independent audit; not engineering input"
+            }
+          }
+        ],
+        "model_revision": 1
+      },
+      "slip_surface": {
+        "slip_id": "C02",
+        "center": {
+          "x": -0.125,
+          "z": 5.125
+        },
+        "radius_m": 4.875,
+        "arc_branch": "lower",
+        "slide_direction": "positive_x",
+        "selected_endpoints": null
+      },
+      "basis": "dry_static",
+      "units": {
+        "length": "m",
+        "angle": "deg",
+        "unit_weight": "kN/m3",
+        "stress": "kPa"
+      },
+      "extrusion_width_m": 1.0
+    },
+    {
+      "analysis_id": "C03",
+      "source_revision": "independent-gate7-eight-corner-family-v1",
+      "ground": {
+        "section_id": "audit-section",
+        "coordinate_system": "cartesian_xz_metres",
+        "terrain_polyline": [
+          {
+            "x": -5.0,
+            "z": 2.142857142857143
+          },
+          {
+            "x": 4.0,
+            "z": 0.8571428571428571
+          }
+        ],
+        "layer_interfaces": [
+          {
+            "interface_id": "int-0",
+            "polyline": [
+              {
+                "x": -5.0,
+                "z": 0.8
+              },
+              {
+                "x": 4.0,
+                "z": 0.8
+              }
+            ]
+          },
+          {
+            "interface_id": "int-1",
+            "polyline": [
+              {
+                "x": -5.0,
+                "z": 0.2
+              },
+              {
+                "x": 4.0,
+                "z": 0.38
+              }
+            ]
+          }
+        ],
+        "soil_regions": [
+          {
+            "region_id": "region-0",
+            "material_id": "soil-0"
+          },
+          {
+            "region_id": "region-1",
+            "material_id": "soil-1"
+          },
+          {
+            "region_id": "region-2",
+            "material_id": "soil-2"
+          }
+        ],
+        "bottom_boundary": [
+          {
+            "x": -5.0,
+            "z": -2.0
+          },
+          {
+            "x": 4.0,
+            "z": -2.0
+          }
+        ],
+        "materials": [
+          {
+            "material_id": "soil-0",
+            "properties": {
+              "name": "Audit material 0",
+              "unit_weight_kn_per_m3": 18.0,
+              "effective_cohesion_kpa": 0.0,
+              "effective_friction_angle_deg": 28.0,
+              "provenance": "Synthetic independent audit; not engineering input"
+            }
+          },
+          {
+            "material_id": "soil-1",
+            "properties": {
+              "name": "Audit material 1",
+              "unit_weight_kn_per_m3": 20.0,
+              "effective_cohesion_kpa": 8.0,
+              "effective_friction_angle_deg": 22.0,
+              "provenance": "Synthetic independent audit; not engineering input"
+            }
+          },
+          {
+            "material_id": "soil-2",
+            "properties": {
+              "name": "Audit material 2",
+              "unit_weight_kn_per_m3": 22.0,
+              "effective_cohesion_kpa": 12.0,
+              "effective_friction_angle_deg": 18.0,
+              "provenance": "Synthetic independent audit; not engineering input"
+            }
+          }
+        ],
+        "model_revision": 1
+      },
+      "slip_surface": {
+        "slip_id": "C03",
+        "center": {
+          "x": -0.125,
+          "z": 5.125
+        },
+        "radius_m": 5.125,
+        "arc_branch": "lower",
+        "slide_direction": "positive_x",
+        "selected_endpoints": null
+      },
+      "basis": "dry_static",
+      "units": {
+        "length": "m",
+        "angle": "deg",
+        "unit_weight": "kN/m3",
+        "stress": "kPa"
+      },
+      "extrusion_width_m": 1.0
+    },
+    {
+      "analysis_id": "C04",
+      "source_revision": "independent-gate7-eight-corner-family-v1",
+      "ground": {
+        "section_id": "audit-section",
+        "coordinate_system": "cartesian_xz_metres",
+        "terrain_polyline": [
+          {
+            "x": -5.0,
+            "z": 2.142857142857143
+          },
+          {
+            "x": 4.0,
+            "z": 0.8571428571428571
+          }
+        ],
+        "layer_interfaces": [
+          {
+            "interface_id": "int-0",
+            "polyline": [
+              {
+                "x": -5.0,
+                "z": 0.8
+              },
+              {
+                "x": 4.0,
+                "z": 0.8
+              }
+            ]
+          },
+          {
+            "interface_id": "int-1",
+            "polyline": [
+              {
+                "x": -5.0,
+                "z": 0.2
+              },
+              {
+                "x": 4.0,
+                "z": 0.38
+              }
+            ]
+          }
+        ],
+        "soil_regions": [
+          {
+            "region_id": "region-0",
+            "material_id": "soil-0"
+          },
+          {
+            "region_id": "region-1",
+            "material_id": "soil-1"
+          },
+          {
+            "region_id": "region-2",
+            "material_id": "soil-2"
+          }
+        ],
+        "bottom_boundary": [
+          {
+            "x": -5.0,
+            "z": -2.0
+          },
+          {
+            "x": 4.0,
+            "z": -2.0
+          }
+        ],
+        "materials": [
+          {
+            "material_id": "soil-0",
+            "properties": {
+              "name": "Audit material 0",
+              "unit_weight_kn_per_m3": 18.0,
+              "effective_cohesion_kpa": 0.0,
+              "effective_friction_angle_deg": 28.0,
+              "provenance": "Synthetic independent audit; not engineering input"
+            }
+          },
+          {
+            "material_id": "soil-1",
+            "properties": {
+              "name": "Audit material 1",
+              "unit_weight_kn_per_m3": 20.0,
+              "effective_cohesion_kpa": 8.0,
+              "effective_friction_angle_deg": 22.0,
+              "provenance": "Synthetic independent audit; not engineering input"
+            }
+          },
+          {
+            "material_id": "soil-2",
+            "properties": {
+              "name": "Audit material 2",
+              "unit_weight_kn_per_m3": 22.0,
+              "effective_cohesion_kpa": 12.0,
+              "effective_friction_angle_deg": 18.0,
+              "provenance": "Synthetic independent audit; not engineering input"
+            }
+          }
+        ],
+        "model_revision": 1
+      },
+      "slip_surface": {
+        "slip_id": "C04",
+        "center": {
+          "x": 0.125,
+          "z": 4.875
+        },
+        "radius_m": 4.875,
+        "arc_branch": "lower",
+        "slide_direction": "positive_x",
+        "selected_endpoints": null
+      },
+      "basis": "dry_static",
+      "units": {
+        "length": "m",
+        "angle": "deg",
+        "unit_weight": "kN/m3",
+        "stress": "kPa"
+      },
+      "extrusion_width_m": 1.0
+    },
+    {
+      "analysis_id": "C05",
+      "source_revision": "independent-gate7-eight-corner-family-v1",
+      "ground": {
+        "section_id": "audit-section",
+        "coordinate_system": "cartesian_xz_metres",
+        "terrain_polyline": [
+          {
+            "x": -5.0,
+            "z": 2.142857142857143
+          },
+          {
+            "x": 4.0,
+            "z": 0.8571428571428571
+          }
+        ],
+        "layer_interfaces": [
+          {
+            "interface_id": "int-0",
+            "polyline": [
+              {
+                "x": -5.0,
+                "z": 0.8
+              },
+              {
+                "x": 4.0,
+                "z": 0.8
+              }
+            ]
+          },
+          {
+            "interface_id": "int-1",
+            "polyline": [
+              {
+                "x": -5.0,
+                "z": 0.2
+              },
+              {
+                "x": 4.0,
+                "z": 0.38
+              }
+            ]
+          }
+        ],
+        "soil_regions": [
+          {
+            "region_id": "region-0",
+            "material_id": "soil-0"
+          },
+          {
+            "region_id": "region-1",
+            "material_id": "soil-1"
+          },
+          {
+            "region_id": "region-2",
+            "material_id": "soil-2"
+          }
+        ],
+        "bottom_boundary": [
+          {
+            "x": -5.0,
+            "z": -2.0
+          },
+          {
+            "x": 4.0,
+            "z": -2.0
+          }
+        ],
+        "materials": [
+          {
+            "material_id": "soil-0",
+            "properties": {
+              "name": "Audit material 0",
+              "unit_weight_kn_per_m3": 18.0,
+              "effective_cohesion_kpa": 0.0,
+              "effective_friction_angle_deg": 28.0,
+              "provenance": "Synthetic independent audit; not engineering input"
+            }
+          },
+          {
+            "material_id": "soil-1",
+            "properties": {
+              "name": "Audit material 1",
+              "unit_weight_kn_per_m3": 20.0,
+              "effective_cohesion_kpa": 8.0,
+              "effective_friction_angle_deg": 22.0,
+              "provenance": "Synthetic independent audit; not engineering input"
+            }
+          },
+          {
+            "material_id": "soil-2",
+            "properties": {
+              "name": "Audit material 2",
+              "unit_weight_kn_per_m3": 22.0,
+              "effective_cohesion_kpa": 12.0,
+              "effective_friction_angle_deg": 18.0,
+              "provenance": "Synthetic independent audit; not engineering input"
+            }
+          }
+        ],
+        "model_revision": 1
+      },
+      "slip_surface": {
+        "slip_id": "C05",
+        "center": {
+          "x": 0.125,
+          "z": 4.875
+        },
+        "radius_m": 5.125,
+        "arc_branch": "lower",
+        "slide_direction": "positive_x",
+        "selected_endpoints": null
+      },
+      "basis": "dry_static",
+      "units": {
+        "length": "m",
+        "angle": "deg",
+        "unit_weight": "kN/m3",
+        "stress": "kPa"
+      },
+      "extrusion_width_m": 1.0
+    },
+    {
+      "analysis_id": "C06",
+      "source_revision": "independent-gate7-eight-corner-family-v1",
+      "ground": {
+        "section_id": "audit-section",
+        "coordinate_system": "cartesian_xz_metres",
+        "terrain_polyline": [
+          {
+            "x": -5.0,
+            "z": 2.142857142857143
+          },
+          {
+            "x": 4.0,
+            "z": 0.8571428571428571
+          }
+        ],
+        "layer_interfaces": [
+          {
+            "interface_id": "int-0",
+            "polyline": [
+              {
+                "x": -5.0,
+                "z": 0.8
+              },
+              {
+                "x": 4.0,
+                "z": 0.8
+              }
+            ]
+          },
+          {
+            "interface_id": "int-1",
+            "polyline": [
+              {
+                "x": -5.0,
+                "z": 0.2
+              },
+              {
+                "x": 4.0,
+                "z": 0.38
+              }
+            ]
+          }
+        ],
+        "soil_regions": [
+          {
+            "region_id": "region-0",
+            "material_id": "soil-0"
+          },
+          {
+            "region_id": "region-1",
+            "material_id": "soil-1"
+          },
+          {
+            "region_id": "region-2",
+            "material_id": "soil-2"
+          }
+        ],
+        "bottom_boundary": [
+          {
+            "x": -5.0,
+            "z": -2.0
+          },
+          {
+            "x": 4.0,
+            "z": -2.0
+          }
+        ],
+        "materials": [
+          {
+            "material_id": "soil-0",
+            "properties": {
+              "name": "Audit material 0",
+              "unit_weight_kn_per_m3": 18.0,
+              "effective_cohesion_kpa": 0.0,
+              "effective_friction_angle_deg": 28.0,
+              "provenance": "Synthetic independent audit; not engineering input"
+            }
+          },
+          {
+            "material_id": "soil-1",
+            "properties": {
+              "name": "Audit material 1",
+              "unit_weight_kn_per_m3": 20.0,
+              "effective_cohesion_kpa": 8.0,
+              "effective_friction_angle_deg": 22.0,
+              "provenance": "Synthetic independent audit; not engineering input"
+            }
+          },
+          {
+            "material_id": "soil-2",
+            "properties": {
+              "name": "Audit material 2",
+              "unit_weight_kn_per_m3": 22.0,
+              "effective_cohesion_kpa": 12.0,
+              "effective_friction_angle_deg": 18.0,
+              "provenance": "Synthetic independent audit; not engineering input"
+            }
+          }
+        ],
+        "model_revision": 1
+      },
+      "slip_surface": {
+        "slip_id": "C06",
+        "center": {
+          "x": 0.125,
+          "z": 5.125
+        },
+        "radius_m": 4.875,
+        "arc_branch": "lower",
+        "slide_direction": "positive_x",
+        "selected_endpoints": null
+      },
+      "basis": "dry_static",
+      "units": {
+        "length": "m",
+        "angle": "deg",
+        "unit_weight": "kN/m3",
+        "stress": "kPa"
+      },
+      "extrusion_width_m": 1.0
+    },
+    {
+      "analysis_id": "C07",
+      "source_revision": "independent-gate7-eight-corner-family-v1",
+      "ground": {
+        "section_id": "audit-section",
+        "coordinate_system": "cartesian_xz_metres",
+        "terrain_polyline": [
+          {
+            "x": -5.0,
+            "z": 2.142857142857143
+          },
+          {
+            "x": 4.0,
+            "z": 0.8571428571428571
+          }
+        ],
+        "layer_interfaces": [
+          {
+            "interface_id": "int-0",
+            "polyline": [
+              {
+                "x": -5.0,
+                "z": 0.8
+              },
+              {
+                "x": 4.0,
+                "z": 0.8
+              }
+            ]
+          },
+          {
+            "interface_id": "int-1",
+            "polyline": [
+              {
+                "x": -5.0,
+                "z": 0.2
+              },
+              {
+                "x": 4.0,
+                "z": 0.38
+              }
+            ]
+          }
+        ],
+        "soil_regions": [
+          {
+            "region_id": "region-0",
+            "material_id": "soil-0"
+          },
+          {
+            "region_id": "region-1",
+            "material_id": "soil-1"
+          },
+          {
+            "region_id": "region-2",
+            "material_id": "soil-2"
+          }
+        ],
+        "bottom_boundary": [
+          {
+            "x": -5.0,
+            "z": -2.0
+          },
+          {
+            "x": 4.0,
+            "z": -2.0
+          }
+        ],
+        "materials": [
+          {
+            "material_id": "soil-0",
+            "properties": {
+              "name": "Audit material 0",
+              "unit_weight_kn_per_m3": 18.0,
+              "effective_cohesion_kpa": 0.0,
+              "effective_friction_angle_deg": 28.0,
+              "provenance": "Synthetic independent audit; not engineering input"
+            }
+          },
+          {
+            "material_id": "soil-1",
+            "properties": {
+              "name": "Audit material 1",
+              "unit_weight_kn_per_m3": 20.0,
+              "effective_cohesion_kpa": 8.0,
+              "effective_friction_angle_deg": 22.0,
+              "provenance": "Synthetic independent audit; not engineering input"
+            }
+          },
+          {
+            "material_id": "soil-2",
+            "properties": {
+              "name": "Audit material 2",
+              "unit_weight_kn_per_m3": 22.0,
+              "effective_cohesion_kpa": 12.0,
+              "effective_friction_angle_deg": 18.0,
+              "provenance": "Synthetic independent audit; not engineering input"
+            }
+          }
+        ],
+        "model_revision": 1
+      },
+      "slip_surface": {
+        "slip_id": "C07",
+        "center": {
+          "x": 0.125,
+          "z": 5.125
+        },
+        "radius_m": 5.125,
+        "arc_branch": "lower",
+        "slide_direction": "positive_x",
+        "selected_endpoints": null
+      },
+      "basis": "dry_static",
+      "units": {
+        "length": "m",
+        "angle": "deg",
+        "unit_weight": "kN/m3",
+        "stress": "kPa"
+      },
+      "extrusion_width_m": 1.0
+    }
+  ]
+}

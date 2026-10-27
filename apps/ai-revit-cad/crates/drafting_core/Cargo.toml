@@ -1,0 +1,13 @@
+[package]
+name = "drafting_core"
+version.workspace = true
+edition = "2024"
+license = "MIT"
+description = "Isolated analytical drafting authority, commands, history and view math"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["float_roundtrip"] }
+uuid = { version = "1", features = ["v4", "serde"] }
+sha2 = "0.10"
+

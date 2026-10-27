@@ -1,0 +1,38 @@
+CADCraft DXF tag reader and writer
+Copyright (c) 2026 ArtCraft Team and the CADCraft contributors.
+Licensed under the MIT License or the Apache License, Version 2.0, at your option
+(LICENSE-MIT, LICENSE-APACHE).
+
+Upstream: https://github.com/storytold/cadcraft
+Revision: 43e33add44ffcf386f7ca0f06cfe1af7acae7256 (CADCraft 0.4.0)
+Source directory: crates/dxf
+
+This is a minimal source copy of the standalone cadcraft-dxf package. Its
+src/lib.rs and the two license files are unchanged. Cargo.toml materializes the
+upstream workspace version, edition, license, dependency and lint settings so
+the package can be used without the CADCraft workspace. The repository field
+is added to retain origin. No implementation changes are made.
+
+The source comment credits Autodesk's published DXF Reference. CADCraft and
+this application are independent projects and are not affiliated with,
+sponsored by or endorsed by Autodesk, Inc. AutoCAD and DWG are trademarks of
+Autodesk, Inc.
+
+Only crates/dxf source is included. Other CADCraft crates, DWG/acadrust code,
+ArtCraft brand assets, fonts, drawings, screenshots and research artifacts
+are not part of this vendored package. The ArtCraft name is used only for
+plain-text copyright and upstream attribution.
+
+SHA-256 provenance (raw source-file bytes):
+  upstream crates/dxf/src/lib.rs
+    a0f7cc7868590f950218fd563297148408a7acac0750a17f615e1333845620dd
+  upstream crates/dxf/Cargo.toml (before standalone adaptation)
+    d94677a6a85d2df0f7b2d04a804a339641ad56e079b316aa5e2710383acd4663
+  upstream LICENSE-MIT
+    84d49e47a7e1b163ce15df4d70e0300ba0af0babbef8c4dc16ffdb1034d603df
+  upstream LICENSE-APACHE
+    eb3d7b5485466acbd81f2b496f595ab637d2792e268206b27d99e793bdb67549
+  upstream NOTICE (not copied wholesale; describes additional upstream crates/assets)
+    3bb5e41bed036378b6d3fc37936332eb9e21ad2e2d62b5e066dc633ddb419227
+  standalone Cargo.toml
+    66078cce1f1e237be58c59652c156a09fe88e36cca562ee302242fdc5f53c1f5

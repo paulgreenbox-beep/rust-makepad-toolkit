@@ -1,0 +1,163 @@
+// Static PTX for the native CUDA Driver API. Host code validates finite
+// coordinates and ordered AABBs before launch.
+//
+// mesh_contributions input: count records of 15 f64 values. Indices 0..8 are
+// [ax, ay, az, bx, by, bz, cx, cy, cz], already relative to one mesh origin.
+// Indices 9..11 are original b-a and 12..14 are original c-a for area.
+// Output: count records [signed_volume_contribution, triangle_area] as f64.
+//
+// aabb_overlaps input: count records [min_x, min_y, min_z, max_x, max_y, max_z].
+// Query: one record in that same six-f64 layout. Output: count u32 flags.
+// Touching box boundaries count as overlap.
+
+.version 7.0
+.target sm_80
+.address_size 64
+
+.visible .entry mesh_contributions(
+    .param .u64 mesh_input,
+    .param .u64 mesh_output,
+    .param .u32 triangle_count
+)
+{
+    .reg .pred %p<1>;
+    .reg .b32 %r<5>;
+    .reg .b64 %rd<6>;
+    .reg .f64 %fd<46>;
+
+    ld.param.u64 %rd0, [mesh_input];
+    ld.param.u64 %rd1, [mesh_output];
+    ld.param.u32 %r0, [triangle_count];
+
+    mov.u32 %r1, %ctaid.x;
+    mov.u32 %r2, %ntid.x;
+    mov.u32 %r3, %tid.x;
+    mul.lo.u32 %r4, %r1, %r2;
+    add.u32 %r4, %r4, %r3;
+    setp.ge.u32 %p0, %r4, %r0;
+    @%p0 bra mesh_done;
+
+    mul.wide.u32 %rd2, %r4, 120;
+    add.u64 %rd3, %rd0, %rd2;
+
+    ld.global.f64 %fd0, [%rd3];
+    ld.global.f64 %fd1, [%rd3+8];
+    ld.global.f64 %fd2, [%rd3+16];
+    ld.global.f64 %fd3, [%rd3+24];
+    ld.global.f64 %fd4, [%rd3+32];
+    ld.global.f64 %fd5, [%rd3+40];
+    ld.global.f64 %fd6, [%rd3+48];
+    ld.global.f64 %fd7, [%rd3+56];
+    ld.global.f64 %fd8, [%rd3+64];
+
+    // signed volume = dot(a, cross(b, c)) / 6, with separate RN operations.
+    mul.rn.f64 %fd9, %fd4, %fd8;
+    mul.rn.f64 %fd10, %fd5, %fd7;
+    sub.rn.f64 %fd11, %fd9, %fd10;
+    mul.rn.f64 %fd12, %fd5, %fd6;
+    mul.rn.f64 %fd13, %fd3, %fd8;
+    sub.rn.f64 %fd14, %fd12, %fd13;
+    mul.rn.f64 %fd15, %fd3, %fd7;
+    mul.rn.f64 %fd16, %fd4, %fd6;
+    sub.rn.f64 %fd17, %fd15, %fd16;
+    mul.rn.f64 %fd18, %fd0, %fd11;
+    mul.rn.f64 %fd19, %fd1, %fd14;
+    add.rn.f64 %fd20, %fd18, %fd19;
+    mul.rn.f64 %fd21, %fd2, %fd17;
+    add.rn.f64 %fd22, %fd20, %fd21;
+    div.rn.f64 %fd23, %fd22, 0d4018000000000000;
+
+    // Area uses original b-a and c-a edges, computed before volume recentering.
+    ld.global.f64 %fd24, [%rd3+72];
+    ld.global.f64 %fd25, [%rd3+80];
+    ld.global.f64 %fd26, [%rd3+88];
+    ld.global.f64 %fd27, [%rd3+96];
+    ld.global.f64 %fd28, [%rd3+104];
+    ld.global.f64 %fd29, [%rd3+112];
+    mul.rn.f64 %fd30, %fd25, %fd29;
+    mul.rn.f64 %fd31, %fd26, %fd28;
+    sub.rn.f64 %fd32, %fd30, %fd31;
+    mul.rn.f64 %fd33, %fd26, %fd27;
+    mul.rn.f64 %fd34, %fd24, %fd29;
+    sub.rn.f64 %fd35, %fd33, %fd34;
+    mul.rn.f64 %fd36, %fd24, %fd28;
+    mul.rn.f64 %fd37, %fd25, %fd27;
+    sub.rn.f64 %fd38, %fd36, %fd37;
+    mul.rn.f64 %fd39, %fd32, %fd32;
+    mul.rn.f64 %fd40, %fd35, %fd35;
+    add.rn.f64 %fd41, %fd39, %fd40;
+    mul.rn.f64 %fd42, %fd38, %fd38;
+    add.rn.f64 %fd43, %fd41, %fd42;
+    sqrt.rn.f64 %fd44, %fd43;
+    mul.rn.f64 %fd45, %fd44, 0d3FE0000000000000;
+
+    mul.wide.u32 %rd4, %r4, 16;
+    add.u64 %rd5, %rd1, %rd4;
+    st.global.f64 [%rd5], %fd23;
+    st.global.f64 [%rd5+8], %fd45;
+
+mesh_done:
+    ret;
+}
+
+.visible .entry aabb_overlaps(
+    .param .u64 bounds_input,
+    .param .u64 query_input,
+    .param .u64 overlap_output,
+    .param .u32 bounds_count
+)
+{
+    .reg .pred %p<4>;
+    .reg .b32 %r<7>;
+    .reg .b64 %rd<7>;
+    .reg .f64 %fd<12>;
+
+    ld.param.u64 %rd0, [bounds_input];
+    ld.param.u64 %rd1, [query_input];
+    ld.param.u64 %rd2, [overlap_output];
+    ld.param.u32 %r0, [bounds_count];
+
+    mov.u32 %r1, %ctaid.x;
+    mov.u32 %r2, %ntid.x;
+    mov.u32 %r3, %tid.x;
+    mul.lo.u32 %r4, %r1, %r2;
+    add.u32 %r4, %r4, %r3;
+    setp.ge.u32 %p0, %r4, %r0;
+    @%p0 bra aabb_done;
+
+    mul.wide.u32 %rd3, %r4, 48;
+    add.u64 %rd4, %rd0, %rd3;
+    ld.global.f64 %fd0, [%rd4];
+    ld.global.f64 %fd1, [%rd4+8];
+    ld.global.f64 %fd2, [%rd4+16];
+    ld.global.f64 %fd3, [%rd4+24];
+    ld.global.f64 %fd4, [%rd4+32];
+    ld.global.f64 %fd5, [%rd4+40];
+
+    ld.global.f64 %fd6, [%rd1];
+    ld.global.f64 %fd7, [%rd1+8];
+    ld.global.f64 %fd8, [%rd1+16];
+    ld.global.f64 %fd9, [%rd1+24];
+    ld.global.f64 %fd10, [%rd1+32];
+    ld.global.f64 %fd11, [%rd1+40];
+
+    setp.le.f64 %p0, %fd0, %fd9;
+    setp.ge.f64 %p1, %fd3, %fd6;
+    and.pred %p2, %p0, %p1;
+    setp.le.f64 %p0, %fd1, %fd10;
+    setp.ge.f64 %p1, %fd4, %fd7;
+    and.pred %p3, %p0, %p1;
+    and.pred %p2, %p2, %p3;
+    setp.le.f64 %p0, %fd2, %fd11;
+    setp.ge.f64 %p1, %fd5, %fd8;
+    and.pred %p3, %p0, %p1;
+    and.pred %p2, %p2, %p3;
+
+    selp.u32 %r5, 1, 0, %p2;
+    mul.wide.u32 %rd5, %r4, 4;
+    add.u64 %rd6, %rd2, %rd5;
+    st.global.u32 [%rd6], %r5;
+
+aabb_done:
+    ret;
+}

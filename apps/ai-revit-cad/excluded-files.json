@@ -1,0 +1,32 @@
+{
+  "schema": "ai-revit-cad-source-exclusions-v1",
+  "policy": "Allowlisted source distribution only; original working sources and excluded local data are preserved outside this publication checkout.",
+  "excluded_patterns": [
+    "**/target/**",
+    "**/.deps/**",
+    "**/artifacts/**",
+    "**/reports/**",
+    "**/runtime/**",
+    "**/verification/**",
+    "**/.env*",
+    "**/.codex/**",
+    "**/.agents/**",
+    "**/.aws/**",
+    "**/.ssh/**",
+    "**/.vscode/**",
+    "**/.idea/**",
+    "**/*.{exe,dll,pdb,rlib,rmeta,log,tmp,bak,db,sqlite,pem,key,p12,pfx}",
+    "**/*.{dwg,dxf,step,stp,rvt,brep,ttf,otf,woff,woff2}",
+    "deps/viewer_core/assets/**",
+    "crates/desktop/src/bin/source13_persistence_client*",
+    "crates/geotech_report/examples/*.archive.json"
+  ],
+  "explicit_boundaries": [
+    "No customer or real-site materials, including SAD RASTSVET.",
+    "No private FH-87 mesh/BREP/identity-map assets or scene loader. Generic decoder source remains.",
+    "No historical acceptance certificates, machine profiles, screenshots or compiled binaries.",
+    "No private SDK vendor or font/resource redistribution. SDK is fetched separately at a pinned public revision.",
+    "Checked Windows UIA and raw live GPU diagnostic integrations are explicitly unsupported in the public SDK build; no legacy or CPU qualification fallback."
+  ],
+  "included_test_source": "Small first-party synthetic regression inputs and independent numerical references, plus test-only recipes that generate large report fixtures outside the checkout."
+}

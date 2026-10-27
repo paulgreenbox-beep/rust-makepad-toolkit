@@ -1,0 +1,28 @@
+[package]
+name = "ai_revit_core"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Provisional persistent document and parametric model core for AI Revit"
+
+[features]
+# Explicit synthetic archive setup for tests/examples; absent from delivery builds.
+test-fixtures = []
+
+[[example]]
+name = "gate8_circular_archive_fixtures"
+required-features = ["test-fixtures"]
+
+[dependencies]
+geo_core = { path = "../geo_core" }
+structural_configurator = { path = "../structural_configurator" }
+structural_core = { path = "../structural_core" }
+foundation_core = { path = "../foundation_core" }
+geotech_report.workspace = true
+geotech_core.workspace = true
+drafting_core.workspace = true
+sha2 = "0.10"
+serde.workspace = true
+serde_ignored = "=0.1.14"
+serde_json = { workspace = true, features = ["float_roundtrip", "raw_value"] }
+uuid = { version = "1", features = ["v4", "serde"] }

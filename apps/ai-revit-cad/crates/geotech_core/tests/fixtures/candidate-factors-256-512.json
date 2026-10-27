@@ -1,0 +1,184 @@
+{
+  "schema": "independent-eight-candidate-factor-reference-256-512-v1",
+  "source": "Frozen independent Gate 7 search reference candidate-enumeration.json; no Rust results used.",
+  "candidate_order": "C00..C07 in frozen lexicographic center_x, center_z, radius order.",
+  "scope": "Independent per-candidate factors at fixed targets only; not a continuous/global minimum claim.",
+  "candidates": [
+    {
+      "candidate_id": "C00",
+      "circle": {
+        "center_x": -0.125,
+        "center_z": 4.875,
+        "radius": 4.875
+      },
+      "resolutions": {
+        "256": {
+          "target_slices": 256,
+          "actual_slices": 260,
+          "fellenius_factor_of_safety": 7.061849176772164,
+          "bishop_factor_of_safety": 7.571136494212544
+        },
+        "512": {
+          "target_slices": 512,
+          "actual_slices": 516,
+          "fellenius_factor_of_safety": 7.061895019857471,
+          "bishop_factor_of_safety": 7.571163252459392
+        }
+      }
+    },
+    {
+      "candidate_id": "C01",
+      "circle": {
+        "center_x": -0.125,
+        "center_z": 4.875,
+        "radius": 5.125
+      },
+      "resolutions": {
+        "256": {
+          "target_slices": 256,
+          "actual_slices": 260,
+          "fellenius_factor_of_safety": 6.982603039148799,
+          "bishop_factor_of_safety": 7.537992870670623
+        },
+        "512": {
+          "target_slices": 512,
+          "actual_slices": 516,
+          "fellenius_factor_of_safety": 6.982651703664746,
+          "bishop_factor_of_safety": 7.5380182557831095
+        }
+      }
+    },
+    {
+      "candidate_id": "C02",
+      "circle": {
+        "center_x": -0.125,
+        "center_z": 5.125,
+        "radius": 4.875
+      },
+      "resolutions": {
+        "256": {
+          "target_slices": 256,
+          "actual_slices": 260,
+          "fellenius_factor_of_safety": 6.854425855187806,
+          "bishop_factor_of_safety": 7.289211440184902
+        },
+        "512": {
+          "target_slices": 512,
+          "actual_slices": 516,
+          "fellenius_factor_of_safety": 6.854460903003482,
+          "bishop_factor_of_safety": 7.2892325441301615
+        }
+      }
+    },
+    {
+      "candidate_id": "C03",
+      "circle": {
+        "center_x": -0.125,
+        "center_z": 5.125,
+        "radius": 5.125
+      },
+      "resolutions": {
+        "256": {
+          "target_slices": 256,
+          "actual_slices": 260,
+          "fellenius_factor_of_safety": 6.9812978330004105,
+          "bishop_factor_of_safety": 7.463778858255711
+        },
+        "512": {
+          "target_slices": 512,
+          "actual_slices": 516,
+          "fellenius_factor_of_safety": 6.981339546185788,
+          "bishop_factor_of_safety": 7.463802919682671
+        }
+      }
+    },
+    {
+      "candidate_id": "C04",
+      "circle": {
+        "center_x": 0.125,
+        "center_z": 4.875,
+        "radius": 4.875
+      },
+      "resolutions": {
+        "256": {
+          "target_slices": 256,
+          "actual_slices": 260,
+          "fellenius_factor_of_safety": 7.1756540830195865,
+          "bishop_factor_of_safety": 7.670229021103765
+        },
+        "512": {
+          "target_slices": 512,
+          "actual_slices": 516,
+          "fellenius_factor_of_safety": 7.1756972738807265,
+          "bishop_factor_of_safety": 7.670253746821711
+        }
+      }
+    },
+    {
+      "candidate_id": "C05",
+      "circle": {
+        "center_x": 0.125,
+        "center_z": 4.875,
+        "radius": 5.125
+      },
+      "resolutions": {
+        "256": {
+          "target_slices": 256,
+          "actual_slices": 260,
+          "fellenius_factor_of_safety": 7.074329922930578,
+          "bishop_factor_of_safety": 7.615486081732104
+        },
+        "512": {
+          "target_slices": 512,
+          "actual_slices": 516,
+          "fellenius_factor_of_safety": 7.074380114846487,
+          "bishop_factor_of_safety": 7.615513974102427
+        }
+      }
+    },
+    {
+      "candidate_id": "C06",
+      "circle": {
+        "center_x": 0.125,
+        "center_z": 5.125,
+        "radius": 4.875
+      },
+      "resolutions": {
+        "256": {
+          "target_slices": 256,
+          "actual_slices": 260,
+          "fellenius_factor_of_safety": 6.993263227148232,
+          "bishop_factor_of_safety": 7.414223645803045
+        },
+        "512": {
+          "target_slices": 512,
+          "actual_slices": 516,
+          "fellenius_factor_of_safety": 6.993296820123034,
+          "bishop_factor_of_safety": 7.414243848155246
+        }
+      }
+    },
+    {
+      "candidate_id": "C07",
+      "circle": {
+        "center_x": 0.125,
+        "center_z": 5.125,
+        "radius": 5.125
+      },
+      "resolutions": {
+        "256": {
+          "target_slices": 256,
+          "actual_slices": 260,
+          "fellenius_factor_of_safety": 7.095096537479823,
+          "bishop_factor_of_safety": 7.563930587819701
+        },
+        "512": {
+          "target_slices": 512,
+          "actual_slices": 516,
+          "fellenius_factor_of_safety": 7.095137778830208,
+          "bishop_factor_of_safety": 7.563955147536424
+        }
+      }
+    }
+  ]
+}

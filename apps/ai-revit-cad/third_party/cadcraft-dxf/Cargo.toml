@@ -1,0 +1,19 @@
+[package]
+name = "cadcraft-dxf"
+description = "Standalone DXF tag reader/writer (ASCII and binary), from the published DXF reference"
+version = "0.4.0"
+edition = "2024"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/storytold/cadcraft"
+
+[dependencies]
+thiserror = "2"
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+dbg_macro = "warn"
+todo = "warn"
+too_many_arguments = "allow"
+type_complexity = "allow"

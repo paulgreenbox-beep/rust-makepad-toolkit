@@ -1,0 +1,12 @@
+[package]
+name = "geotech_report"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Pure bounded circular-geotechnical evidence reports and archives"
+
+[dependencies]
+geotech_core.workspace = true
+serde.workspace = true
+serde_json = { workspace = true, features = ["float_roundtrip"] }
+sha2.workspace = true
