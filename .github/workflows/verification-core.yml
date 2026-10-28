@@ -1,0 +1,30 @@
+name: Verification Core source checks
+
+on:
+  pull_request:
+    paths:
+      - verification-economy/**
+      - .github/workflows/verification-core.yml
+  push:
+    branches: [main]
+    paths:
+      - verification-economy/**
+      - .github/workflows/verification-core.yml
+
+permissions:
+  contents: read
+
+jobs:
+  core-source:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Existing pure Core and capture contracts
+        run: node --test verification-economy/tests/core.test.mjs verification-economy/tests/identity-capture.test.mjs
